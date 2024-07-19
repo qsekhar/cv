@@ -36,6 +36,11 @@ export default function MoveingParticles(){
 
   const options: ISourceOptions = useMemo(
     () => ({
+      detect_on: 'window',
+      fullScreen: {
+        enable: true,
+        zIndex: -1 // or any value is good for you, if you use -1 set `interactivity.detectsOn` to `"window"` if you need mouse interactions
+      },
       background: {
         color: {
           "value": '#faedcd',
@@ -45,10 +50,6 @@ export default function MoveingParticles(){
       fpsLimit: 90,
       interactivity: {
         events: {
-          onClick: {
-            enable: true,
-            mode: "push",
-          },
           onHover: {
             enable: true,
             mode: "repulse",
@@ -59,7 +60,7 @@ export default function MoveingParticles(){
             quantity: 4,
           },
           repulse: {
-            distance: 200,
+            distance: 100,
             duration: 0.4,
           },
         },
