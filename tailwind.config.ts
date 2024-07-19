@@ -18,7 +18,7 @@ const config: Config = {
         secondary: "#CCD5AE",
         softgreen: "#E9EDC9",
         softbrown: "#FAEDCD",
-        background: "#FEFAE0",
+        background: "#FEFAE0"
       }   
     },
   },
