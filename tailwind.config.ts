@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 const config: Config = {
   content: [
@@ -19,7 +20,7 @@ const config: Config = {
         softgreen: "#E9EDC9",
         softbrown: "#FAEDCD",
         background: "#FEFAE0"
-      }   
+      },
     },
   },
   plugins: [],
