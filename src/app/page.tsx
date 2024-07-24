@@ -5,11 +5,13 @@ import { HiOutlinePhone, HiOutlineMail } from "react-icons/hi";
 const MoveingParticles = dynamic(() => import('./components/MoveingParticles'));
 const Container = dynamic(() => import('./components/Container'));
 const TimeLine = dynamic(() => import('./components/TimeLine'));
+const Skills = dynamic(() => import('./components/Skills'));
 
 const stylish = Stylish({
   weight: '400',
   subsets: ['latin'],
 });
+
 
 
 export default function Home() {
@@ -24,7 +26,7 @@ export default function Home() {
                 <h2>Full Stack Developer</h2>
               </div>
               <div className='flex justify-center'>
-                <h3>Since 2012</h3>
+                <h3 className='hidden md:block'>Since 2012</h3>
               </div>
               <div>
                 <ul>
@@ -45,7 +47,7 @@ export default function Home() {
               <div></div>
               <div></div>
               <div className='col-span-2'>
-                <h3 className='my-4'>About Me</h3>
+                <h3 className='my-4'>Summery</h3>
                 <span className='text-lg'>Results-oriented and seasoned Full Stack Developer with over <span className='dottedUnderLine'>12 years</span> of hands-on
                                       experience in <span className='dottedUnderLine'>designing, developing</span>, and implementing innovative <span className='dottedUnderLine'>software solutions.</span> Adept
                                       at collaborating with cross-functional teams to deliver high-quality products that meet and
@@ -55,7 +57,9 @@ export default function Home() {
                                       tackle complex challenges.
                 </span>
               </div>
-              <div></div>
+              <div className='col-span-3'>
+                <Skills />
+              </div>
             </div>
           </div>
         </Container>
