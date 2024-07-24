@@ -6,6 +6,7 @@ const MoveingParticles = dynamic(() => import('./components/MoveingParticles'));
 const Container = dynamic(() => import('./components/Container'));
 const TimeLine = dynamic(() => import('./components/TimeLine'));
 const Skills = dynamic(() => import('./components/Skills'));
+const OtherSkills = dynamic(() => import('./components/OtherSkills'));
 
 const stylish = Stylish({
   weight: '400',
@@ -59,6 +60,9 @@ export default function Home() {
               </div>
               <div className='col-span-2 md:col-span-3'>
                 <Skills />
+              </div>
+              <div>
+                <OtherSkills />
               </div>
             </div>
           </div>
