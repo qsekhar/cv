@@ -26,7 +26,7 @@ export default function Home() {
                 <h2>Full Stack Developer</h2>
               </div>
               <div className='flex justify-center'>
-                <h3 className='hidden md:block'>Since 2012</h3>
+                <h3>Since 2012</h3>
               </div>
               <div>
                 <ul>
@@ -57,7 +57,7 @@ export default function Home() {
                                       tackle complex challenges.
                 </span>
               </div>
-              <div className='col-span-3'>
+              <div className='col-span-2 md:col-span-3'>
                 <Skills />
               </div>
             </div>

@@ -39,7 +39,7 @@ export default function MoveingParticles(){
       detect_on: 'window',
       fullScreen: {
         enable: true,
-        zIndex: -1 // or any value is good for you, if you use -1 set `interactivity.detectsOn` to `"window"` if you need mouse interactions
+        zIndex: -100 // or any value is good for you, if you use -1 set `interactivity.detectsOn` to `"window"` if you need mouse interactions
       },
       background: {
         color: {
