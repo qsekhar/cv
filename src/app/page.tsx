@@ -11,6 +11,9 @@ const Skills = dynamic(() => import('./components/Skills'));
 const Tools = dynamic(() => import('./components/Tools'));
 const OtherSkills = dynamic(() => import('./components/OtherSkills'));
 const Projects = dynamic(() => import('./components/Projects'));
+const Testimonials = dynamic(() => import('./components/Testimonials'));
+const SayHi = dynamic(() => import('./components/SayHi'));
+
 
 const stylish = Stylish({
   weight: '400',
@@ -31,7 +34,7 @@ export default function Home() {
               </div>
               <div className='flex flex-col items-center justify-center'>
                 <h3>Since 2012</h3>
-                <a href="./SubhraSekharMukherjeeResume.pdf" download="SubhraSekharMukherjeeResume.pdf" className='border border-primary border-dashed px-4 py-2 rounded hover:underline'>Download CV</a>
+                <a href="./SubhraSekharMukherjeeResume.pdf" download="SubhraSekharMukherjeeResume.pdf" className='underline decoration-primary decoration-dotted underline-offset-2'>Download CV</a>
               </div>
               <div className='md:flex md:flex-col md:items-end'>
                 <ul>
@@ -69,15 +72,23 @@ export default function Home() {
               <div className='col-span-2 md:col-span-3'>
                 <Skills />
               </div>
-              {/* <div className='col-span-2 md:col-span-3'>
+              <div className='col-span-2 md:col-span-3'>
                 <Tools />
               </div>
               <div className='col-span-2 md:col-span-3'>
                 <OtherSkills />
-              </div> */}
+              </div>
               <div></div>
               <div className='col-span-2'>
                 <TimeLine />
+              </div>
+
+              <div className='col-span-2 md:col-span-3'>
+                <Testimonials />
+              </div>
+
+              <div className='col-span-2 md:col-span-3'>
+                <SayHi />
               </div>
               
             </div>

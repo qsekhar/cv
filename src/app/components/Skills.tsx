@@ -53,7 +53,7 @@ export default function Skills() {
                   <span className='text-lg flex gap-2 my-1 items-center'>
                     <Image className='grayscale hover:filter-none' src={skill.icon} alt={skill.name} width={20} height={20} /> 
                     <span>{skill.name}</span>
-                    <span className='flex opacity-50 items-center'>
+                    <span className='flex opacity-80 text-primary items-center'>
                       {
                         Array.from({ length: skill.rating }).map((_, index) => (
                           <HiOutlineStar key={index} size={10} />
@@ -76,7 +76,7 @@ export default function Skills() {
               frontendSkills.map((skill, index) => (
                 <li key={index}>
                   <span className='text-lg text-right flex justify-end gap-2 my-1 items-center'>
-                    <span className='flex opacity-50'>
+                    <span className='flex opacity-80 text-primary'>
                       {
                         Array.from({ length: skill.rating }).map((_, index) => (
                           <HiOutlineStar key={index} size={10} />
