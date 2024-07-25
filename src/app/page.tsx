@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 import { Stylish } from 'next/font/google'
 import { HiOutlinePhone, HiOutlineMail } from "react-icons/hi";
 import { CiLinkedin } from "react-icons/ci";
-import { FaGithub, FaWhatsapp } from "react-icons/fa6";
+import { FaGithub, FaWhatsapp, FaDiscord } from "react-icons/fa6";
 
 const MoveingParticles = dynamic(() => import('./components/MoveingParticles'));
 const Container = dynamic(() => import('./components/Container'));
@@ -36,9 +36,10 @@ export default function Home() {
                   <li><a href='tel:+91 9674540974' className='flex items-center gap-2'> <HiOutlinePhone size={20}/> +91 9674 540 974</a></li>
                   <li><a href='mailto:subhra.php@gmail.com' className='flex items-center gap-2'> <HiOutlineMail size={20} />subhra.php@gmail.com</a></li>
                   <li className='flex items-center gap-2'>
+                    <a target='_blank' href="https://api.whatsapp.com/send?phone=919674540974"><FaWhatsapp size={20}  /></a>
                     <a target='_blank' href='https://www.linkedin.com/in/subhra-sekhar-mukherjee'><CiLinkedin size={20}/></a>
                     <a target='_blank' href='https://github.com/qsekhar'><FaGithub size={20}/></a>
-                    <a href="https://api.whatsapp.com/send?phone=919674540974"><FaWhatsapp size={20}  /></a>
+                    <a target='_blank' href='https://discordapp.com/users/trozan7550/'><FaDiscord size={20}/></a>
                   </li>
                 </ul>
               </div>
