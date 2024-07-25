@@ -29,7 +29,7 @@ export default function Tools() {
         <div className='flex flex-col items-center w-full'>
             <h3 className='my-4'>I am using everyday</h3>
 
-            <ul className='flex flex-wrap gap-2'>
+            <ul className='flex flex-wrap gap-2 justify-center'>
                 {
                     tools.map((skill, index) => (
                         <li key={index}><span className='text-lg flex gap-2'><Image className='grayscale hover:filter-none' src={skill.icon} alt={skill.name} width={20} height={20} /></span></li>

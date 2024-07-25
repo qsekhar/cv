@@ -46,7 +46,7 @@ export default function OtherSkills() {
         <div className='flex flex-col items-center w-full'>
             <h3 className='my-4'>Other Skills</h3>
 
-            <ul className='flex flex-wrap gap-2'>
+            <ul className='flex flex-wrap gap-2 justify-center'>
                 {
                     tools.map((tool, index) => (
                         <li key={index}>

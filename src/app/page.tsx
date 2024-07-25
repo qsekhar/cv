@@ -72,13 +72,11 @@ export default function Home() {
               <div className='col-span-2 md:col-span-3'>
                 <Skills />
               </div>
-              <div className='col-span-2 md:col-span-3'>
+
+              <div className='col-span-2 md:col-span-1 flex flex-col align-middle items-center justify-around p-4'>
                 <Tools />
-              </div>
-              <div className='col-span-2 md:col-span-3'>
                 <OtherSkills />
               </div>
-              <div></div>
               <div className='col-span-2'>
                 <TimeLine />
               </div>
