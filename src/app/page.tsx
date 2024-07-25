@@ -35,7 +35,7 @@ export default function Home() {
                 <ul>
                   <li><a href='tel:+91 9674540974' className='flex items-center gap-2'> <HiOutlinePhone size={20}/> +91 9674 540 974</a></li>
                   <li><a href='mailto:subhra.php@gmail.com' className='flex items-center gap-2'> <HiOutlineMail size={20} />subhra.php@gmail.com</a></li>
-                  <li className='flex items-center gap-2'>
+                  <li className='flex items-center gap-2 mt-1'>
                     <a target='_blank' href="https://api.whatsapp.com/send?phone=919674540974"><FaWhatsapp size={20}  /></a>
                     <a target='_blank' href='https://www.linkedin.com/in/subhra-sekhar-mukherjee'><CiLinkedin size={20}/></a>
                     <a target='_blank' href='https://github.com/qsekhar'><FaGithub size={20}/></a>
@@ -59,17 +59,21 @@ export default function Home() {
                 <span className='text-lg'>Full Stack Developer with 12+ years in the game, creating and dropping innovative software solutions. I'm all about teaming up with different squads to deliver fire products that blow clients away. I've got mad skills in every part of the software development cycle, from brainstorming and design to testing and launching. I'm solid in both front-end and back-end tech and love using my diverse skills to tackle tough challenges.
                 </span>
               </div>
-              <div className='col-span-2 md:col-span-3'>
+              <div className='col-span-2'>
                 <Skills />
               </div>
 
+              <div></div>
+              <div></div>
+
               <div className='col-span-2'>
-                <OtherSkills />
+                <TimeLine />
               </div>
 
-              <div className='col-span-2 md:col-span-1'>
-                <Tools />
+              <div>
+
               </div>
+              
             </div>
           </div>
         </Container>

@@ -46,17 +46,17 @@ export default function Skills() {
       <div className='flex justify-center relative w-full gap-10'>
         <div className='w-1/2 sm:w-1/3 flex justify-start sm:justify-end z-10'>
           <ul>
-            <span className='text-xl font-bold'>Backend</span>
+            <span className='text-xl'>Backend</span>
             {
               backendSkills.map((skill, index) => (
                 <li key={index}>
                   <span className='text-lg flex gap-2 my-1 items-center'>
-                    <Image className='grayscale hover:filter-none' src={skill.icon} alt={skill.name} width={30} height={30} /> 
-                    {skill.name}
-                    <span className='flex'>
+                    <Image className='grayscale hover:filter-none' src={skill.icon} alt={skill.name} width={20} height={20} /> 
+                    <span>{skill.name}</span>
+                    <span className='flex opacity-50 items-center'>
                       {
                         Array.from({ length: skill.rating }).map((_, index) => (
-                          <HiOutlineStar key={index} />
+                          <HiOutlineStar key={index} size={10} />
                         ))
                       }
                     </span>
@@ -71,20 +71,20 @@ export default function Skills() {
           </div>
         <div className='w-1/2 sm:w-1/3 flex justify-end sm:justify-start z-10'>
           <ul className='text-right'>
-            <span className='text-xl font-bold'>Frontend</span>
+            <span className='text-xl'>Frontend</span>
             {
               frontendSkills.map((skill, index) => (
                 <li key={index}>
                   <span className='text-lg text-right flex justify-end gap-2 my-1 items-center'>
-                    <span className='flex'>
+                    <span className='flex opacity-50'>
                       {
                         Array.from({ length: skill.rating }).map((_, index) => (
-                          <HiOutlineStar key={index} />
+                          <HiOutlineStar key={index} size={10} />
                         ))
                       }
                     </span>
-                    {skill.name} 
-                    <Image className='grayscale hover:filter-none' src={skill.icon} alt={skill.name} width={30} height={30} />
+                    <span>{skill.name}</span>
+                    <Image className='grayscale hover:filter-none' src={skill.icon} alt={skill.name} width={20} height={20} />
                   </span>
                 </li>
               ))

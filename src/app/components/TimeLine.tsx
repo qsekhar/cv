@@ -5,148 +5,129 @@ export default function TimeLine() {
             <div>
                 {/* Heading */}
                 <div className="ps-2 my-2 first:mt-0">
-                    <h3 className="text-xs font-medium uppercase text-gray-500 dark:text-neutral-400">
-                        1 Aug, 2023
+                    <h3 className="text-lg font-medium uppercase">
+                        08/2017 - Present
                     </h3>
                 </div>
                 {/* End Heading */}
                 {/* Item */}
                 <div className="flex gap-x-3">
                     {/* Icon */}
-                    <div className="relative last:after:hidden after:absolute after:top-7 after:bottom-0 after:start-3.5 after:w-px after:-translate-x-[0.5px] after:bg-gray-200 dark:after:bg-neutral-700">
+                    <div className="relative last:after:hidden after:absolute after:-top-1 after:bottom-0 after:start-3.5 after:w-px after:-translate-x-[0.5px] after:bg-primary">
                         <div className="relative z-10 size-7 flex justify-center items-center">
-                            <div className="size-2 rounded-full bg-gray-400 dark:bg-neutral-600" />
+                            <div className="size-4 rounded-full bg-primary mt-2" />
                         </div>
                     </div>
                     {/* End Icon */}
                     {/* Right Content */}
-                    <div className="grow pt-0.5 pb-8">
-                        <h3 className="flex gap-x-1.5 font-semibold text-gray-800 dark:text-white">
-                            <svg
-                                className="flex-shrink-0 size-4 mt-1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                width={24}
-                                height={24}
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth={2}
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            >
-                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
-                                <polyline points="14 2 14 8 20 8" />
-                                <line x1={16} x2={8} y1={13} y2={13} />
-                                <line x1={16} x2={8} y1={17} y2={17} />
-                                <line x1={10} x2={8} y1={9} y2={9} />
-                            </svg>
-                            Created "Preline in React" task
+                    <div className="grow pb-8">
+                        <h3 className="flex gap-x-1.5 font-semibold">
+                            Freelancer
                         </h3>
-                        <p className="mt-1 text-sm text-gray-600 dark:text-neutral-400">
-                            Find more detailed insctructions here.
+                        <p className="mt-1 text-sm">
+                            Self
                         </p>
-                        <button
-                            type="button"
-                            className="mt-1 -ms-1 p-1 inline-flex items-center gap-x-2 text-xs rounded-lg border border-transparent text-gray-500 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:bg-neutral-700"
-                        >
-                            <img
-                                className="flex-shrink-0 size-4 rounded-full"
-                                src="https://images.unsplash.com/photo-1659482633369-9fe69af50bfb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8auto=format&fit=facearea&facepad=3&w=320&h=320&q=80"
-                                alt="Image Description"
-                            />
-                            James Collins
-                        </button>
-                    </div>
-                    {/* End Right Content */}
-                </div>
-                {/* End Item */}
-                {/* Item */}
-                <div className="flex gap-x-3">
-                    {/* Icon */}
-                    <div className="relative last:after:hidden after:absolute after:top-7 after:bottom-0 after:start-3.5 after:w-px after:-translate-x-[0.5px] after:bg-gray-200 dark:after:bg-neutral-700">
-                        <div className="relative z-10 size-7 flex justify-center items-center">
-                            <div className="size-2 rounded-full bg-gray-400 dark:bg-neutral-600" />
-                        </div>
-                    </div>
-                    {/* End Icon */}
-                    {/* Right Content */}
-                    <div className="grow pt-0.5 pb-8">
-                        <h3 className="flex gap-x-1.5 font-semibold text-gray-800 dark:text-white">
-                            Release v5.2.0 quick bug fix 🐞
-                        </h3>
-                        <button
-                            type="button"
-                            className="mt-1 -ms-1 p-1 inline-flex items-center gap-x-2 text-xs rounded-lg border border-transparent text-gray-500 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:bg-neutral-700"
-                        >
-                            <span className="flex flex-shrink-0 justify-center items-center size-4 bg-white border border-gray-200 text-[10px] font-semibold uppercase text-gray-600 rounded-full dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400">
-                                A
-                            </span>
-                            Alex Gregarov
-                        </button>
-                    </div>
-                    {/* End Right Content */}
-                </div>
-                {/* End Item */}
-                {/* Item */}
-                <div className="flex gap-x-3">
-                    {/* Icon */}
-                    <div className="relative last:after:hidden after:absolute after:top-7 after:bottom-0 after:start-3.5 after:w-px after:-translate-x-[0.5px] after:bg-gray-200 dark:after:bg-neutral-700">
-                        <div className="relative z-10 size-7 flex justify-center items-center">
-                            <div className="size-2 rounded-full bg-gray-400 dark:bg-neutral-600" />
-                        </div>
-                    </div>
-                    {/* End Icon */}
-                    {/* Right Content */}
-                    <div className="grow pt-0.5 pb-8">
-                        <h3 className="flex gap-x-1.5 font-semibold text-gray-800 dark:text-white">
-                            Marked "Install Charts" completed
-                        </h3>
-                        <p className="mt-1 text-sm text-gray-600 dark:text-neutral-400">
-                            Finally! You can check it out here.
+                        <p className="mt-1 text-lg">
+                            Key Achievements
+                            • Responsibility to deliver work on time
+                            • Increased client sales by $500k through advanced web application development.
+                            • Improved client system efficiency by 30%, reducing operational costs by $100k annually.
+                            • Achieved 99% client satisfaction rate by enhancing user experience on 20+ web projects.
                         </p>
-                        <button
-                            type="button"
-                            className="mt-1 -ms-1 p-1 inline-flex items-center gap-x-2 text-xs rounded-lg border border-transparent text-gray-500 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:bg-neutral-700"
-                        >
-                            <img
-                                className="flex-shrink-0 size-4 rounded-full"
-                                src="https://images.unsplash.com/photo-1659482633369-9fe69af50bfb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=3&w=320&h=320&q=80"
-                                alt="Image Description"
-                            />
-                            James Collins
-                        </button>
                     </div>
                     {/* End Right Content */}
                 </div>
                 {/* End Item */}
+
+
                 {/* Heading */}
                 <div className="ps-2 my-2 first:mt-0">
-                    <h3 className="text-xs font-medium uppercase text-gray-500 dark:text-neutral-400">
-                        31 Jul, 2023
+                    <h3 className="text-lg font-medium uppercase">
+                        08/2014 - 08/2017
                     </h3>
                 </div>
                 {/* End Heading */}
                 {/* Item */}
                 <div className="flex gap-x-3">
                     {/* Icon */}
-                    <div className="relative last:after:hidden after:absolute after:top-7 after:bottom-0 after:start-3.5 after:w-px after:-translate-x-[0.5px] after:bg-gray-200 dark:after:bg-neutral-700">
+                    <div className="relative last:after:hidden after:absolute after:-top-1 after:bottom-0 after:start-3.5 after:w-px after:-translate-x-[0.5px] after:bg-primary">
                         <div className="relative z-10 size-7 flex justify-center items-center">
-                            <div className="size-2 rounded-full bg-gray-400 dark:bg-neutral-600" />
+                            <div className="size-4 rounded-full bg-primary mt-2" />
                         </div>
                     </div>
                     {/* End Icon */}
                     {/* Right Content */}
-                    <div className="grow pt-0.5 pb-8">
-                        <h3 className="flex gap-x-1.5 font-semibold text-gray-800 dark:text-white">
-                            Take a break ⛳️
+                    <div className="grow pb-8">
+                        <h3 className="flex gap-x-1.5 font-semibold">
+                            Team Leader
                         </h3>
-                        <p className="mt-1 text-sm text-gray-600 dark:text-neutral-400">
-                            Just chill for now... 😉
+                        <p className="mt-1 text-sm">
+                            Liz Infotech Pvt. Ltd.
+                        </p>
+                        <p className="mt-1 text-lg">
+                        Grow as a Fullstack development
+                        • Full Stack Development: Extensive experience in building end-to-end applications,
+                        proficient in both front-end (HTML, CSS, JavaScript, React, Angular) and back-end
+                        (Node.js, Python, Ruby on Rails) technologies.
+                        • Database Management: Expertise in designing and optimizing databases, with
+                        proficiency in SQL and NoSQL databases (MySQL, MongoDB, PostgreSQL).
+                        • Server-side Development: Proven ability to develop scalable and efficient server-side
+                        logic, utilizing frameworks such as Express.js and Django.
+                        • API Integration: Skilled in integrating third-party APIs and creating robust RESTful APIs for
+                        seamless communication between different components of a system.
+                        • DevOps and Deployment: Proficient in deploying applications using containerization
+                        (Docker) and orchestration tools (Kubernetes). Experience with continuous integration
+                        and deployment (CI/CD) pipelines.
+                        • Version Control: Strong proficiency in using Git for version control, ensuring collaborative
+                        and organized development workflows.
+                        • Agile Methodologies: In-depth understanding and application of Agile and Scrum
+                        methodologies to drive efficient and iterative development processes.
+                        • Troubleshooting and Debugging: Exceptional problem-solving skills, with a track record of
+                        identifying and resolving complex technical issues efficiently.
+                        • UI/UX Design: Well-versed in creating intuitive and visually appealing user interfaces, with
+                        a focus on enhancing user experience.
                         </p>
                     </div>
                     {/* End Right Content */}
                 </div>
                 {/* End Item */}
+
+
+                {/* Heading */}
+                <div className="ps-2 my-2 first:mt-0">
+                    <h3 className="text-lg font-medium uppercase">
+                        08/2012 - 08/2014
+                    </h3>
+                </div>
+                {/* End Heading */}
+                {/* Item */}
+                <div className="flex gap-x-3">
+                    {/* Icon */}
+                    <div className="relative last:after:hidden after:absolute after:-top-1 after:bottom-0 after:start-3.5 after:w-px after:-translate-x-[0.5px] after:bg-primary">
+                        <div className="relative z-10 size-7 flex justify-center items-center">
+                            <div className="size-4 rounded-full bg-primary mt-2" />
+                        </div>
+                    </div>
+                    {/* End Icon */}
+                    {/* Right Content */}
+                    <div className="grow pb-8">
+                        <h3 className="flex gap-x-1.5 font-semibold">
+                            Web Developer 
+                        </h3>
+                        <p className="mt-1 text-sm">
+                            Matainja Technologies
+                        </p>
+
+                        <p className="mt-1 text-lg">
+                            Learning Phase
+                            • Core PHP, Vanila Js, JQuery etc. With small Wordpress projects
+                            • Involved in 4 large-scale projects, working with teams of up to 10 developers.
+                        </p>
+                        </div>
+                    {/* End Right Content */}
+                </div>
+                {/* End Item */}
+                
             </div>
             {/* End Timeline */}
         </>
