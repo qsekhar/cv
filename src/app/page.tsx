@@ -29,8 +29,9 @@ export default function Home() {
               <div>
                 <h2>Full Stack Developer</h2>
               </div>
-              <div className='flex justify-center'>
+              <div className='flex flex-col items-center justify-center'>
                 <h3>Since 2012</h3>
+                <a href="./SubhraSekharMukherjeeResume.pdf" download="SubhraSekharMukherjeeResume.pdf" className='border border-primary border-dashed px-4 py-2 rounded hover:underline'>Download CV</a>
               </div>
               <div className='md:flex md:flex-col md:items-end'>
                 <ul>
