@@ -50,7 +50,11 @@ export default function OtherSkills() {
             <ul className='flex flex-wrap gap-2'>
                 {
                     tools.map((tool, index) => (
-                        <li key={index}><span className='text-lg flex gap-2'><Image className='grayscale hover:filter-none' src={tool.icon} alt={tool.name} width={30} height={30} /> {tool.name}</span></li>
+                        <li key={index}>
+                            <span className='text-lg flex gap-2'>
+                                <Image className='grayscale hover:filter-none' src={tool.icon} alt={tool.name} width={20} height={20} />
+                            </span>
+                        </li>
                     ))
                 }
             </ul>

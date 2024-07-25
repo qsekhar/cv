@@ -33,7 +33,7 @@ export default function Tools() {
             <ul className='flex flex-wrap gap-2'>
                 {
                     tools.map((skill, index) => (
-                        <li key={index}><span className='text-lg flex gap-2'><Image className='grayscale hover:filter-none' src={skill.icon} alt={skill.name} width={30} height={30} /> {skill.name}</span></li>
+                        <li key={index}><span className='text-lg flex gap-2'><Image className='grayscale hover:filter-none' src={skill.icon} alt={skill.name} width={20} height={20} /></span></li>
                     ))
                 }
             </ul>

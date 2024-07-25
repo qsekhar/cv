@@ -20,7 +20,6 @@ export default function Home() {
   return (
     <main className="flex min-h-screen">
       <MoveingParticles  />
-
         <Container>
           <div className={stylish.className}>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
