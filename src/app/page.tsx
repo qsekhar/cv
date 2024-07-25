@@ -10,6 +10,7 @@ const TimeLine = dynamic(() => import('./components/TimeLine'));
 const Skills = dynamic(() => import('./components/Skills'));
 const Tools = dynamic(() => import('./components/Tools'));
 const OtherSkills = dynamic(() => import('./components/OtherSkills'));
+const Projects = dynamic(() => import('./components/Projects'));
 
 const stylish = Stylish({
   weight: '400',
@@ -55,23 +56,27 @@ export default function Home() {
               <div></div>
               <div></div>
               <div className='col-span-2'>
-                <h3 className='my-4'>Summery</h3>
+                <h3 className='my-4'>Summary</h3>
                 <span className='text-lg'>Full Stack Developer with 12+ years in the game, creating and dropping innovative software solutions. I'm all about teaming up with different squads to deliver fire products that blow clients away. I've got mad skills in every part of the software development cycle, from brainstorming and design to testing and launching. I'm solid in both front-end and back-end tech and love using my diverse skills to tackle tough challenges.
                 </span>
               </div>
+              <div></div>
               <div className='col-span-2'>
+                <h3 className='my-4'>A small selection of my work, enjoy!</h3>
+                <Projects />
+              </div>
+              <div className='col-span-2 md:col-span-3'>
                 <Skills />
               </div>
-
+              {/* <div className='col-span-2 md:col-span-3'>
+                <Tools />
+              </div>
+              <div className='col-span-2 md:col-span-3'>
+                <OtherSkills />
+              </div> */}
               <div></div>
-              <div></div>
-
               <div className='col-span-2'>
                 <TimeLine />
-              </div>
-
-              <div>
-
               </div>
               
             </div>
