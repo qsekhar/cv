@@ -30,7 +30,7 @@ export default function Home() {
           <div className={stylish.className}>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
-                <h2>Full Stack Developer</h2>
+                <h1>Full Stack Developer</h1>
               </div>
               <div className='flex flex-col items-center justify-center'>
                 <h3>Since 2012</h3>
@@ -50,10 +50,10 @@ export default function Home() {
               </div>
               <div></div>
               <div className='col-span-2'>
-                <h1>Subhra Sekhar</h1>
+                <span className='h1'>Subhra Sekhar</span>
               </div>
               <div>
-                <h1>Mukherjee</h1>
+                <span className='h1'>Mukherjee</span>
               </div>
 
               <div></div>
@@ -91,7 +91,7 @@ export default function Home() {
               </div>
               
               <div></div>
-              
+
             </div>
           </div>
         </Container>
