@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 
-export async function POST(request) {
+export async function POST(request: Request) {
   const { name, email, message } = await request.json(); 
 
   const transporter = nodemailer.createTransport({
@@ -16,7 +16,7 @@ export async function POST(request) {
   const mailOptions = {
     from: email,
     to: process.env.TO_USER,
-    subject: `Message from ${name}`,
+    subject: `Portfollio subhrasekhar.in | Message from ${name}`,
     text: message,
   };
 

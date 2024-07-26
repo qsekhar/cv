@@ -86,10 +86,11 @@ export default function Home() {
                 <Testimonials />
               </div> */}
 
-              <div></div>
               <div className='col-span-2'>
                 <SayHi />
               </div>
+              
+              <div></div>
               
             </div>
           </div>
