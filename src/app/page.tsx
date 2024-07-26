@@ -82,9 +82,9 @@ export default function Home() {
                 <TimeLine />
               </div>
 
-              <div className='col-span-2 md:col-span-3'>
+              {/* <div className='col-span-2 md:col-span-3'>
                 <Testimonials />
-              </div>
+              </div> */}
 
               <div className='col-span-2 md:col-span-3'>
                 <SayHi />
