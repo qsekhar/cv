@@ -88,7 +88,7 @@ export default function OtherSkills() {
                 <AccordionItem key="1" aria-label="Other Skills" title="I have other skills too!">
                     <ul className='flex flex-wrap gap-1 justify-between'>
                     {
-                        otherSkills.map((tool, index) => (
+                        otherSkills.map((tool = {icon: "", name: ""}, index) => (
                             <li key={index}>
                                 <span className='text-lg flex gap-2'>
                                     <Image className='grayscale hover:filter-none' src={tool.icon} alt={tool.name} width={20} height={20} />
@@ -103,7 +103,7 @@ export default function OtherSkills() {
                 <AccordionItem key="2" aria-label="I am using everyday" title="what I am using everyday">
                     <ul className='flex flex-wrap gap-1 justify-between'>
                     {
-                        tools.map((skill, index) => (
+                        tools.map((skill = {icon: "", name: ""}, index) => (
                             <li key={index}><span className='text-lg flex gap-2'><Image className='grayscale hover:filter-none' src={skill.icon} alt={skill.name} width={20} height={20} /><span>{skill.name}</span></span></li>
                             
                         ))

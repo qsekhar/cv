@@ -61,7 +61,7 @@ export default function Home() {
               <div></div>
               <div className='col-span-2'>
                 <h3 className='my-4'>Summary</h3>
-                <span className='text-lg'>Full Stack Developer with 12+ years in the game, creating and dropping innovative software solutions. I'm all about teaming up with different squads to deliver fire products that blow clients away. I've got mad skills in every part of the software development cycle, from brainstorming and design to testing and launching. I'm solid in both front-end and back-end tech and love using my diverse skills to tackle tough challenges.
+                <span className='text-lg'>Full Stack Developer with 12+ years in the game, creating and dropping innovative software solutions. I&lsquo;m all about teaming up with different squads to deliver fire products that blow clients away. I&lsquo;ve got mad skills in every part of the software development cycle, from brainstorming and design to testing and launching. I&lsquo;m solid in both front-end and back-end tech and love using my diverse skills to tackle tough challenges.
                 </span>
               </div>
               <div></div>
@@ -86,7 +86,8 @@ export default function Home() {
                 <Testimonials />
               </div> */}
 
-              <div className='col-span-2 md:col-span-3'>
+              <div></div>
+              <div className='col-span-2'>
                 <SayHi />
               </div>
               
