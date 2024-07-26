@@ -69,14 +69,15 @@ export default function Home() {
                 <h3 className='my-4'>A small selection of my work, enjoy!</h3>
                 <Projects />
               </div>
-              <div className='col-span-2 md:col-span-3'>
+              <div className='col-span-2'>
                 <Skills />
               </div>
 
-              <div className='col-span-2 md:col-span-1 flex flex-col align-middle items-center justify-around p-4'>
-                <Tools />
+              <div className='col-span-2 md:col-span-1 flex flex-col items-center align-middle justify-center'>
                 <OtherSkills />
               </div>
+
+              <div></div>
               <div className='col-span-2'>
                 <TimeLine />
               </div>

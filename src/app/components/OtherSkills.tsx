@@ -1,6 +1,9 @@
+"use client"
+import React from "react";
+import {Accordion, AccordionItem} from "@nextui-org/accordion";
 import Image from 'next/image';
 
-const tools = [
+const otherSkills = [
     { name: "MySql", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
     { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
     { name: "Redis", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" },
@@ -41,22 +44,74 @@ const tools = [
     { name: "woocommerce", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/woocommerce/woocommerce-original.svg"},
 ]
 
+const tools = [
+    { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+    { name: "Github", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+    { name: "Gitlab", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" },
+    { name: "Jira", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" },
+    { name: "Trello", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-original.svg" },
+    { name: "Photoshop", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-original.svg" },
+    { name: "Sketch", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sketch/sketch-original.svg" },
+    { name: "Notion", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/notion/notion-original.svg" },
+    { name: "Slack", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" },
+    { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+    { name: "Debian", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/debian/debian-original.svg" },
+    { name: "Ubuntu", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-original.svg" },
+    { name: "Bash", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" },
+    { name: "PowerShell", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/powershell/powershell-original.svg" },
+    { name: "Postman", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" },
+    { name: "Putty", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/putty/putty-original.svg" },
+    { name: "vim", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vim/vim-original.svg" },
+    { name: "Anaconda", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/anaconda/anaconda-original.svg" },
+    { name: "Android Studio", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" },
+    { name: "Dbeaver", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dbeaver/dbeaver-original.svg" },
+    { name: "Markdown", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/markdown/markdown-original.svg" },
+]
+
+
+const itemClasses = {
+    base: "px-0 w-full",
+    title: "font-normal text-primary text-2xl",
+    indicator: "text-lg text-secondary",
+    content: "text-small",
+};
+
 export default function OtherSkills() {
     return (
-        <div className='flex flex-col items-center w-full'>
-            <h3 className='my-4'>Other Skills</h3>
+        <div className='flex flex-col items-center w-full sm:w-3/4'>
+            <Accordion 
+                isCompact
+                showDivider={false}
+                itemClasses={itemClasses}
+                className="px-0"
+            >
+                <AccordionItem key="1" aria-label="Other Skills" title="I have other skills too!">
+                    <ul className='flex flex-wrap gap-1 justify-between'>
+                    {
+                        otherSkills.map((tool, index) => (
+                            <li key={index}>
+                                <span className='text-lg flex gap-2'>
+                                    <Image className='grayscale hover:filter-none' src={tool.icon} alt={tool.name} width={20} height={20} />
+                                    <span>{tool.name}</span>
+                                </span>
+                            </li>
+                        ))
+                    }
+                    </ul>
+                </AccordionItem>
 
-            <ul className='flex flex-wrap gap-2 justify-center'>
-                {
-                    tools.map((tool, index) => (
-                        <li key={index}>
-                            <span className='text-lg flex gap-2'>
-                                <Image className='grayscale hover:filter-none' src={tool.icon} alt={tool.name} width={20} height={20} />
-                            </span>
-                        </li>
-                    ))
-                }
-            </ul>
+                <AccordionItem key="2" aria-label="I am using everyday" title="what I am using everyday">
+                    <ul className='flex flex-wrap gap-1 justify-between'>
+                    {
+                        tools.map((skill, index) => (
+                            <li key={index}><span className='text-lg flex gap-2'><Image className='grayscale hover:filter-none' src={skill.icon} alt={skill.name} width={20} height={20} /><span>{skill.name}</span></span></li>
+                            
+                        ))
+                    }
+                    </ul>
+                </AccordionItem>
+                
+            </Accordion>
         </div>
     )
 }

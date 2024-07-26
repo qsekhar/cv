@@ -9,10 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/font": "^14.2.5",
+    "@nextui-org/accordion": "^2.0.38",
     "@tsparticles/engine": "^3.5.0",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.5.0",
+    "framer-motion": "^11.3.17",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
