@@ -14,9 +14,9 @@ export async function POST(request: Request) {
   });
 
   const mailOptions = {
-    from: email,
+    from: process.env.GMAIL_USER,
     to: process.env.TO_USER,
-    subject: `Portfollio subhrasekhar.in | Message from ${name}`,
+    subject: `Portfollio subhrasekhar.in | Message from ${name}, ${email}`,
     text: message,
   };
 

@@ -73,7 +73,7 @@ export default function SayHi() {
                       id="name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="mt-1 p-2 w-full border-2 border-dashed border-primary rounded-md bg-softgreen"
+                      className="mt-1 p-2 w-full border-2 border-dashed border-primary rounded-md bg-softgreen dark:text-primary"
                   />
                   {errors.name && (
                       <p className="text-red-500 text-sm">{errors.name}</p>
@@ -91,7 +91,7 @@ export default function SayHi() {
                       id="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="mt-1 p-2 w-full border-2 border-dashed border-primary rounded-md bg-softgreen"
+                      className="mt-1 p-2 w-full border-2 border-dashed border-primary rounded-md bg-softgreen dark:text-primary"
                   />
                   {errors.email && (
                       <p className="text-red-500 text-sm">{errors.email}</p>
@@ -108,7 +108,7 @@ export default function SayHi() {
                       id="message"
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
-                      className="mt-1 p-2 w-full border-2 border-dashed border-primary rounded-md bg-softgreen"
+                      className="mt-1 p-2 w-full border-2 border-dashed border-primary rounded-md bg-softgreen dark:text-primary"
                   ></textarea>
                   {errors.message && (
                       <p className="text-red-500 text-sm">{errors.message}</p>
