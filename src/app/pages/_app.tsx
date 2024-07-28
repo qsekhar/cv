@@ -1,10 +1,10 @@
 import { GoogleAnalytics } from "nextjs-google-analytics";
 
-const App = ({ Component, pageProps }) => {
+function App({ children }: { children: React.ReactNode }) {
   return (
     <>
       <GoogleAnalytics />
-      <Component {...pageProps} />
+      {children}
     </>
   );
 };
