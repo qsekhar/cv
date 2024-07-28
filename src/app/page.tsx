@@ -3,6 +3,7 @@ import { Stylish } from 'next/font/google'
 import { HiOutlinePhone, HiOutlineMail } from "react-icons/hi";
 import { CiLinkedin } from "react-icons/ci";
 import { FaGithub, FaWhatsapp, FaDiscord } from "react-icons/fa6";
+import { GiClick } from "react-icons/gi";
 
 const MoveingParticles = dynamic(() => import('./components/MoveingParticles'));
 const Container = dynamic(() => import('./components/Container'));
@@ -73,7 +74,8 @@ export default function Home() {
                 <Skills />
               </div>
 
-              <div className='col-span-2 md:col-span-1 flex flex-col items-center align-middle justify-center'>
+              <div className='col-span-2 md:col-span-1 flex flex-col items-start align-middle justify-center'>
+                <h3 className='flex items-center'>In case you tap below <GiClick /></h3>
                 <OtherSkills />
               </div>
 
