@@ -16,6 +16,7 @@
     "@tsparticles/slim": "^3.5.0",
     "framer-motion": "^11.3.17",
     "next": "14.2.5",
+    "next-recaptcha-v3": "^1.4.1",
     "next-sitemap": "^4.2.3",
     "nodemailer": "^6.9.14",
     "react": "^18",

@@ -1,11 +1,14 @@
 'use client';
 import { useState } from 'react';
+import { ReCaptchaProvider } from "next-recaptcha-v3";
 
 interface newErrorType {
   name?: string;
   email?: string;
   message?: string;
 };
+
+const capchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY
 
 export default function SayHi() {
   const [name, setName] = useState("");
@@ -50,77 +53,79 @@ export default function SayHi() {
   };
 
   return (
-      <div className="flex flex-col items-center">
-          <h3 className="my-4">Say hi!</h3>
-          <p className="text-lg">
-              I am always open to new opportunities. Feel free to contact me.
-          </p>
+      <ReCaptchaProvider reCaptchaKey={capchaKey}>
+        <div className="flex flex-col items-center">
+            <h3 className="my-4">Say hi!</h3>
+            <p className="text-lg">
+                I am always open to new opportunities. Feel free to contact me.
+            </p>
 
-          <form
-              onSubmit={handleSubmit}
-              className="w-full p-4 border-2 border-dashed border-primary rounded"
-          >
-              <h2 className="text-2xl font-bold mb-4">Say Hi</h2>
-              <div className="mb-4">
-                  <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-gray-700"
-                  >
-                      Name
-                  </label>
-                  <input
-                      type="text"
-                      id="name"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      className="mt-1 p-2 w-full border-2 border-dashed border-primary rounded-md bg-softgreen dark:text-primary"
-                  />
-                  {errors.name && (
-                      <p className="text-red-500 text-sm">{errors.name}</p>
-                  )}
-              </div>
-              <div className="mb-4">
-                  <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-700"
-                  >
-                      Email
-                  </label>
-                  <input
-                      type="email"
-                      id="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="mt-1 p-2 w-full border-2 border-dashed border-primary rounded-md bg-softgreen dark:text-primary"
-                  />
-                  {errors.email && (
-                      <p className="text-red-500 text-sm">{errors.email}</p>
-                  )}
-              </div>
-              <div className="mb-4">
-                  <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-gray-700"
-                  >
-                      Message
-                  </label>
-                  <textarea
-                      id="message"
-                      value={message}
-                      onChange={(e) => setMessage(e.target.value)}
-                      className="mt-1 p-2 w-full border-2 border-dashed border-primary rounded-md bg-softgreen dark:text-primary"
-                  ></textarea>
-                  {errors.message && (
-                      <p className="text-red-500 text-sm">{errors.message}</p>
-                  )}
-              </div>
-              <button
-                  type="submit"
-                  className="w-full py-2 px-4 bg-primary text-white font-semibold rounded-md shadow hover:bg-primary-dark"
-              >
-                  Say Hi
-              </button>
-          </form>
-      </div>
+            <form
+                onSubmit={handleSubmit}
+                className="w-full p-4 border-2 border-dashed border-primary rounded"
+            >
+                <h2 className="text-2xl font-bold mb-4">Say Hi</h2>
+                <div className="mb-4">
+                    <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-gray-700"
+                    >
+                        Name
+                    </label>
+                    <input
+                        type="text"
+                        id="name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        className="mt-1 p-2 w-full border-2 border-dashed border-primary rounded-md bg-softgreen dark:text-primary"
+                    />
+                    {errors.name && (
+                        <p className="text-red-500 text-sm">{errors.name}</p>
+                    )}
+                </div>
+                <div className="mb-4">
+                    <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-gray-700"
+                    >
+                        Email
+                    </label>
+                    <input
+                        type="email"
+                        id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="mt-1 p-2 w-full border-2 border-dashed border-primary rounded-md bg-softgreen dark:text-primary"
+                    />
+                    {errors.email && (
+                        <p className="text-red-500 text-sm">{errors.email}</p>
+                    )}
+                </div>
+                <div className="mb-4">
+                    <label
+                        htmlFor="message"
+                        className="block text-sm font-medium text-gray-700"
+                    >
+                        Message
+                    </label>
+                    <textarea
+                        id="message"
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        className="mt-1 p-2 w-full border-2 border-dashed border-primary rounded-md bg-softgreen dark:text-primary"
+                    ></textarea>
+                    {errors.message && (
+                        <p className="text-red-500 text-sm">{errors.message}</p>
+                    )}
+                </div>
+                <button
+                    type="submit"
+                    className="w-full py-2 px-4 bg-primary text-white font-semibold rounded-md shadow hover:bg-primary-dark"
+                >
+                    Say Hi
+                </button>
+            </form>
+        </div>
+      </ReCaptchaProvider>
     );
 }
