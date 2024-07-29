@@ -34,7 +34,7 @@ body {
 
 @layer components {
   .h1 {
-    @apply text-6xl md:text-7xl xl:text-9xl;
+    @apply text-6xl md:text-7xl xl:text-9xl inline-flex;
   }
 
   h1 {

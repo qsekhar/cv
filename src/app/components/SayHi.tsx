@@ -54,7 +54,7 @@ export default function SayHi() {
 
   return (
       <ReCaptchaProvider reCaptchaKey={capchaKey}>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center" id="sayhi">
             <h3 className="my-4">Say hi!</h3>
             <p className="text-lg">
                 I am always open to new opportunities. Feel free to contact me.

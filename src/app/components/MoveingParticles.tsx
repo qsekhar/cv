@@ -31,7 +31,7 @@ export default function MoveingParticles(){
   }, []);
 
   const particlesLoaded = async (container?: Container): Promise<void> => {
-    await console.log("Particles loaded", container);
+    //await console.log("Particles loaded", container);
   };
 
   const options: ISourceOptions = useMemo(

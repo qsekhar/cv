@@ -1,10 +1,10 @@
 import dynamic from "next/dynamic";
-import { Stylish } from "next/font/google";
-import { HiOutlinePhone, HiOutlineMail } from "react-icons/hi";
+import { Mulish } from "next/font/google";
 import { CiLinkedin } from "react-icons/ci";
 import { FaGithub, FaWhatsapp, FaDiscord } from "react-icons/fa6";
 import { GiClick } from "react-icons/gi";
 import FadeInWhenVisible from "./components/animations/FadeInWhenVisible";
+import TextAnimationToEntry from "./components/animations/TextAnimationToEntry";
 
 const MoveingParticles = dynamic(() => import("./components/MoveingParticles"));
 const Container = dynamic(() => import("./components/Container"));
@@ -15,8 +15,9 @@ const OtherSkills = dynamic(() => import("./components/OtherSkills"));
 const Projects = dynamic(() => import("./components/Projects"));
 const Testimonials = dynamic(() => import("./components/Testimonials"));
 const SayHi = dynamic(() => import("./components/SayHi"));
+const SayHiLink = dynamic(() => import("./components/SayHiLink"));
 
-const stylish = Stylish({
+const stylish = Mulish({
     weight: "400",
     subsets: ["latin"],
 });
@@ -27,16 +28,16 @@ export default function Home() {
             <MoveingParticles />
             <Container>
                 <div className={stylish.className}>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 gap-y-10">
                         <div>
                             <FadeInWhenVisible
-                                delay={1}
+                                delay={1.8}
                             >
                                 <h1>Full Stack Developer</h1>
                             </FadeInWhenVisible>
                         </div>
                         <div className="flex flex-col items-center justify-center">
-                            <FadeInWhenVisible delay={1} >
+                            <FadeInWhenVisible delay={1.8} >
                                 <h3>Since 2012</h3>
                                 <a
                                     href="./SubhraSekharMukherjeeResume.pdf"
@@ -48,9 +49,9 @@ export default function Home() {
                             </FadeInWhenVisible>
                         </div>
                         <div className="md:flex md:flex-col md:items-end">
-                            <FadeInWhenVisible delay={1.2}>
+                            <FadeInWhenVisible delay={2.5}>
                                 <ul>
-                                    <li>
+                                    {/* <li>
                                         <a
                                             href="tel:+91 9674540974"
                                             className="flex items-center gap-2"
@@ -59,17 +60,10 @@ export default function Home() {
                                             <HiOutlinePhone size={20} /> +91
                                             9674 540 974
                                         </a>
-                                    </li>
+                                    </li>*/}
                                     <li>
-                                        <a
-                                            href="mailto:subhra.php@gmail.com"
-                                            className="flex items-center gap-2"
-                                        >
-                                            {" "}
-                                            <HiOutlineMail size={20} />
-                                            subhra.php@gmail.com
-                                        </a>
-                                    </li>
+                                        <SayHiLink />
+                                    </li> 
                                     <li className="flex items-center gap-2 mt-1">
                                         <a
                                             target="_blank"
@@ -101,39 +95,17 @@ export default function Home() {
                         </div>
                         <div></div>
                         <div className="col-span-2">
-                            <FadeInWhenVisible delay={0} varients={
-                                    {
-                                        visible: { opacity: 1, scale: 1, x: 0 },
-                                        hidden: {
-                                            opacity: 0,
-                                            scale: 1,
-                                            x: "-100%",
-                                        },
-                                    }
-                                }>
-                                <span className="h1">Subhra Sekhar</span>
-                            </FadeInWhenVisible>
+                          <span className="h1"><TextAnimationToEntry delayOffset={0}>Subhra Sekhar</TextAnimationToEntry></span>
                         </div>
                         <div>
-                            <FadeInWhenVisible delay={0.5} varients={
-                                    {
-                                        visible: { opacity: 1, scale: 1, x: 0 },
-                                        hidden: {
-                                            opacity: 0,
-                                            scale: 1,
-                                            x: "100%",
-                                        },
-                                    }
-                                }>
-                                <span className="h1">Mukherjee</span>
-                            </FadeInWhenVisible>
+                          <span className="h1"><TextAnimationToEntry delayOffset={1.2}>Mukherjee</TextAnimationToEntry></span>
                         </div>
 
                         <div></div>
                         <div></div>
                         <div></div>
                         <div className="col-span-2">
-                            <FadeInWhenVisible delay={1.5}>
+                            <FadeInWhenVisible delay={2}>
                                 <h3 className="my-4">Summary</h3>
                                 <span className="text-lg">
                                     Full Stack Developer with 12+ years in the
@@ -152,6 +124,7 @@ export default function Home() {
                         </div>
                         <div></div>
                         <div className="col-span-2">
+                                      
                             <h3 className="my-4">
                                 A small selection of my work, enjoy!
                             </h3>
