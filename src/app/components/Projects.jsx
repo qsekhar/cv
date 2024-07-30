@@ -94,7 +94,7 @@ export default function Projects() {
                                         ))
                                       }
                                   </ul>
-                                  <p>{project.description}</p>
+                                  <p className="pb-2">{project.description}</p>
                                 </div>
                               </div>
 
