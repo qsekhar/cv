@@ -69,15 +69,15 @@ export default function Projects() {
                 <div className="w-full md:w-1/4 dottedBorder">
                     {
                         projects.map((project, index) => (
-                            <>
-                              <div key={project.name} className={ [ 'projectTab', 'my-2','cursor-pointer', activeTab === index ? 'active' : ''].join(' ')  } onClick={() => handleTabChange(index)}>
+                            <div key={index} className="border-primary border-b border-spacing-0 border-dashed last:border-none">
+                              <div className={ [ 'projectTab', 'my-2','cursor-pointer', activeTab === index ? 'active' : ''].join(' ')  } onClick={() => handleTabChange(index)}>
                                 <h4>{project.name}</h4>
                                 <p className="text-sm opacity-90">{project.year} | {project.location}</p>
                               </div>
 
 
                               <div className="block md:hidden">
-                                <div key={project.name} className={activeTab === index ? "block" : "hidden"}>
+                                <div className={activeTab === index ? "block" : "hidden"}>
                                   <ul className="">
                                       { 
                                         project.urls.map(url => (
@@ -97,10 +97,7 @@ export default function Projects() {
                                   <p className="pb-2">{project.description}</p>
                                 </div>
                               </div>
-
-                              <Divider orientation="horizontal" className="bg-primary opacity-50 h-[2px] last:hidden"/>
-                            </>
-                            
+                            </div>
                         ))
                     }
                 </div>
@@ -113,7 +110,7 @@ export default function Projects() {
                             <motion.div 
                               animate={ activeTab === index ? { opacity: 1, height: "auto" } : { opacity: 0, height: 0} }                           
                               transition={{ duration: 0.3 }}
-                              key={project.name} 
+                              key={index} 
                             >
                                 <ul className="">
                                     { 
