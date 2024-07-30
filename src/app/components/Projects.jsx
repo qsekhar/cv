@@ -1,5 +1,4 @@
 "use client"
-import {Divider} from "@nextui-org/divider";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
@@ -94,7 +93,7 @@ export default function Projects() {
                                         ))
                                       }
                                   </ul>
-                                  <p className="pb-2">{project.description}</p>
+                                  <p className="pb-2 indent-2 text-justify">{project.description}</p>
                                 </div>
                               </div>
                             </div>
@@ -128,7 +127,7 @@ export default function Projects() {
                                       ))
                                     }
                                 </ul>
-                                <p>{project.description}</p>
+                                <p className="indent-8 text-justify">{project.description}</p>
                             </motion.div>
                         ))
                     }

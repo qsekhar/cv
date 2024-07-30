@@ -105,9 +105,9 @@ export default function Home() {
                         <div></div>
                         <div></div>
                         <div className="col-span-2">
-                            <FadeInWhenVisible delay={2}>
+                            <FadeInWhenVisible delay={2} >
                                 <h3 className="my-4">Summary</h3>
-                                <span className="text-lg">
+                                <span className="text-lg text-justify indent-8">
                                     Full Stack Developer with 12+ years in the
                                     game, creating and dropping innovative
                                     software solutions. I&lsquo;m all about
@@ -135,9 +135,6 @@ export default function Home() {
                         </div>
 
                         <div className="col-span-2 md:col-span-1 flex flex-col items-start align-middle justify-center">
-                            <h3 className="flex items-center">
-                                In case you tap below <GiClick />
-                            </h3>
                             <OtherSkills />
                         </div>
 
