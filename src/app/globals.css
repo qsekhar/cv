@@ -35,4 +35,20 @@
   .dottedUnderLine {
     @apply text-xl border-b-2 border-primary border-dashed;
   }
+
+  .dottedBorder{
+    @apply border border-solid border-primary border-2 border-dashed rounded-xl p-4
+  }
+
+  .projectTab{
+    @apply opacity-80 hover:opacity-100
+  }
+
+  .projectTab.active{
+    @apply opacity-100
+  }
+
+  .projectTab.active h4{
+    @apply font-bold
+  }
 }

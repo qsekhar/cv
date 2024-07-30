@@ -123,7 +123,7 @@ export default function Home() {
                             </FadeInWhenVisible>
                         </div>
                         <div></div>
-                        <div className="col-span-2">
+                        <div className="col-span-2 md:col-span-3">
                                       
                             <h3 className="my-4">
                                 A small selection of my work, enjoy!

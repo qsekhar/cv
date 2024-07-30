@@ -91,7 +91,7 @@ export default function OtherSkills() {
                         otherSkills.map((tool = {icon: "", name: ""}, index) => (
                             <li key={index}>
                                 <span className='text-lg flex gap-2'>
-                                    <Image className='grayscale hover:filter-none' src={tool.icon} alt={tool.name} width={20} height={20} />
+                                    <Image className='grayscale hover:filter-none' src={tool.icon} alt={tool.name} width={20} height={20} rel="nofollow"/>
                                     <span>{tool.name}</span>
                                 </span>
                             </li>
@@ -104,7 +104,7 @@ export default function OtherSkills() {
                     <ul className='flex flex-wrap gap-1 justify-between'>
                     {
                         tools.map((skill = {icon: "", name: ""}, index) => (
-                            <li key={index}><span className='text-lg flex gap-2'><Image className='grayscale hover:filter-none' src={skill.icon} alt={skill.name} width={20} height={20} /><span>{skill.name}</span></span></li>
+                            <li key={index}><span className='text-lg flex gap-2'><Image className='grayscale hover:filter-none' src={skill.icon} alt={skill.name} width={20} height={20} rel="nofollow"/><span>{skill.name}</span></span></li>
                             
                         ))
                     }
