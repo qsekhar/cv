@@ -1,5 +1,6 @@
+const colors = require('tailwindcss/colors')
 import type { Config } from "tailwindcss";
-const defaultTheme = require('tailwindcss/defaultTheme')
+
 
 const config: Config = {
   content: [
@@ -15,11 +16,11 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        primary: "#D4A373",
-        secondary: "#CCD5AE",
-        softgreen: "#E9EDC9",
-        softbrown: "#FAEDCD",
-        background: "#FEFAE0"
+        primary: colors.indigo[500],
+        lightbackground: colors.slate[100],
+        darkbackground: colors.slate[900],
+        darktext: colors.slate[200],
+        lighttext: colors.slate[700],
       },
     },
   },

@@ -52,7 +52,7 @@ export default function MoveingParticles(){
         events: {
           onHover: {
             enable: true,
-            mode: "repulse",
+            mode: "attract",
           },
         },
         modes: {
@@ -67,10 +67,10 @@ export default function MoveingParticles(){
       },
       particles: {
         color: {
-          value: "#d0b8ac",
+          value: "#adaeed",
         },
         links: {
-          color: "#d0b8ac",
+          color: "#adaeed",
           distance: 150,
           enable: true,
           opacity: 0.5,

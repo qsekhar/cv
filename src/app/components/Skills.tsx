@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { HiOutlineStar } from "react-icons/hi";
-
+import BrainImage  from '../../../public/brain.svg';
 
 //make frontend skills dynamic
 const frontendSkills = [
@@ -66,8 +66,8 @@ export default function Skills() {
             }
           </ul>
         </div>
-        <div className='opacity-40 sm:opacity-100 w-full sm:w-1/3 absolute top-0 left-0 right-0 z-0 sm:relative flex justify-center'>
-          <Image src="./brain.svg" alt="skills" width={396} height={486} />
+        <div className='opacity-20 sm:opacity-100 w-full sm:w-1/3 absolute top-0 left-0 right-0 z-0 sm:relative flex justify-center'>
+          <Image src={BrainImage} alt="skills" width={396} height={486} />
           </div>
         <div className='w-1/2 sm:w-1/3 flex justify-end sm:justify-start z-10'>
           <ul className='text-right'>
