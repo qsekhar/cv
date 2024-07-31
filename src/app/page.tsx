@@ -24,7 +24,7 @@ const stylish = Mulish({
 
 export default function Home() {
     return (
-        <main className="flex min-h-screen">
+        <main className="flex min-h-screen dark:bg-darkbackground">
             <MoveingParticles />
             <Container>
                 <div className={stylish.className}>
