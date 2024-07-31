@@ -266,7 +266,7 @@ export default function OtherSkills() {
                       <li key={index}>
                           <span className="flex gap-1">
                               <Image
-                                  className="grayscale hover:filter-none"
+                                  className="hover:filter-none"
                                   src={tool.icon}
                                   alt={tool.name}
                                   width={20}
@@ -287,7 +287,7 @@ export default function OtherSkills() {
                       <li key={index}>
                           <span className="flex gap-2">
                               <Image
-                                  className="grayscale hover:filter-none"
+                                  className="hover:filter-none"
                                   src={skill.icon}
                                   alt={skill.name}
                                   width={20}

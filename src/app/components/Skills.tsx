@@ -51,7 +51,7 @@ export default function Skills() {
               backendSkills.map((skill, index) => (
                 <li key={index}>
                   <span className='text-lg flex gap-2 my-1 items-center'>
-                    <Image className='grayscale hover:filter-none' src={skill.icon} alt={skill.name} width={20} height={20} rel="nofollow"/> 
+                    <Image className='hover:filter-none' src={skill.icon} alt={skill.name} width={20} height={20} rel="nofollow"/> 
                     <span>{skill.name}</span>
                     <span className='flex opacity-80 text-primary items-center'>
                       {
@@ -84,7 +84,7 @@ export default function Skills() {
                       }
                     </span>
                     <span>{skill.name}</span>
-                    <Image className='grayscale hover:filter-none' src={skill.icon} alt={skill.name} width={20} height={20} rel="nofollow"/>
+                    <Image className='hover:filter-none' src={skill.icon} alt={skill.name} width={20} height={20} rel="nofollow"/>
                   </span>
                 </li>
               ))
