@@ -102,7 +102,7 @@ export default function Projects() {
                 </div>
 
                 <div 
-                
+                  rel="nofollow"  
                   className="w-full md:w-3/4 dottedBorder hidden md:flex flex-col justify-center">
                     {
                         projects.map((project, index) => (

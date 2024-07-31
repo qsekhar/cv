@@ -5,8 +5,8 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 const gaID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || ''
 
 export const metadata: Metadata = {
-  title: "Full Stack Web Developer | Expert in Front-End & Back-End Development",
-  description: "Welcome to my portfolio! I am a skilled Full Stack Web Developer with expertise in both front-end and back-end development. Specializing in Pyhon, PHP, Vue, React, Node.js, and more, I create dynamic, responsive, and user-friendly web applications. My work emphasizes clean code, innovative design, and seamless functionality. Explore my projects to see how I deliver robust and scalable solutions tailored to enhance your online presence. Let's collaborate to bring your digital vision to life with high-quality, effective, and cutting-edge web development.",
+  title: "Full Stack Developer | Front & Back-End Expert",
+  description: "Expert Full Stack Developer: Python, PHP, Vue, React, Node.js. Creating responsive, user-friendly web apps with innovative design and clean code for scalable applications.",
 };
 
 export default function RootLayout({
