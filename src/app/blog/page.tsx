@@ -4,9 +4,9 @@ import Link from 'next/link';
 type Slug = string;
 type Post = { slug: Slug }
 type Posts = Post[]
-const getBlogPostMetadata = async () : Promise<Posts> => {
-    const folder = "src/posts";
 
+const folder : string = process.env.POST_FOLDER || ''
+const getBlogPostMetadata = async () : Promise<Posts> => {
     const isDirectory = await fs.stat(folder).then((stat) => stat.isDirectory());
     if (!isDirectory) {
         throw new Error(`Folder ${folder} does not exist or is not a directory`);
