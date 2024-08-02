@@ -23,6 +23,12 @@ const getPostContent = async (slug: string) => {
   return content
 }
 
+export async function generateStaticParams() {
+  const files = await fs.readdir(folder)
+  const slugs = files.map((file) => file.replace('.md', ''))
+  return slugs.map((slug) => ({ slug }))
+}
+
 const Post: NextPage<Props> = async (props: Props) => {
   const { slug } = props.params  
   const content = await getPostContent(slug)
