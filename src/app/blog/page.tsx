@@ -34,7 +34,7 @@ export default async function Blog() {
         postMetadata.map((meta: Metadata) => (
             <li key={meta.slug} className="dottedBorder">
                 <Link href={`/blog/posts/${meta.slug}`}><h2 className="text-2xl font-bold">{meta.title}</h2></Link>
-                <Link href={`/blog/posts/${meta.slug}`}><h3 className="text-lg font-normal text-lighttext dark:text-darktext">{meta.subtitle}</h3></Link>
+                <Link href={`/blog/posts/${meta.slug}`}><h3 className="text-lg font-normal text-lighttext dark:text-darktext truncate">{meta.subtitle}</h3></Link>
                 <Link href={`/blog/posts/${meta.slug}`}><p className="text-sm font-normal text-lighttext dark:text-darktext">{meta.date}</p></Link>
             </li>
         ));
