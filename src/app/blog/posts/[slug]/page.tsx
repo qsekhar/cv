@@ -2,6 +2,9 @@ import { NextPage } from 'next'
 import fs from 'fs/promises'
 import Markdown from 'markdown-to-jsx'
 import { notFound } from 'next/navigation';
+import GetBlogPostMetadata from '../../../components/utils/GetBlogPostMetadata'
+import { Metadata } from "../../../components/interfaces/Post";
+
 interface Props {
    params: {
        slug: string
@@ -24,9 +27,8 @@ const getPostContent = async (slug: string) => {
 }
 
 export async function generateStaticParams() {
-  const files = await fs.readdir(folder)
-  const slugs = files.map((file) => file.replace('.md', ''))
-  return slugs.map((slug) => ({ slug }))
+  const postMetadata: Metadata[] = await GetBlogPostMetadata();
+  return postMetadata.map((meta: Metadata) => ({ slug: meta.slug }));
 }
 
 const Post: NextPage<Props> = async (props: Props) => {
