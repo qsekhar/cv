@@ -19,7 +19,7 @@ const getPostContent = async (slug: string) => {
 const Post: NextPage<Props> = async (props: Props) => {
   const { slug } = props.params  
   const content = await getPostContent(slug)
-  return <Markdown key={slug}>{content}</Markdown>
+  return  <article className="prose dark:prose-invert lg:prose-xl"><Markdown key={slug}>{content}</Markdown></article>
 }
 
 export default Post
