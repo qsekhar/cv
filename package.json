@@ -17,6 +17,7 @@
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.5.0",
     "framer-motion": "^11.3.17",
+    "gray-matter": "^4.0.3",
     "markdown-to-jsx": "^7.4.7",
     "next": "14.2.5",
     "next-recaptcha-v3": "^1.4.1",
