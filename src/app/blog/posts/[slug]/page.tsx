@@ -3,17 +3,22 @@ import fs from 'fs/promises'
 import Markdown from 'markdown-to-jsx'
 import { notFound } from 'next/navigation';
 import GetBlogPostMetadata from '../../../components/utils/GetBlogPostMetadata'
-import { Metadata } from "../../../components/interfaces/Post";
+import { Metadata, Slug } from "../../../components/interfaces/Post";
 
 interface Props {
    params: {
-       slug: string
+       slug: Slug
    }
 }
 
 const folder : string = process.env.POST_FOLDER || ''
 
-const getPostContent = async (slug: string) => {
+if (!folder) {
+  throw new Error('POST_FOLDER environment variable is not defined.');
+}
+
+
+const getPostContent = async (slug: Slug) => {
   const file = `${folder}/${slug}.md`
 
   try {
