@@ -4,6 +4,8 @@ import { CiLinkedin } from "react-icons/ci";
 import { FaGithub, FaWhatsapp, FaDiscord } from "react-icons/fa6";
 import FadeInWhenVisible from "./components/animations/FadeInWhenVisible";
 import TextAnimationToEntry from "./components/animations/TextAnimationToEntry";
+import { LiaBlogSolid } from "react-icons/lia";
+import Link from "next/link";
 
 const TimeLine = dynamic(() => import("./components/TimeLine"));
 const Skills = dynamic(() => import("./components/Skills"));
@@ -36,6 +38,11 @@ export default function Home() {
                         >
                             Download CV
                         </a>
+
+                        <Link href="/blog" className="flex gap-2 text-primary items-center">
+                            <LiaBlogSolid size={20} />
+                            <span>My Blog</span>
+                        </Link>
                     </FadeInWhenVisible>
                 </div>
                 <div className="md:flex md:flex-col md:items-end">
