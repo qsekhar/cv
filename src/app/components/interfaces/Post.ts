@@ -4,6 +4,7 @@ export type Metadata = {
   subtitle: string;
   date: string;
   slug: Slug;
+  lastModified: Date;
 };
 
 export interface Post {

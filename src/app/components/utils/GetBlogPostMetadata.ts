@@ -19,7 +19,9 @@ const GetBlogPostMetadata = async (): Promise<Metadata[]> => {
         const slug = file.replace(".md", "");
         const matterResult = matter(await fs.readFile(`${folder}/${file}`, "utf-8"))
         const { title, date, subtitle } =  matterResult.data;
-        return { title, subtitle, date, slug };
+        const stat = await fs.stat(`${folder}/${file}`);
+        const lastModified = stat.mtime;
+        return { title, subtitle, date, slug, lastModified };
     });
 
     return Promise.all(metadatas);
