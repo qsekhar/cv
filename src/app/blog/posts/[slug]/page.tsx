@@ -3,7 +3,7 @@ import fs from "fs/promises";
 import Markdown from "markdown-to-jsx";
 import { notFound } from "next/navigation";
 import GetBlogPostMetadata from "../../../components/utils/GetBlogPostMetadata";
-import { Metadata, Slug } from "../../../components/interfaces/Post";
+import { Metadata as Postmeta, Slug } from "../../../components/interfaces/Post";
 import Link from "next/link";
 import { HiOutlineHome } from "react-icons/hi";
 import { RiArrowRightSLine } from "react-icons/ri";
@@ -35,20 +35,20 @@ const getPostContent = async (slug: Slug) => {
 };
 
 export async function generateStaticParams() {
-    const postMetadata: Metadata[] = await GetBlogPostMetadata();
-    return postMetadata.map((meta: Metadata) => ({ slug: meta.slug }));
+    const postMetadata: Postmeta[] = await GetBlogPostMetadata();
+    return postMetadata.map((meta: Postmeta) => ({ slug: meta.slug }));
 }
 
 const Post: NextPage<Props> = async (props: Props) => {
     const { slug } = props.params;
     const content = await getPostContent(slug);
-    const postMetadata: Metadata[] = await GetBlogPostMetadata();
+    const postMetadata: Postmeta[] = await GetBlogPostMetadata();
     const otherLinks = postMetadata.filter(
-        (meta: Metadata) => meta.slug !== slug
+        (meta: Postmeta) => meta.slug !== slug
     );
     const postLinks =
         otherLinks &&
-        otherLinks.map((meta: Metadata) => (
+        otherLinks.map((meta: Postmeta) => (
             <li key={meta.slug} className="smallBorderButtom">
                 <Link href={`/blog/posts/${meta.slug}`}>
                     <h4 className="text-xl font-bold">{meta.title}</h4>

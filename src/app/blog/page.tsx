@@ -1,14 +1,13 @@
 import Link from "next/link";
 import { HiOutlineHome } from "react-icons/hi";
-import matter from "gray-matter";
-import { Metadata } from "../components/interfaces/Post";
+import { Metadata as PostMeta } from "../components/interfaces/Post";
 import GetBlogPostMetadata from "../components/utils/GetBlogPostMetadata";
 
 export default async function Blog() {
-    const postMetadata: Metadata[] = await GetBlogPostMetadata();
+    const postMetadata: PostMeta[] = await GetBlogPostMetadata();
     const postLinks =
         postMetadata &&
-        postMetadata.map((meta: Metadata) => (
+        postMetadata.map((meta: PostMeta) => (
             <li key={meta.slug} className="dottedBorder">
                 <Link href={`/blog/posts/${meta.slug}`}><h2 className="text-2xl font-bold">{meta.title}</h2></Link>
                 <Link href={`/blog/posts/${meta.slug}`}><h3 className="text-lg font-normal text-lighttext dark:text-darktext truncate">{meta.subtitle}</h3></Link>
