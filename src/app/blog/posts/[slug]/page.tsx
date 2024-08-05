@@ -31,7 +31,7 @@ const getPostContent = async (slug: Slug) => {
     }
     const content = await fs.readFile(file, "utf8");
 
-    return content.replace(/---[\s\S]*?---/, '');
+    return content.replace(/---[\s\S]*?---/, "");
 };
 
 export async function generateStaticParams() {
@@ -42,9 +42,29 @@ export async function generateStaticParams() {
 const Post: NextPage<Props> = async (props: Props) => {
     const { slug } = props.params;
     const content = await getPostContent(slug);
+    const postMetadata: Metadata[] = await GetBlogPostMetadata();
+    const otherLinks = postMetadata.filter(
+        (meta: Metadata) => meta.slug !== slug
+    );
+    const postLinks =
+        otherLinks &&
+        otherLinks.map((meta: Metadata) => (
+            <li key={meta.slug} className="smallBorderButtom">
+                <Link href={`/blog/posts/${meta.slug}`}>
+                    <h4 className="text-xl font-bold">{meta.title}</h4>
+                </Link>
+                
+                <Link href={`/blog/posts/${meta.slug}`}>
+                    <p className="text-sm font-normal text-lighttext dark:text-darktext">
+                        {meta.date}
+                    </p>
+                </Link>
+            </li>
+        ));
+
     //
     return (
-        <article className="prose dark:prose-invert lg:prose-xl w-full">
+        <div>
             <div className="flex items-center gap-2 smallBorderButtom">
                 <Link
                     href="/"
@@ -59,10 +79,18 @@ const Post: NextPage<Props> = async (props: Props) => {
                     <LiaBlogSolid size={20} />
                 </Link>
             </div>
-            <Markdown key={slug} className="w-full mt-4">
-                {content}
-            </Markdown>
-        </article>
+            <div className="md:flex items-top gap-2 justify-between mt-4">
+              <article className="prose dark:prose-invert lg:prose-xl w-full md:w-3/4">
+                  <Markdown key={slug} className="mt-4">
+                      {content}
+                  </Markdown>
+              </article>
+              <ul className="flex flex-col gap-2 w-full md:w-1/4">
+                {postLinks}
+              </ul>
+            </div>
+            
+        </div>
     );
 };
 
