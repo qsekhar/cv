@@ -4,6 +4,8 @@ import { CiLinkedin } from "react-icons/ci";
 import { FaGithub, FaWhatsapp, FaDiscord } from "react-icons/fa6";
 import FadeInWhenVisible from "./components/animations/FadeInWhenVisible";
 import TextAnimationToEntry from "./components/animations/TextAnimationToEntry";
+import GetBlogPostMetadata from "./components/utils/GetBlogPostMetadata";
+import { Metadata } from "./components/interfaces/Post";
 import { LiaBlogSolid } from "react-icons/lia";
 import Link from "next/link";
 
@@ -19,7 +21,20 @@ const stylish = Mulish({
     subsets: ["latin"],
 });
 
-export default function Home() {
+
+
+export default async function Home() {
+    const postMetadata: Metadata[] = await GetBlogPostMetadata();
+    const postLinks =
+        postMetadata &&
+        postMetadata.map((meta: Metadata) => (
+            <li key={meta.slug} className="dottedBorder">
+                <Link href={`/blog/posts/${meta.slug}`}><h2 className="text-xl font-bold">{meta.title}</h2></Link>
+                <Link href={`/blog/posts/${meta.slug}`}><h3 className="text-lg font-normal text-lighttext dark:text-darktext truncate">{meta.subtitle}</h3></Link>
+                <Link href={`/blog/posts/${meta.slug}`}><p className="text-sm font-normal text-lighttext dark:text-darktext">{meta.date}</p></Link>
+            </li>
+        )).slice(0, 3);
+
     return (
         <div className={stylish.className}>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 gap-y-10">
@@ -149,11 +164,19 @@ export default function Home() {
         <Testimonials />
         </div> */}
 
+                
+                <div className="col-span-2 md:col-span-1">
+                    <h3 className="my-4 mb-10">Some of my Articles</h3>
+                    <ul className="flex flex-col gap-2">
+                        {postLinks}
+                    </ul>
+                </div>
+
                 <div className="col-span-2">
                     <SayHi />
                 </div>
 
-                <div></div>
+                
             </div>
         </div>
     );
