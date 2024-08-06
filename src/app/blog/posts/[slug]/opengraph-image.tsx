@@ -1,7 +1,5 @@
 import { ImageResponse } from 'next/og'
-import matter from "gray-matter";
 import { AiFillCode } from "react-icons/ai";
-import fs from "fs/promises";
 
 export const runtime = 'edge'
  
@@ -11,33 +9,14 @@ export const size = {
   height: 630,
 }
 export const contentType = 'image/png'
-
-export const folder: string = process.env.POST_FOLDER || "";
-
-if (!folder) {
-    throw new Error("POST_FOLDER environment variable is not defined.");
-}
-
-
-const getPostContent = async (slug: string) => {
-  const file = `${folder}/${slug}.md`;
-
-  try {
-    const content = await fs.readFile(file, "utf8");
-    return matter(content) 
-  } catch (err) {
-    throw new Error("File is missing");
-  }
-};
  
 export default async function Image({ params }: { params: { slug: string } }) {
-  const meta = await getPostContent(params.slug);
-
+  
   return new ImageResponse(
     (
       <div
         style={{
-          fontSize: 30,
+          fontSize: 128,
           background: 'white',
           color: '#6366F1',
           width: '100%',
@@ -47,7 +26,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
           justifyContent: 'center',
         }}
       >
-        <AiFillCode /> {meta.data.title}
+        <AiFillCode /> Subhra's Blog
       </div>
     ),
     {
