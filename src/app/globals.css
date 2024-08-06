@@ -40,6 +40,9 @@
     @apply border border-solid border-primary border-2 border-dashed rounded-xl p-4
   }
 
+  .smallBorderButtom{
+    @apply w-full border-primary border-b border-spacing-0 border-dashed pb-2
+  }
   .projectTab{
     @apply opacity-80 hover:opacity-100
   }
