@@ -1,19 +1,18 @@
-'use server'
 import { ImageResponse } from 'next/og'
 import matter from "gray-matter";
 import { AiFillCode } from "react-icons/ai";
 import fs from "fs/promises";
 
-const runtime = 'edge'
+export const runtime = 'edge'
  
-const alt = "Subhra's Blog"
-const size = {
+export const alt = "Subhra's Blog"
+export const size = {
   width: 1200,
   height: 630,
 }
-const contentType = 'image/png'
+export const contentType = 'image/png'
 
-const folder: string = process.env.POST_FOLDER || "";
+export const folder: string = process.env.POST_FOLDER || "";
 
 if (!folder) {
     throw new Error("POST_FOLDER environment variable is not defined.");
