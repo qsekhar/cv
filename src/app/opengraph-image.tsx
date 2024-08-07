@@ -39,7 +39,8 @@ export default async function Image() {
     {
       // For convenience, we can re-use the exported opengraph-image
       // size config to also set the ImageResponse's width and height.
-      ...size
+      ...size,
+      headers: { 'cache-control': 'public, max-age=31536000, immutable' }
     }
   )
 }
