@@ -46,7 +46,8 @@ export default function Icon({ id }: { id: string }) {
       </div>
     ),
     {
-      ...size
+      ...size,
+      headers: { 'cache-control': 'public, max-age=31536000, immutable' }
     }
   )
 }

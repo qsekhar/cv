@@ -45,7 +45,8 @@ export default function Icon({ id }: { id: string }) {
         <AiFillCode />
       </div>
     ),{
-      ...size
+      ...size,
+      headers: { 'cache-control': 'public, max-age=31536000, immutable' }
     }
     
   )
