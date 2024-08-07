@@ -1,24 +1,38 @@
 import { ImageResponse } from 'next/og'
 import { AiFillCode } from "react-icons/ai";
+
+type Size = {
+  width: number;
+  height: number;
+}
+
+const sizesForAndriod = [72, 96, 128, 144, 152, 192, 384, 512]
+
+const androidIcons = sizesForAndriod.map((size) => ({
+  id: `android-chrome-${size}x${size}.png`,
+  size: { width: size, height: size },
+  contentType: 'image/png',
+}))
+
  
 // Route segment config
 export const runtime = 'edge'
  
-// Image metadata
-export const size = {
-  width: 32,
-  height: 32,
+export function generateImageMetadata() {
+  return [
+    ...androidIcons
+  ]
 }
-export const contentType = 'image/png'
  
 // Image generation
-export default function Icon() {
+export default function Icon({ id }: { id: string }) {
+  const size : Size = androidIcons.find((icon) => icon.id === id)?.size || { width: 512, height: 512 }
   return new ImageResponse(
     (
       // ImageResponse JSX element
       <div
         style={{
-          fontSize: 24,
+          fontSize: size.height / 2,
           background: 'white',
           width: '100%',
           height: '100%',
@@ -31,11 +45,8 @@ export default function Icon() {
         <AiFillCode />
       </div>
     ),
-    // ImageResponse options
     {
-      // For convenience, we can re-use the exported icons size metadata
-      // config to also set the ImageResponse's width and height.
-      ...size,
+      ...size
     }
   )
 }
