@@ -43,6 +43,7 @@ export default function manifest(): CustomManifest {
             "Expert Full Stack Developer: Python, PHP, Vue, React, Node.js. Creating responsive, user-friendly web apps with innovative design and clean code for scalable applications.",
         start_url: "/",
         display: "minimal-ui",
+        display_override: ["window-controls-overlay"],
         background_color: "white",
         theme_color: "#6366F1",
         id: "/?source=pwa",
