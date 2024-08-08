@@ -3,11 +3,15 @@ import fs from "fs/promises";
 import Markdown from "markdown-to-jsx";
 import { notFound } from "next/navigation";
 import GetBlogPostMetadata from "../../../components/utils/GetBlogPostMetadata";
-import { Metadata as Postmeta, Slug } from "../../../components/interfaces/Post";
+import {
+    Metadata as Postmeta,
+    Slug,
+} from "../../../components/interfaces/Post";
 import Link from "next/link";
 import { HiOutlineHome } from "react-icons/hi";
 import { RiArrowRightSLine } from "react-icons/ri";
 import { LiaBlogSolid } from "react-icons/lia";
+import SayHi from "@/app/components/SayHi";
 
 interface Props {
     params: {
@@ -48,12 +52,14 @@ const Post: NextPage<Props> = async (props: Props) => {
     );
     const postLinks =
         otherLinks &&
-        otherLinks.map((meta: Postmeta) => (
+        otherLinks
+        .sort((a , b) => new Date(b.lastModified).getTime() - new Date(a.lastModified).getTime())
+        .map((meta: Postmeta) => (
             <li key={meta.slug} className="smallBorderButtom">
                 <Link href={`/blog/posts/${meta.slug}`}>
                     <h4 className="text-xl font-bold">{meta.title}</h4>
                 </Link>
-                
+
                 <Link href={`/blog/posts/${meta.slug}`}>
                     <p className="text-sm font-normal text-lighttext dark:text-darktext">
                         {meta.date}
@@ -80,16 +86,19 @@ const Post: NextPage<Props> = async (props: Props) => {
                 </Link>
             </div>
             <div className="md:flex items-top gap-2 justify-between mt-4">
-              <article className="prose dark:prose-invert lg:prose-xl w-full md:w-3/4">
-                  <Markdown key={slug} className="mt-4">
-                      {content}
-                  </Markdown>
-              </article>
-              <ul className="flex flex-col gap-2 w-full md:w-1/4">
-                {postLinks}
-              </ul>
+                <article className="prose dark:prose-invert lg:prose-xl w-full md:w-3/4">
+                    <Markdown key={slug} className="mt-4">
+                        {content}
+                    </Markdown>
+                </article>
+                <div className="flex flex-col justify-between w-full md:w-1/4">
+                    <ul className="flex flex-col gap-2">
+                        {postLinks}
+                    </ul>
+
+                    <SayHi />
+                </div>
             </div>
-            
         </div>
     );
 };

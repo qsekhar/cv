@@ -27,13 +27,16 @@ export default async function Home() {
     const postMetadata: Metadata[] = await GetBlogPostMetadata();
     const postLinks =
         postMetadata &&
-        postMetadata.map((meta: Metadata) => (
+        postMetadata
+        .sort((a , b) => new Date(b.lastModified).getTime() - new Date(a.lastModified).getTime())
+        .slice(0, 3)
+        .map((meta: Metadata) => (
             <li key={meta.slug} className="dottedBorder">
                 <Link href={`/blog/posts/${meta.slug}`}><h2 className="text-xl font-bold">{meta.title}</h2></Link>
                 <Link href={`/blog/posts/${meta.slug}`}><h3 className="text-lg font-normal text-lighttext dark:text-darktext truncate">{meta.subtitle}</h3></Link>
                 <Link href={`/blog/posts/${meta.slug}`}><p className="text-sm font-normal text-lighttext dark:text-darktext">{meta.date}</p></Link>
             </li>
-        )).slice(0, 3);
+        ));
 
     return (
         <div className={stylish.className}>

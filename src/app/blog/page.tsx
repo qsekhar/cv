@@ -7,7 +7,9 @@ export default async function Blog() {
     const postMetadata: PostMeta[] = await GetBlogPostMetadata();
     const postLinks =
         postMetadata &&
-        postMetadata.map((meta: PostMeta) => (
+        postMetadata
+            .sort((a , b) => new Date(b.lastModified).getTime() - new Date(a.lastModified).getTime())
+            .map((meta: PostMeta) => (
             <li key={meta.slug} className="dottedBorder">
                 <Link href={`/blog/posts/${meta.slug}`}><h2 className="text-2xl font-bold">{meta.title}</h2></Link>
                 <Link href={`/blog/posts/${meta.slug}`}><h3 className="text-lg font-normal text-lighttext dark:text-darktext truncate">{meta.subtitle}</h3></Link>
@@ -21,7 +23,7 @@ export default async function Blog() {
                     <HiOutlineHome size={20} />
                 </Link>
             </div>
-            <h1 className="h1 my-8">Subhra's Blog</h1>
+            <h1 className="h1 my-8">SSM's Blog</h1>
             <ul className="flex flex-col gap-2">{postLinks}</ul>
         </div>
     );

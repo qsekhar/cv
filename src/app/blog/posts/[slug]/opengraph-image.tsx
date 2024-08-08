@@ -3,7 +3,7 @@ import { AiFillCode } from "react-icons/ai";
 
 export const runtime = 'edge'
  
-export const alt = "Subhra's Blog"
+export const alt = "SSM's Blog"
 export const size = {
   width: 1200,
   height: 630,
@@ -26,7 +26,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
           justifyContent: 'center',
         }}
       >
-        <AiFillCode /> Subhra's Blog
+        <AiFillCode /> SSM's Blog
       </div>
     ),
     {
