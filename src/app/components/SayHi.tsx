@@ -55,9 +55,9 @@ export default function SayHi() {
   return (
       <ReCaptchaProvider reCaptchaKey={capchaKey}>
         <div className="flex flex-col items-center" id="sayhi">
-            <h3 className="my-4">Say hi!</h3>
-            <p className="text-lg">
-                I am always open to new opportunities. Feel free to contact me.
+            <h3 className="my-4">Get Your Free Consultation Today!</h3>
+            <p className="text-lg pb-2">
+                Are you looking for expert advice but not sure where to start? I'm offering a free consultation to help you navigate your next steps with confidence. Whether you're facing a tough decision, planning a new project, or just need some guidance, I am here to assist you—at no cost!
             </p>
 
             <form
