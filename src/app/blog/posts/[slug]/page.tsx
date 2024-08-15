@@ -1,4 +1,6 @@
 import { NextPage } from "next";
+import type { Metadata, ResolvingMetadata } from 'next'
+import matter from "gray-matter";
 import fs from "fs/promises";
 import Markdown from "markdown-to-jsx";
 import { notFound } from "next/navigation";
@@ -35,8 +37,24 @@ const getPostContent = async (slug: Slug) => {
     }
     const content = await fs.readFile(file, "utf8");
 
-    return content.replace(/---[\s\S]*?---/, "");
+    return content;
 };
+
+export async function generateMetadata(
+    { params }: Props,
+
+  ): Promise<Metadata> {
+    // read route params
+    const slug = params.slug
+    const content =  matter(await getPostContent(slug));
+   
+    return {
+      title: content.data.title,
+      description: content.data.subtitle,
+      publisher: "Subhra Sekhar Mukherjee",
+      applicationName: "SSM's Blog",
+    }
+  }
 
 export async function generateStaticParams() {
     const postMetadata: Postmeta[] = await GetBlogPostMetadata();
@@ -45,11 +63,26 @@ export async function generateStaticParams() {
 
 const Post: NextPage<Props> = async (props: Props) => {
     const { slug } = props.params;
-    const content = await getPostContent(slug);
+    const content = matter(await getPostContent(slug));
     const postMetadata: Postmeta[] = await GetBlogPostMetadata();
     const otherLinks = postMetadata.filter(
         (meta: Postmeta) => meta.slug !== slug
     );
+
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": content.data.title,
+        "description": content.data.subtitle,
+        "datePublished": content.data.date,
+        "dateModified": content.data.lastModified,
+        "author": [{
+            "@type": "Person",
+            "name": "Subhra Sekhar Mukherjee",
+        }]
+      }
+
+
     const postLinks =
         otherLinks &&
         otherLinks
@@ -88,7 +121,7 @@ const Post: NextPage<Props> = async (props: Props) => {
             <div className="md:flex items-top gap-2 justify-between mt-4">
                 <article className="prose dark:prose-invert lg:prose-xl w-full md:w-3/4">
                     <Markdown key={slug} className="mt-4">
-                        {content}
+                        {content.content}
                     </Markdown>
                 </article>
                 <div className="flex flex-col justify-between w-full md:w-1/4">
@@ -99,6 +132,10 @@ const Post: NextPage<Props> = async (props: Props) => {
                     <SayHi />
                 </div>
             </div>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
         </div>
     );
 };
