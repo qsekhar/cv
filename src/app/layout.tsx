@@ -32,7 +32,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <main className="flex min-h-screen dark:bg-darkbackground">
-          <MoveingParticles />
+
           <Container>
             {children}
           </Container>
