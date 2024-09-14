@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { HiOutlineStar } from "react-icons/hi";
 import BrainImage  from '../../../public/brain.svg';
+import FadeInWhenVisible from './animations/FadeInWhenVisible';
 
 //make frontend skills dynamic
 const frontendSkills = [
@@ -50,17 +51,19 @@ export default function Skills() {
             {
               backendSkills.map((skill, index) => (
                 <li key={index}>
-                  <span className='text-lg flex gap-2 my-1 items-center'>
-                    <Image className='hover:filter-none' src={skill.icon} alt={skill.name} width={20} height={20} rel="nofollow"/> 
-                    <span>{skill.name}</span>
-                    <span className='flex opacity-80 text-primary items-center'>
-                      {
-                        Array.from({ length: skill.rating }).map((_, index) => (
-                          <HiOutlineStar key={index} size={10} />
-                        ))
-                      }
+                  <FadeInWhenVisible delay={index * 0.2}>
+                    <span className='text-lg flex gap-2 my-1 items-center'>
+                      <Image className='hover:filter-none' src={skill.icon} alt={skill.name} width={20} height={20} rel="nofollow"/> 
+                      <span>{skill.name}</span>
+                      <span className='flex opacity-80 text-primary items-center'>
+                        {
+                          Array.from({ length: skill.rating }).map((_, index) => (
+                            <HiOutlineStar key={index} size={10} />
+                          ))
+                        }
+                      </span>
                     </span>
-                  </span>
+                  </FadeInWhenVisible>
                 </li>
               ))
             }
@@ -68,24 +71,26 @@ export default function Skills() {
         </div>
         <div className='opacity-20 sm:opacity-100 w-full sm:w-1/3 absolute top-0 left-0 right-0 z-0 sm:relative flex justify-center'>
           <Image src={BrainImage} alt="skills" width={396} height={486} />
-          </div>
+        </div>
         <div className='w-1/2 sm:w-1/3 flex justify-end sm:justify-start z-10'>
           <ul className='text-right'>
             <span className='text-xl'>Frontend</span>
             {
               frontendSkills.map((skill, index) => (
                 <li key={index}>
-                  <span className='text-lg text-right flex justify-end gap-2 my-1 items-center'>
-                    <span className='flex opacity-80 text-primary'>
-                      {
-                        Array.from({ length: skill.rating }).map((_, index) => (
-                          <HiOutlineStar key={index} size={10} />
-                        ))
-                      }
+                  <FadeInWhenVisible delay={index * 0.2}>
+                    <span className='text-lg text-right flex justify-end gap-2 my-1 items-center'>
+                      <span className='flex opacity-80 text-primary'>
+                        {
+                          Array.from({ length: skill.rating }).map((_, index) => (
+                            <HiOutlineStar key={index} size={10} />
+                          ))
+                        }
+                      </span>
+                      <span>{skill.name}</span>
+                      <Image className='hover:filter-none' src={skill.icon} alt={skill.name} width={20} height={20} rel="nofollow"/>
                     </span>
-                    <span>{skill.name}</span>
-                    <Image className='hover:filter-none' src={skill.icon} alt={skill.name} width={20} height={20} rel="nofollow"/>
-                  </span>
+                  </FadeInWhenVisible>
                 </li>
               ))
             }
