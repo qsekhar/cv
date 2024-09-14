@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import { Mulish } from "next/font/google";
+import { Inter  } from "next/font/google";
 import { CiLinkedin } from "react-icons/ci";
 import { FaGithub, FaWhatsapp, FaDiscord } from "react-icons/fa6";
 import FadeInWhenVisible from "./components/animations/FadeInWhenVisible";
@@ -16,7 +16,7 @@ const Projects = dynamic(() => import("./components/Projects"));
 const SayHi = dynamic(() => import("./components/SayHi"));
 const SayHiLink = dynamic(() => import("./components/SayHiLink"));
 
-const stylish = Mulish({
+const stylish = Inter ({
     weight: "400",
     subsets: ["latin"],
 });
