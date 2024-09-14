@@ -49,7 +49,7 @@ export async function generateMetadata(
     const content =  matter(await getPostContent(slug));
    
     return {
-      title: content.data.title,
+      title: 'Full stack deveveloper | ' + content.data.title,
       description: content.data.subtitle,
       publisher: "Subhra Sekhar Mukherjee",
       applicationName: "SSM's Blog",
