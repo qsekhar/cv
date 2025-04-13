@@ -37,10 +37,10 @@ const iosIcons: IconType[] = sizesForIos.map((size) => ({
 
 export default function manifest(): CustomManifest {
     return {
-        name: "Full Stack Freelancer | Front & Back-End Expert",
+        name: "Subhra Sekhar | Full Stack Web Developer & Tech Consultant",
         short_name: "Subhra Sekhar Mukherjee",
         description:
-            "Expert Full Stack Freelancer: Python, PHP, Vue, React, Node.js. Creating responsive, user-friendly web apps with innovative design and clean code for scalable applications.",
+            "Hi, I’m Subhra Sekhar – a full-stack web developer specializing in building modern websites, apps, and scalable digital solutions for startups, businesses, and agencies.",
         start_url: "/",
         display: "minimal-ui",
         display_override: ["window-controls-overlay"],

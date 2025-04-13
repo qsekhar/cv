@@ -8,7 +8,7 @@ const MoveingParticles = dynamic(() => import("./components/MoveingParticles"));
 const Container = dynamic(() => import("./components/Container"));
 
 const url = process.env.NEXT_PUBLIC_DOMAIN_URL || 'http://localhost:3000';
-const title = "Full Stack Freelancer | Front & Back-End Expert"
+const title = "Subhra Sekhar | Full Stack Web Developer & Tech Consultant"
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(url),
   applicationName: title,
   title: title,
-  description: "Expert Full Stack Freelancer: Python, PHP, Vue, React, Node.js. Creating responsive, user-friendly web apps with innovative design and clean code for scalable applications.",
+  description: "Hi, I’m Subhra Sekhar – a full-stack web developer specializing in building modern websites, apps, and scalable digital solutions for startups, businesses, and agencies.",
 };
 
 export default function RootLayout({
