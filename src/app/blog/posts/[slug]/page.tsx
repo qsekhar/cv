@@ -14,6 +14,7 @@ import { HiOutlineHome } from "react-icons/hi";
 import { RiArrowRightSLine } from "react-icons/ri";
 import { LiaBlogSolid } from "react-icons/lia";
 import SayHi from "@/app/components/SayHi";
+import SocialShare from "@/app/components/SocialShare";
 
 interface Props {
     params: {
@@ -123,6 +124,9 @@ const Post: NextPage<Props> = async (props: Props) => {
                     <Markdown key={slug} className="mt-4">
                         {content.content}
                     </Markdown>
+                    <div className="mt-4">
+                        <SocialShare />
+                    </div>
                 </article>
                 <div className="flex flex-col justify-between w-full md:w-1/4">
                     <ul className="flex flex-col gap-2">
