@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import { Inter  } from "next/font/google";
+import { Roboto_Mono  } from "next/font/google";
 import { CiLinkedin } from "react-icons/ci";
 import { FaGithub, FaWhatsapp, FaDiscord } from "react-icons/fa6";
 import FadeInWhenVisible from "./components/animations/FadeInWhenVisible";
@@ -16,7 +16,7 @@ const Projects = dynamic(() => import("./components/Projects"));
 const SayHi = dynamic(() => import("./components/SayHi"));
 const SayHiLink = dynamic(() => import("./components/SayHiLink"));
 
-const stylish = Inter ({
+const stylish = Roboto_Mono ({
     weight: "400",
     subsets: ["latin"],
 });
@@ -43,7 +43,7 @@ export default async function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 gap-y-10">
                 <div>
                     <FadeInWhenVisible delay={1.8}>
-                        <h1>Full Stack Developer</h1>
+                        <h1>Full Stack Freelancer</h1>
                     </FadeInWhenVisible>
                 </div>
                 <div className="flex flex-col items-center justify-center">
@@ -84,25 +84,25 @@ export default async function Home() {
                                     target="_blank"
                                     href="https://api.whatsapp.com/send?phone=919674540974"
                                 >
-                                    <FaWhatsapp size={20} />
+                                    <FaWhatsapp size={20} className="text-primary"/>
                                 </a>
                                 <a
                                     target="_blank"
                                     href="https://www.linkedin.com/in/subhra-sekhar-mukherjee"
                                 >
-                                    <CiLinkedin size={20} />
+                                    <CiLinkedin size={20} className="text-primary"/>
                                 </a>
                                 <a
                                     target="_blank"
                                     href="https://github.com/qsekhar"
                                 >
-                                    <FaGithub size={20} />
+                                    <FaGithub size={20} className="text-primary"/>
                                 </a>
                                 <a
                                     target="_blank"
                                     href="https://discordapp.com/users/trozan7550/"
                                 >
-                                    <FaDiscord size={20} />
+                                    <FaDiscord size={20} className="text-primary"/>
                                 </a>
                             </li>
                         </ul>
