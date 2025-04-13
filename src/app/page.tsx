@@ -43,7 +43,7 @@ export default async function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 gap-y-10">
                 <div>
                     <FadeInWhenVisible delay={1.8}>
-                        <h1>Full Stack Freelancer</h1>
+                        <h1>Full Stack Freelancer  & Tech Consultant</h1>
                     </FadeInWhenVisible>
                 </div>
                 <div className="flex flex-col items-center justify-center">
