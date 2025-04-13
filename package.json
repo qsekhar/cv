@@ -20,6 +20,7 @@
     "markdown-to-jsx": "^7.4.7",
     "next": "14.2.5",
     "next-recaptcha-v3": "^1.4.1",
+    "next-share": "^0.27.0",
     "nodemailer": "^6.9.14",
     "react": "^18",
     "react-dom": "^18",

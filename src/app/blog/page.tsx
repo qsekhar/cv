@@ -2,6 +2,7 @@ import Link from "next/link";
 import { HiOutlineHome } from "react-icons/hi";
 import { Metadata as PostMeta } from "../components/interfaces/Post";
 import GetBlogPostMetadata from "../components/utils/GetBlogPostMetadata";
+import SocialShare from "../components/SocialShare";
 
 export default async function Blog() {
     const postMetadata: PostMeta[] = await GetBlogPostMetadata();
@@ -25,6 +26,10 @@ export default async function Blog() {
             </div>
             <h1 className="h1 my-8">SSM's Blog</h1>
             <ul className="flex flex-col gap-2">{postLinks}</ul>
+
+            <div className="mt-4">
+                <SocialShare />
+            </div>
         </div>
     );
 }
