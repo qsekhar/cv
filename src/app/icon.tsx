@@ -33,13 +33,13 @@ export default function Icon({ id }: { id: string }) {
       <div
         style={{
           fontSize: size.height / 2,
-          background: 'white',
+          background: 'black',
           width: '100%',
           height: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          color: '#6366F1',
+          color: '#52c211',
         }}
       >
         <AiFillCode />
