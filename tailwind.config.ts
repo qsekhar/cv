@@ -17,9 +17,9 @@ const config: Config = {
       },
       colors: {
         primary: colors.lime[500],
-        lightbackground: colors.slate[100],
+        lightbackground: colors.slate[900],
         darkbackground: colors.slate[900],
-        darktext: colors.slate[200],
+        darktext: colors.slate[700],
         lighttext: colors.slate[700],
       },
     },
