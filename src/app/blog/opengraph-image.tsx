@@ -17,8 +17,8 @@ export default async function Image({ params }: { params: { slug: string } }) {
       <div
         style={{
           fontSize: 128,
-          background: 'white',
-          color: '#6366F1',
+          background: '#000000',
+          color: '#52c211',
           width: '100%',
           height: '100%',
           display: 'flex',
