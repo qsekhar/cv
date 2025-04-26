@@ -43,7 +43,7 @@ const backendSkills = [
 export default function Skills() {
   return (
     <div className='flex flex-col items-center w-full'>
-      <h3 className='my-4'>If you disect my brain!</h3>
+      <h3 className='my-4'>What I learned so far</h3>
       <div className='flex justify-center relative w-full gap-10 dottedBorder'>
         <div className='w-1/2 sm:w-1/3 flex justify-start sm:justify-end z-10'>
           <ul>
