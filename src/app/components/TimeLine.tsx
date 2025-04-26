@@ -59,7 +59,7 @@ export default function TimeLine() {
                     {/* Right Content */}
                     <div className="grow pb-8">
                         <h3 className="flex gap-x-1.5 font-semibold">
-                            Team Leader
+                            Peoject Manager
                         </h3>
                         <p className="mt-1 text-sm">
                             Liz Infotech Pvt. Ltd.
