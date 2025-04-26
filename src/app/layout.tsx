@@ -63,6 +63,7 @@ export default function RootLayout({
           </Container>
         </main>
         <Script
+          id="json-ld"
           strategy="beforeInteractive"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
