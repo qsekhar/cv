@@ -63,8 +63,8 @@ export default function RootLayout({
           </Container>
         </main>
         <Script
-          id="json-ld"
-          strategy="beforeInteractive"
+          id="structured-data"
+          strategy="afterInteractive"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
