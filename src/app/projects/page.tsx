@@ -14,7 +14,7 @@ export default function ProjectsPage() {
         <div className={inter.className}>
             {/* Hero Section */}
             <section className="relative py-20 bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-darkbackground dark:via-neutral-900 dark:to-neutral-800">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div className="max-w-8xl 2xl:max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 text-center">
                     <FadeInWhenVisible delay={0.2}>
                         <div className="space-y-6">
                             <h1 className="text-4xl md:text-6xl font-bold">
@@ -33,7 +33,7 @@ export default function ProjectsPage() {
 
             {/* Projects Section */}
             <section className="py-20 bg-white dark:bg-neutral-900">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-8xl 2xl:max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
                     <FadeInWhenVisible delay={0.4}>
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-lighttext dark:text-darktext">
@@ -52,7 +52,7 @@ export default function ProjectsPage() {
 
             {/* Technologies Used Section */}
             <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-neutral-800 dark:to-neutral-900">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-8xl 2xl:max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
                     <FadeInWhenVisible delay={0.6}>
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -100,7 +100,7 @@ export default function ProjectsPage() {
 
             {/* CTA Section */}
             <section className="py-20 bg-gradient-to-r from-primary-600 to-secondary-600">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div className="max-w-8xl 2xl:max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 text-center">
                     <FadeInWhenVisible delay={0.8}>
                         <div className="space-y-8">
                             <h2 className="text-3xl md:text-4xl font-bold text-white">

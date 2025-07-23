@@ -90,7 +90,7 @@ const Post: NextPage<Props> = async (props: Props) => {
         <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-neutral-900 dark:via-darkbackground dark:to-neutral-800 overflow-x-hidden">
             {/* Header Section */}
             <section className="py-8 sm:py-12 lg:py-12 border-b border-neutral-200 dark:border-neutral-700">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-8xl 2xl:max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
                     {/* Breadcrumb */}
                     <FadeInWhenVisible delay={0.1}>
                         <nav className="flex items-center gap-2 mb-6 sm:mb-8 lg:mb-8 text-sm lg:text-base text-neutral-600 dark:text-neutral-400 overflow-x-auto">
@@ -117,14 +117,8 @@ const Post: NextPage<Props> = async (props: Props) => {
                     {/* Article Header */}
                     <FadeInWhenVisible delay={0.2}>
                         <div className="max-w-4xl">
-                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold mb-4 sm:mb-6 lg:mb-6 leading-tight">
-                                <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
-                                    {content.data.title}
-                                </span>
-                            </h1>
-                            <p className="text-lg sm:text-xl lg:text-xl text-neutral-600 dark:text-neutral-400 mb-4 sm:mb-6 lg:mb-6 leading-relaxed">
-                                {content.data.subtitle}
-                            </p>
+                            
+                            
                             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 lg:gap-6 text-sm lg:text-base text-neutral-500 dark:text-neutral-500">
                                 <div className="flex items-center gap-2">
                                     <HiOutlineCalendar size={16} className="lg:size-5" />
@@ -144,10 +138,10 @@ const Post: NextPage<Props> = async (props: Props) => {
 
             {/* Content Section */}
             <section className="py-8 sm:py-12 lg:py-16 xl:py-20">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-8xl 2xl:max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
                     <div className="flex flex-col lg:flex-row lg:gap-12 xl:gap-16 2xl:gap-20 space-y-8 lg:space-y-0">
                         {/* Main Content */}
-                        <FadeInWhenVisible delay={0.3}>
+                        
                             <article className="w-full lg:w-2/3 order-1 min-w-0">
                                 <div className="bg-white dark:bg-neutral-800/50 rounded-2xl p-6 sm:p-8 lg:p-8 shadow-lg border border-neutral-100 dark:border-neutral-700/50">
                                     <div className="prose prose-base sm:prose-lg lg:prose-lg dark:prose-invert max-w-none min-w-0
@@ -180,7 +174,7 @@ const Post: NextPage<Props> = async (props: Props) => {
                                     </div>
                                 </div>
                             </article>
-                        </FadeInWhenVisible>
+                        
 
                         {/* Sidebar */}
                         <aside className="w-full lg:w-1/3 order-2 min-w-0">

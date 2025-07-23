@@ -103,6 +103,10 @@
     @apply text-3xl md:text-4xl xl:text-4xl font-bold text-lighttext dark:text-darktext;
   }
 
+  h1[id] {
+    @apply bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent;
+  }
+
   h2 {
     @apply text-2xl md:text-3xl xl:text-3xl font-bold text-lighttext dark:text-darktext;
   }
@@ -134,29 +138,76 @@
   .glass {
     @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl;
   }
-
   .dottedUnderLine {
-    @apply text-xl border-b-2 border-primary-500 border-dashed;
-  }
-
-  .dottedBorder {
-    @apply border border-solid border-primary-500 border-2 border-dashed rounded-xl p-4;
+    @apply text-xl shadow-lg hover:shadow-xl transition-shadow duration-300;
+    border-bottom: none;
+    box-shadow: 0 4px 6px -1px rgba(var(--primary-500), 0.3), 0 2px 4px -1px rgba(var(--primary-500), 0.2);
+  }  .dottedBorder {
+    @apply rounded-xl p-4 shadow-lg hover:shadow-xl transition-shadow duration-300;
+    border: none;
+    box-shadow: 0 10px 15px -3px rgba(var(--primary-500), 0.2), 0 4px 6px -2px rgba(var(--primary-500), 0.1);
   }
 
   .smallBorderButtom {
-    @apply w-full border-primary-500 border-b border-spacing-0 border-dashed pb-2;
+    @apply w-full pb-2 shadow-md hover:shadow-lg transition-shadow duration-300;
+    border: none;
+    box-shadow: 0 4px 6px -1px rgba(var(--primary-500), 0.25), 0 2px 4px -1px rgba(var(--primary-500), 0.15);
+  }
+  .projectTab {
+    @apply opacity-80 hover:opacity-100 transition-all duration-300 transform hover:scale-105;
+    position: relative;
   }
 
-  .projectTab {
-    @apply opacity-80 hover:opacity-100 transition-all duration-300;
+  .projectTab::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, rgb(var(--primary-500)), rgb(var(--secondary-500)));
+    border-radius: 2px;
+    transform: scaleY(0);
+    transition: transform 0.3s ease-in-out;
+    transform-origin: bottom;
+  }
+
+  .projectTab:hover::before {
+    transform: scaleY(0.3);
   }
 
   .projectTab.active {
-    @apply opacity-100;
+    @apply opacity-100 bg-gradient-to-r from-primary-50/50 to-secondary-50/50 dark:from-primary-900/20 dark:to-secondary-900/20;
+    transform: translateX(8px);
+    box-shadow: 0 8px 25px -5px rgba(var(--primary-500), 0.3), 0 4px 6px -2px rgba(var(--primary-500), 0.2);
+  }
+
+  .projectTab.active::before {
+    transform: scaleY(1);
+    background: linear-gradient(to bottom, rgb(var(--primary-600)), rgb(var(--secondary-600)));
   }
 
   .projectTab.active h4 {
     @apply font-bold text-primary-600 dark:text-primary-400;
+    animation: textGlow 0.3s ease-in-out;
+  }
+
+  /* Text glow animation for active tab */
+  @keyframes textGlow {
+    0% {
+      text-shadow: none;
+    }
+    50% {
+      text-shadow: 0 0 10px rgba(var(--primary-500), 0.5);
+    }
+    100% {
+      text-shadow: none;
+    }
+  }
+
+  /* Enhanced project content animations */
+  .project-content {
+    overflow: hidden;
   }
 
   .gradient-text {
@@ -195,9 +246,22 @@
   ::-moz-selection {
     @apply bg-primary-200 text-primary-900;
   }
-
   /* Animation pause utility */
   .hover\:animation-paused:hover {
     animation-play-state: paused;
+  }
+
+  /* Shimmer animation for buttons */
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%) skewX(-12deg);
+    }
+    100% {
+      transform: translateX(200%) skewX(-12deg);
+    }
+  }
+  
+  .animate-shimmer {
+    animation: shimmer 1.5s ease-in-out;
   }
 }

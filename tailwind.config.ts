@@ -73,13 +73,17 @@ const config: Config = {
       },
       fontFamily: {
         'display': ['Inter', 'system-ui', 'sans-serif'],
-        'body': ['Inter', 'system-ui', 'sans-serif'],
-      },      animation: {
+        'body': ['Inter', 'system-ui', 'sans-serif'],      },      animation: {
         'gradient': 'gradient 8s linear infinite',
         'float': 'float 6s ease-in-out infinite',
         'glow': 'glow 2s ease-in-out infinite alternate',
         'scroll': 'scroll 60s linear infinite',
         'scroll-mobile': 'scroll 90s linear infinite',
+      },
+      maxWidth: {
+        '8xl': '88rem',
+        '9xl': '96rem',
+        '10xl': '104rem',
       },
       keyframes: {
         gradient: {

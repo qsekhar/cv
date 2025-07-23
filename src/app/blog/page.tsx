@@ -12,7 +12,7 @@ export default async function Blog() {
         <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-neutral-900 dark:via-darkbackground dark:to-neutral-800">
             {/* Header Section */}
             <section className="py-20">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-8xl 2xl:max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
                     {/* Breadcrumb */}
                     <FadeInWhenVisible delay={0.1}>
                         <div className="flex items-center gap-2 mb-8 text-sm text-neutral-600 dark:text-neutral-400">
@@ -42,7 +42,7 @@ export default async function Blog() {
 
             {/* Blog Posts Grid */}
             <section className="pb-20">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-8xl 2xl:max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {postMetadata &&
                             postMetadata

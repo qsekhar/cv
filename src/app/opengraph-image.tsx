@@ -1,5 +1,4 @@
 import { ImageResponse } from 'next/og'
-import { AiFillCode } from "react-icons/ai";
 
 // Route segment config
 export const runtime = 'edge'
@@ -21,18 +20,107 @@ export default async function Image() {
       // ImageResponse JSX element
       <div
         style={{
-          fontSize: 128,
-          background: '#000000',
-          color: '#52c211',
+          background: 'linear-gradient(135deg, #0ea5e9 0%, #d946ef 100%)',
           width: '100%',
           height: '100%',
           display: 'flex',
+          flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
+          color: 'white',
+          fontFamily: 'Inter, system-ui, sans-serif',
         }}
       >
-          <AiFillCode />
-          <span style={{ fontSize: 24 }}>{alt}</span>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginBottom: '24px',
+          }}
+        >
+          <div
+            style={{
+              width: '120px',
+              height: '120px',
+              background: 'rgba(255, 255, 255, 0.1)',
+              borderRadius: '24px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '64px',
+              marginRight: '32px',
+            }}
+          >
+            💻
+          </div>
+          <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column' }}>
+            <h1
+              style={{
+                fontSize: '48px',
+                fontWeight: '700',
+                margin: '0',
+                marginBottom: '8px',
+                background: 'linear-gradient(90deg, #ffffff 0%, #e0f2fe 100%)',
+                backgroundClip: 'text',
+                color: 'transparent',
+              }}
+            >
+              Subhra Sekhar Mukherjee
+            </h1>
+            <p
+              style={{
+                fontSize: '28px',
+                fontWeight: '400',
+                margin: '0',
+                opacity: '0.9',
+              }}
+            >
+              Full Stack Developer | Front & Back-End Expert
+            </p>
+          </div>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            gap: '24px',
+            marginTop: '32px',
+          }}
+        >
+          <div
+            style={{
+              background: 'rgba(255, 255, 255, 0.1)',
+              padding: '12px 24px',
+              borderRadius: '12px',
+              fontSize: '18px',
+              fontWeight: '500',
+            }}
+          >
+            12+ Years Experience
+          </div>
+          <div
+            style={{
+              background: 'rgba(255, 255, 255, 0.1)',
+              padding: '12px 24px',
+              borderRadius: '12px',
+              fontSize: '18px',
+              fontWeight: '500',
+            }}
+          >
+            100+ Projects
+          </div>
+          <div
+            style={{
+              background: 'rgba(255, 255, 255, 0.1)',
+              padding: '12px 24px',
+              borderRadius: '12px',
+              fontSize: '18px',
+              fontWeight: '500',
+            }}
+          >
+            Full Stack Expert
+          </div>
+        </div>
       </div>
     ),
     // ImageResponse options

@@ -49,7 +49,7 @@ export default function Footer() {
     return (
         <footer className="bg-neutral-900 text-neutral-300">
             {/* Main Footer */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div className="max-w-8xl 2xl:max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-16">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {/* Brand Section */}
                     <div className="space-y-4">
@@ -145,7 +145,7 @@ export default function Footer() {
 
             {/* Bottom Bar */}
             <div className="border-t border-neutral-800">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <div className="max-w-8xl 2xl:max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-6">
                     <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                         <div className="text-neutral-400 text-sm">
                             © {new Date().getFullYear()} Subhra Sekhar Mukherjee. All rights reserved.
