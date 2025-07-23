@@ -1,186 +1,149 @@
 import dynamic from "next/dynamic";
-import { Roboto_Mono  } from "next/font/google";
-import { CiLinkedin } from "react-icons/ci";
-import { FaGithub, FaWhatsapp, FaDiscord } from "react-icons/fa6";
+import { Inter } from "next/font/google";
 import FadeInWhenVisible from "./components/animations/FadeInWhenVisible";
-import TextAnimationToEntry from "./components/animations/TextAnimationToEntry";
 import GetBlogPostMetadata from "./components/utils/GetBlogPostMetadata";
 import { Metadata } from "./components/interfaces/Post";
-import { LiaBlogSolid } from "react-icons/lia";
 import Link from "next/link";
 
-const TimeLine = dynamic(() => import("./components/TimeLine"));
-const Skills = dynamic(() => import("./components/Skills"));
-const OtherSkills = dynamic(() => import("./components/OtherSkills"));
+const HeroSection = dynamic(() => import("./components/HeroSection"));
 const Projects = dynamic(() => import("./components/Projects"));
+const Skills = dynamic(() => import("./components/Skills"));
 const SayHi = dynamic(() => import("./components/SayHi"));
-const SayHiLink = dynamic(() => import("./components/SayHiLink"));
 
-const stylish = Roboto_Mono ({
-    weight: "400",
+const inter = Inter({
+    weight: ["300", "400", "500", "600", "700"],
     subsets: ["latin"],
 });
 
-
-
 export default async function Home() {
     const postMetadata: Metadata[] = await GetBlogPostMetadata();
-    const postLinks =
-        postMetadata &&
-        postMetadata
-        .sort((a , b) => new Date(b.lastModified).getTime() - new Date(a.lastModified).getTime())
-        .slice(0, 3)
-        .map((meta: Metadata) => (
-            <li key={meta.slug} className="dottedBorder">
-                <Link href={`/blog/posts/${meta.slug}`}><h2 className="text-xl font-bold">{meta.title}</h2></Link>
-                <Link href={`/blog/posts/${meta.slug}`}><h3 className="text-lg font-normal text-lighttext dark:text-darktext truncate">{meta.subtitle}</h3></Link>
-                <Link href={`/blog/posts/${meta.slug}`}><p className="text-sm font-normal text-lighttext dark:text-darktext">{meta.date}</p></Link>
-            </li>
-        ));
+    const recentPosts = postMetadata
+        ?.sort((a, b) => new Date(b.lastModified).getTime() - new Date(a.lastModified).getTime())
+        .slice(0, 3);
 
     return (
-        <div className={stylish.className}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 gap-y-10">
-                <div>
-                    <FadeInWhenVisible delay={1.8}>
-                        <h1>Full Stack Freelancer  & Tech Consultant</h1>
-                    </FadeInWhenVisible>
-                </div>
-                <div className="flex flex-col items-center justify-center">
-                    <FadeInWhenVisible delay={1.8}>
-                        <h3>Since 2012</h3>
-                        <a
-                            href="./SubhraSekharMukherjeeResume.pdf"
-                            download="SubhraSekharMukherjeeResume.pdf"
-                            className="underline decoration-primary decoration-dotted underline-offset-2"
-                        >
-                            Download CV
-                        </a>
+        <div className={inter.className}>
+            {/* Hero Section */}
+            <HeroSection />
 
-                        <Link href="/blog" className="flex gap-2 text-primary items-center">
-                            <LiaBlogSolid size={20} />
-                            <span>My Blog</span>
-                        </Link>
+            {/* Featured Projects Section */}
+            <section className="py-16 sm:py-20 lg:py-24 xl:py-28 bg-white dark:bg-neutral-900/50">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <FadeInWhenVisible delay={0.2}>
+                        <div className="text-center mb-12 sm:mb-16 lg:mb-16">
+                            <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 lg:mb-6">
+                                <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
+                                    Featured Projects
+                                </span>
+                            </h2>
+                            <p className="text-lg sm:text-xl lg:text-xl xl:text-xl text-neutral-600 dark:text-neutral-300 max-w-4xl mx-auto leading-relaxed">
+                                A showcase of innovative solutions I've crafted for clients worldwide
+                            </p>
+                        </div>
                     </FadeInWhenVisible>
-                </div>
-                <div className="md:flex md:flex-col md:items-end">
-                    <FadeInWhenVisible delay={2.5}>
-                        <ul>
-                            {/* <li>
-                                <a
-                                    href="tel:+91 9674540974"
-                                    className="flex items-center gap-2"
-                                >
-                                    {" "}
-                                    <HiOutlinePhone size={20} /> +91
-                                    9674 540 974
-                                </a>
-                            </li>*/}
-                            <li>
-                                <SayHiLink />
-                            </li>
-                            <li className="flex items-center gap-2 mt-1">
-                                <a
-                                    target="_blank"
-                                    href="https://api.whatsapp.com/send?phone=919674540974"
-                                >
-                                    <FaWhatsapp size={20} className="text-primary"/>
-                                </a>
-                                <a
-                                    target="_blank"
-                                    href="https://www.linkedin.com/in/subhra-sekhar-mukherjee"
-                                >
-                                    <CiLinkedin size={20} className="text-primary"/>
-                                </a>
-                                <a
-                                    target="_blank"
-                                    href="https://github.com/qsekhar"
-                                >
-                                    <FaGithub size={20} className="text-primary"/>
-                                </a>
-                                <a
-                                    target="_blank"
-                                    href="https://discordapp.com/users/trozan7550/"
-                                >
-                                    <FaDiscord size={20} className="text-primary"/>
-                                </a>
-                            </li>
-                        </ul>
-                    </FadeInWhenVisible>
-                </div>
-                <div></div>
-                <div className="col-span-2">
-                    <span className="h1">
-                        <TextAnimationToEntry delayOffset={0}>
-                            Subhra Sekhar
-                        </TextAnimationToEntry>
-                    </span>
-                </div>
-                <div>
-                    <span className="h1">
-                        <TextAnimationToEntry delayOffset={1.2}>
-                            Mukherjee
-                        </TextAnimationToEntry>
-                    </span>
-                </div>
-
-                <div></div>
-                <div></div>
-                <div></div>
-                <div className="col-span-2">
-                    <FadeInWhenVisible delay={2}>
-                        <h3 className="my-4">Summary</h3>
-                        <span className="text-lg text-justify indent-8">
-                            Full Stack Developer with 12+ years in the game,
-                            creating and dropping innovative software solutions.
-                            I&lsquo;m all about teaming up with different squads
-                            to deliver fire products that blow clients away.
-                            I&lsquo;ve got mad skills in every part of the
-                            software development cycle, from brainstorming and
-                            design to testing and launching. I&lsquo;m solid in
-                            both front-end and back-end tech and love using my
-                            diverse skills to tackle tough challenges.
-                        </span>
-                    </FadeInWhenVisible>
-                </div>
-                <div></div>
-                <div className="col-span-2 md:col-span-3">
-                    <h3 className="my-4">
-                        A small selection of my work, enjoy!
-                    </h3>
                     <Projects />
+                    <div className="text-center mt-12 sm:mt-16 lg:mt-20">
+                        <Link
+                            href="/projects"
+                            className="inline-flex items-center px-6 sm:px-8 lg:px-8 py-3 sm:py-4 lg:py-4 bg-gradient-to-r from-primary-500 to-secondary-500 text-white text-base sm:text-lg lg:text-lg rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105"
+                        >
+                            View All Projects
+                        </Link>
+                    </div>
                 </div>
-                <div className="col-span-2">
+            </section>
+
+            {/* Skills Preview Section */}
+            <section className="py-16 sm:py-20 lg:py-24 xl:py-28 bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-neutral-800/50 dark:to-neutral-900/50">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <FadeInWhenVisible delay={0.4}>
+                        <div className="text-center mb-12 sm:mb-16 lg:mb-16">
+                            <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 lg:mb-6">
+                                <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
+                                    Technical Expertise
+                                </span>
+                            </h2>
+                            <p className="text-lg sm:text-xl lg:text-xl xl:text-xl text-neutral-600 dark:text-neutral-300 max-w-4xl mx-auto leading-relaxed">
+                                Mastery across the full technology stack with 12+ years of experience
+                            </p>
+                        </div>
+                    </FadeInWhenVisible>
                     <Skills />
                 </div>
+            </section>
 
-                <div className="col-span-2 md:col-span-1 flex flex-col items-start align-middle justify-center">
-                    <OtherSkills />
+            {/* Recent Blog Posts Section */}
+            {recentPosts && recentPosts.length > 0 && (
+                <section className="py-16 sm:py-20 lg:py-24 xl:py-28 bg-white dark:bg-neutral-900/50">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <FadeInWhenVisible delay={0.6}>
+                            <div className="text-center mb-12 sm:mb-16 lg:mb-16">
+                                <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 lg:mb-6">
+                                    <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
+                                        Latest Insights
+                                    </span>
+                                </h2>
+                                <p className="text-lg sm:text-xl lg:text-xl xl:text-xl text-neutral-600 dark:text-neutral-300 max-w-4xl mx-auto leading-relaxed">
+                                    Thoughts and tutorials on modern web development
+                                </p>
+                            </div>
+                        </FadeInWhenVisible>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+                            {recentPosts.map((post, index) => (
+                                <FadeInWhenVisible key={post.slug} delay={0.8 + index * 0.1}>
+                                    <Link href={`/blog/posts/${post.slug}`}>
+                                        <div className="group bg-white dark:bg-neutral-800/50 rounded-2xl p-6 sm:p-8 lg:p-10 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-neutral-100 dark:border-neutral-700/50 h-full">
+                                            <div className="space-y-4 sm:space-y-6">
+                                                <h3 className="text-xl sm:text-2xl lg:text-2xl font-bold group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors leading-tight">
+                                                    {post.title}
+                                                </h3>
+                                                <p className="text-neutral-600 dark:text-neutral-300 line-clamp-3 text-base sm:text-lg lg:text-lg leading-relaxed">
+                                                    {post.subtitle}
+                                                </p>
+                                                <div className="flex items-center justify-between text-sm sm:text-base lg:text-base text-neutral-500 dark:text-neutral-400">
+                                                    <span>{post.date}</span>
+                                                    <span className="text-primary-600 dark:text-primary-400 group-hover:translate-x-1 transition-transform font-medium">
+                                                        Read more →
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </FadeInWhenVisible>
+                            ))}
+                        </div>
+                        
+                        <div className="text-center mt-12 sm:mt-16 lg:mt-20">
+                            <Link
+                                href="/blog"
+                                className="inline-flex items-center px-6 sm:px-8 lg:px-8 py-3 sm:py-4 lg:py-4 bg-gradient-to-r from-primary-500 to-secondary-500 text-white text-base sm:text-lg lg:text-lg rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105"
+                            >
+                                View All Articles
+                            </Link>
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {/* CTA Section */}
+            <section className="py-16 sm:py-20 lg:py-24 xl:py-28 bg-gradient-to-r from-primary-600 to-secondary-600">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <FadeInWhenVisible delay={0.8}>
+                        <div className="space-y-6 sm:space-y-8 lg:space-y-12">
+                            <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
+                                Ready to Start Your Project?
+                            </h2>
+                            <p className="text-lg sm:text-xl lg:text-xl xl:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
+                                Let's discuss how we can bring your vision to life with cutting-edge technology and proven expertise.
+                            </p>
+                            <div className="bg-white dark:bg-neutral-800 rounded-3xl p-6 sm:p-8 lg:p-12 max-w-3xl mx-auto">
+                                <SayHi />
+                            </div>
+                        </div>
+                    </FadeInWhenVisible>
                 </div>
-
-                <div></div>
-                <div className="col-span-2">
-                    <TimeLine />
-                </div>
-
-                {/* <div className='col-span-2 md:col-span-3'>
-        <Testimonials />
-        </div> */}
-
-                
-                <div className="col-span-2 md:col-span-1">
-                    <h3 className="my-4 mb-10">Some of my Articles</h3>
-                    <ul className="flex flex-col gap-2">
-                        {postLinks}
-                    </ul>
-                </div>
-
-                <div className="col-span-2">
-                    <SayHi />
-                </div>
-
-                
-            </div>
+            </section>
         </div>
     );
 }

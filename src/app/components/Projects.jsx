@@ -64,25 +64,24 @@ export default function Projects() {
 
     return (
         <div className="flex flex-col">
-            <div className="w-full flex flex-col sm:flex-row gap-6 mb-4">
-                <div className="w-full md:w-1/4 dottedBorder">
+            <div className="w-full flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12 mb-6 lg:mb-8">
+                <div className="w-full lg:w-1/3 dottedBorder">
                     {
                         projects.map((project, index) => (
                             <div key={index} className="border-primary border-b border-spacing-0 border-dashed last:border-none">
-                              <div className={ [ 'projectTab', 'my-2','cursor-pointer', activeTab === index ? 'active' : ''].join(' ')  } onClick={() => handleTabChange(index)}>
-                                <h4>{project.name}</h4>
-                                <p className="text-sm opacity-90">{project.year} | {project.location}</p>
+                              <div className={ [ 'projectTab', 'my-3 lg:my-4','cursor-pointer', 'p-4 lg:p-6', activeTab === index ? 'active' : ''].join(' ')  } onClick={() => handleTabChange(index)}>
+                                <h4 className="text-lg sm:text-xl lg:text-2xl font-bold">{project.name}</h4>
+                                <p className="text-sm sm:text-base lg:text-lg opacity-90 mt-2">{project.year} | {project.location}</p>
                               </div>
 
-
-                              <div className="block md:hidden">
+                              <div className="block lg:hidden">
                                 <div className={activeTab === index ? "block" : "hidden"}>
-                                  <ul className="">
+                                  <ul className="p-4">
                                       { 
                                         project.urls.map(url => (
-                                            <li key={url}>
+                                            <li key={url} className="mb-2">
                                                 <a
-                                                    className="hover:underline text-sm text-primary font-bold opacity-90 underline-offset-1 decoration-primary"
+                                                    className="hover:underline text-sm sm:text-base text-primary-600 dark:text-primary-400 font-bold opacity-90 underline-offset-1 decoration-primary-600"
                                                     href={url}
                                                     target="_blank"
                                                     rel="nofollow"
@@ -93,7 +92,7 @@ export default function Projects() {
                                         ))
                                       }
                                   </ul>
-                                  <p className="pb-2 indent-2 text-justify">{project.description}</p>
+                                  <p className="pb-4 px-4 text-sm sm:text-base text-neutral-600 dark:text-neutral-300 leading-relaxed text-justify">{project.description}</p>
                                 </div>
                               </div>
                             </div>
@@ -103,20 +102,21 @@ export default function Projects() {
 
                 <div 
                   rel="nofollow"  
-                  className="w-full md:w-3/4 dottedBorder hidden md:flex flex-col justify-center">
+                  className="w-full lg:w-2/3 dottedBorder hidden lg:flex flex-col justify-center p-6 lg:p-8">
                     {
                         projects.map((project, index) => (
                             <motion.div 
                               animate={ activeTab === index ? { opacity: 1, height: "auto" } : { opacity: 0, height: 0} }                           
                               transition={{ duration: 0.3 }}
                               key={index} 
+                              className="space-y-4 lg:space-y-6"
                             >
-                                <ul className="">
+                                <ul className="space-y-2 lg:space-y-3">
                                     { 
                                       project.urls.map(url => (
                                           <li key={url}>
                                               <a
-                                                  className="hover:underline text-sm text-primary font-bold opacity-90 underline-offset-1 decoration-primary"
+                                                  className="hover:underline text-base lg:text-lg text-primary-600 dark:text-primary-400 font-bold opacity-90 underline-offset-1 decoration-primary-600 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
                                                   href={url}
                                                   target="_blank"
                                                   rel="nofollow"
@@ -127,7 +127,7 @@ export default function Projects() {
                                       ))
                                     }
                                 </ul>
-                                <p className="indent-8 text-justify">{project.description}</p>
+                                <p className="text-base lg:text-lg xl:text-xl text-neutral-600 dark:text-neutral-300 leading-relaxed text-justify indent-8">{project.description}</p>
                             </motion.div>
                         ))
                     }
