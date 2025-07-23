@@ -12,9 +12,12 @@ import {
   } from 'next-share'
   
   export default function SocialShare() {
-    const url = 'https://www.subhrasekhar.in'
-    const title = 'Check out new story 🚀'
-  
+    // const url = 'https://www.subhrasekhar.in'
+    // const title = 'Check out new story 🚀'
+    // need to add current url and titles
+    const url = typeof window !== 'undefined' ? window.location.href : '';
+    const title = document.title || 'Subhra Sekhar Mukherjee - Full Stack Developer';
+
     return (
       <div className="flex gap-3">
         <FacebookShareButton url={url} quote={title}>

@@ -1,102 +1,122 @@
 import Image from 'next/image';
-import { HiOutlineStar } from "react-icons/hi";
-import BrainImage  from '../../../public/brain.svg';
 import FadeInWhenVisible from './animations/FadeInWhenVisible';
 
 //make frontend skills dynamic
 const frontendSkills = [
-  { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",rating: 5 },
-  { name: "CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", rating: 5 },
-  { name: "SASS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg", rating: 5 },
-  { name: "Javascript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", rating: 5 },
-  { name: "Typescript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", rating: 3 },
-  { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", rating: 5 },
-  { name: "NextJS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", rating: 4 },
-  { name: "Tailwind", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg", rating: 5 },
-  { name: "Bootstrap", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg", rating: 3 },
-  { name: "less", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/less/less-plain-wordmark.svg", rating: 2 },
-  { name: "Vue", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg", rating: 5 },
-  { name: "Nuxt", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nuxtjs/nuxtjs-original.svg", rating: 3 },
-  { name: "Flutter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg", rating: 3 },
-  { name: "ionic", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ionic/ionic-original.svg", rating: 3 },
-  { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", rating: 2 },
+  { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+  { name: "CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+  { name: "SASS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" },
+  { name: "Javascript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+  { name: "Typescript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+  { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { name: "NextJS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+  { name: "Tailwind", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+  { name: "Bootstrap", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
+  { name: "Less", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/less/less-plain-wordmark.svg" },
+  { name: "Vue", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" },
+  { name: "Nuxt", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nuxtjs/nuxtjs-original.svg" },
+  { name: "Flutter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
+  { name: "Ionic", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ionic/ionic-original.svg" },
+  { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
 ]
 
 const backendSkills = [
-  { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", rating: 5 },
-  { name: "NodeJs", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", rating: 5 },
-  { name: "Express", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg", rating: 5 },
-  { name: "Flask", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg", rating: 4 },
-  { name: "fastApi", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg", rating: 5 },
-  { name: "Symfony", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/symfony/symfony-original.svg", rating: 4 },
-  { name: "Php", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg", rating: 5 },
-  { name: "Yii", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/yii/yii-original.svg", rating: 5 },
-  { name: "Ci", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codeigniter/codeigniter-plain.svg", rating: 5 },
-  { name: "Laravel", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg", rating: 5 },
-  { name: "Django", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg", rating: 5 },
-  { name: "Rest", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/djangorest/djangorest-original.svg", rating: 5 },
-  { name: "Lumen", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/lumen/lumen-original.svg", rating: 5 },
-  { name: "C#", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg", rating: 3 },
-  { name: "Drupal", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/drupal/drupal-plain.svg", rating: 5 },
-] 
+  { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+  { name: "NodeJs", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+  { name: "Express", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+  { name: "Flask", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" },
+  { name: "FastAPI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
+  { name: "Symfony", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/symfony/symfony-original.svg" },
+  { name: "PHP", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
+  { name: "Yii", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/yii/yii-original.svg" },
+  { name: "CodeIgniter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codeigniter/codeigniter-plain.svg" },
+  { name: "Laravel", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" },
+  { name: "Django", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" },
+  { name: "Django REST", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/djangorest/djangorest-original.svg" },
+  { name: "Lumen", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/lumen/lumen-original.svg" },
+  { name: "C#", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" },
+  { name: "Drupal", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/drupal/drupal-plain.svg" },
+]
+
+const databaseSkills = [
+  { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+  { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+  { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+  { name: "Redis", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" },
+  { name: "SQLite", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" },
+]
+
+const toolsSkills = [
+  { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+  { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+  { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" },
+  { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
+  { name: "Nginx", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" },
+  { name: "Postman", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" },
+]
+
+// Combine all skills for ticker tape
+const allSkills = [...frontendSkills, ...backendSkills, ...databaseSkills, ...toolsSkills];
 
 export default function Skills() {
   return (
     <div className='flex flex-col items-center w-full'>
-      <h3 className='my-4'>What I learned so far</h3>
-      <div className='flex justify-center relative w-full gap-10 dottedBorder'>
-        <div className='w-1/2 sm:w-1/3 flex justify-start sm:justify-end z-10'>
-          <ul>
-            <span className='text-xl'>Backend</span>
-            {
-              backendSkills.map((skill, index) => (
-                <li key={index}>
-                  <FadeInWhenVisible delay={index * 0.2}>
-                    <span className='text-lg flex gap-2 my-1 items-center'>
-                      <Image className='hover:filter-none' src={skill.icon} alt={skill.name} width={20} height={20} rel="nofollow"/> 
-                      <span>{skill.name}</span>
-                      <span className='flex opacity-80 text-primary items-center'>
-                        {
-                          Array.from({ length: skill.rating }).map((_, index) => (
-                            <HiOutlineStar key={index} size={10} />
-                          ))
-                        }
-                      </span>
-                    </span>
-                  </FadeInWhenVisible>
-                </li>
-              ))
-            }
-          </ul>
+      <FadeInWhenVisible delay={0.1}>
+        <h3 className='my-8 text-2xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent'>
+          What I learned so far
+        </h3>
+        <p className='text-center text-neutral-600 dark:text-neutral-400 mb-8 max-w-2xl'>
+          A comprehensive showcase of technologies, frameworks, and tools I've mastered throughout my development journey
+        </p>
+      </FadeInWhenVisible>      {/* Ticker Tape Animation */}
+      <FadeInWhenVisible delay={0.2}>
+        <div className="w-full max-w-full overflow-hidden bg-gradient-to-r from-primary-50 to-secondary-50 dark:from-neutral-800 dark:to-neutral-700 py-6 md:py-8 rounded-2xl shadow-lg">          <div 
+            className="flex animate-scroll-mobile sm:animate-scroll hover:animation-paused space-x-4 md:space-x-8"
+            style={{ 
+              width: 'max-content',
+              willChange: 'transform',
+            }}
+          >
+            {/* First set of skills */}
+            {allSkills.map((skill, index) => (
+              <div
+                key={`first-${index}`}
+                className="flex items-center space-x-2 md:space-x-3 bg-white dark:bg-neutral-800 px-3 py-2 md:px-6 md:py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 whitespace-nowrap flex-shrink-0 border border-neutral-100 dark:border-neutral-700"
+              >
+                <Image
+                  src={skill.icon}
+                  alt={skill.name}
+                  width={20}
+                  height={20}
+                  className="md:w-6 md:h-6 flex-shrink-0 filter hover:filter-none transition-all duration-300"
+                />
+                <span className="text-xs md:text-sm font-medium text-neutral-700 dark:text-neutral-200">
+                  {skill.name}
+                </span>
+              </div>
+            ))}
+            
+            {/* Duplicate set for seamless loop */}
+            {allSkills.map((skill, index) => (
+              <div
+                key={`second-${index}`}
+                className="flex items-center space-x-2 md:space-x-3 bg-white dark:bg-neutral-800 px-3 py-2 md:px-6 md:py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 whitespace-nowrap flex-shrink-0 border border-neutral-100 dark:border-neutral-700"
+              >
+                <Image
+                  src={skill.icon}
+                  alt={skill.name}
+                  width={20}
+                  height={20}
+                  className="md:w-6 md:h-6 flex-shrink-0 filter hover:filter-none transition-all duration-300"
+                />
+                <span className="text-xs md:text-sm font-medium text-neutral-700 dark:text-neutral-200">
+                  {skill.name}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className='opacity-20 sm:opacity-100 w-full sm:w-1/3 absolute top-0 left-0 right-0 z-0 sm:relative flex justify-center'>
-          <Image src={BrainImage} alt="skills" width={396} height={486} />
-        </div>
-        <div className='w-1/2 sm:w-1/3 flex justify-end sm:justify-start z-10'>
-          <ul className='text-right'>
-            <span className='text-xl'>Frontend</span>
-            {
-              frontendSkills.map((skill, index) => (
-                <li key={index}>
-                  <FadeInWhenVisible delay={index * 0.2}>
-                    <span className='text-lg text-right flex justify-end gap-2 my-1 items-center'>
-                      <span className='flex opacity-80 text-primary'>
-                        {
-                          Array.from({ length: skill.rating }).map((_, index) => (
-                            <HiOutlineStar key={index} size={10} />
-                          ))
-                        }
-                      </span>
-                      <span>{skill.name}</span>
-                      <Image className='hover:filter-none' src={skill.icon} alt={skill.name} width={20} height={20} rel="nofollow"/>
-                    </span>
-                  </FadeInWhenVisible>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-      </div>
+      </FadeInWhenVisible>
     </div>
   )
 }
