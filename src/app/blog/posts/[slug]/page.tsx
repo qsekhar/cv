@@ -215,7 +215,7 @@ const Post: NextPage<Props> = async (props: Props) => {
                                     <p className="mb-4 sm:mb-5 lg:mb-4 text-white/90 text-sm sm:text-sm lg:text-sm leading-relaxed">
                                         Let's discuss how I can help you build something amazing.
                                     </p>
-                                    <div className="bg-white rounded-xl p-3 sm:p-3 lg:p-3">
+                                    <div className="bg-white dark:bg-slate-900 rounded-xl p-3 sm:p-3 lg:p-3">
                                         <SayHi />
                                     </div>
                                 </div>
