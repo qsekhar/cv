@@ -57,7 +57,7 @@ export default function Footer() {
                             Subhra Sekhar Mukherjee
                         </Link>
                         <p className="text-neutral-400 leading-relaxed">
-                            Full Stack Developer & Tech Consultant with 12+ years of experience 
+                            Full Stack Developer & Tech Consultant with 13+ years of experience 
                             crafting innovative digital solutions.
                         </p>
                         <div className="flex space-x-4">
@@ -115,11 +115,11 @@ export default function Footer() {
                         <h3 className="text-lg font-semibold mb-4 text-white">Get In Touch</h3>
                         <div className="space-y-3">
                             <a
-                                href="mailto:hello@subhrasekhar.in"
+                                href="mailto:qsekhar@gmail.com"
                                 className="flex items-center space-x-3 text-neutral-400 hover:text-primary-400 transition-colors duration-300"
                             >
                                 <FaEnvelope size={16} />
-                                <span>hello@subhrasekhar.in</span>
+                                <span>qsekhar@gmail.com</span>
                             </a>
                             <a
                                 href="https://api.whatsapp.com/send?phone=919674540974"

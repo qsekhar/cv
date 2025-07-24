@@ -96,7 +96,7 @@ export default async function Image() {
               fontWeight: '500',
             }}
           >
-            12+ Years Experience
+            13+ Years Experience
           </div>
           <div
             style={{

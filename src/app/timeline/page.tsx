@@ -58,7 +58,7 @@ export default function TimelinePage() {
                     <FadeInWhenVisible delay={0.6}>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
                             <div className="space-y-2">
-                                <div className="text-3xl md:text-4xl font-bold">12+</div>
+                                <div className="text-3xl md:text-4xl font-bold">13+</div>
                                 <div className="text-lg opacity-90">Years Experience</div>
                             </div>
                             <div className="space-y-2">

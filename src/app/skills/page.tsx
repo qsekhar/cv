@@ -25,7 +25,7 @@ export default function SkillsPage() {
                             </h1>
                             <p className="text-xl md:text-2xl text-lighttext dark:text-darktext max-w-3xl mx-auto leading-relaxed">
                                 A comprehensive overview of my technical expertise across the full 
-                                technology stack, honed through 12+ years of hands-on experience.
+                                technology stack, honed through 13+ years of hands-on experience.
                             </p>
                         </div>
                     </FadeInWhenVisible>
@@ -183,5 +183,5 @@ export default function SkillsPage() {
 
 export const metadata = {
     title: "Skills - Subhra Sekhar Mukherjee",
-    description: "Technical skills and expertise of Subhra Sekhar Mukherjee - Full Stack Developer & Tech Consultant. 12+ years of experience across modern technologies.",
+    description: "Technical skills and expertise of Subhra Sekhar Mukherjee - Full Stack Developer & Tech Consultant. 13+ years of experience across modern technologies.",
 };

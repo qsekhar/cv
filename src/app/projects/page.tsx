@@ -34,18 +34,6 @@ export default function ProjectsPage() {
             {/* Projects Section */}
             <section className="py-20 bg-white dark:bg-neutral-900">
                 <div className="max-w-8xl 2xl:max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
-                    <FadeInWhenVisible delay={0.4}>
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-lighttext dark:text-darktext">
-                                Featured Work
-                            </h2>
-                            <p className="text-lg text-lighttext dark:text-darktext max-w-2xl mx-auto">
-                                From startups to enterprise solutions, each project represents a unique 
-                                challenge solved with cutting-edge technology and creative thinking.
-                            </p>
-                        </div>
-                    </FadeInWhenVisible>
-                    
                     <Projects />
                 </div>
             </section>
@@ -66,35 +54,50 @@ export default function ProjectsPage() {
                         </div>
                     </FadeInWhenVisible>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                         {[
-                            { name: "React", color: "from-blue-400 to-blue-600" },
-                            { name: "Next.js", color: "from-gray-700 to-gray-900" },
-                            { name: "Node.js", color: "from-green-400 to-green-600" },
-                            { name: "Python", color: "from-yellow-400 to-yellow-600" },
-                            { name: "TypeScript", color: "from-blue-500 to-blue-700" },
-                            { name: "MongoDB", color: "from-green-500 to-green-700" },
-                            { name: "PostgreSQL", color: "from-blue-600 to-blue-800" },
-                            { name: "Docker", color: "from-blue-400 to-blue-600" },
-                            { name: "AWS", color: "from-orange-400 to-orange-600" },
-                            { name: "GraphQL", color: "from-pink-400 to-pink-600" },
-                            { name: "Redis", color: "from-red-400 to-red-600" },
-                            { name: "Kubernetes", color: "from-blue-500 to-indigo-600" },
+                            { name: "React", icon: "⚛️", color: "from-blue-400 to-cyan-500", description: "Frontend Library" },
+                            { name: "Next.js", icon: "▲", color: "from-gray-700 to-black", description: "React Framework" },
+                            { name: "Node.js", icon: "💚", color: "from-green-500 to-green-600", description: "Backend Runtime" },
+                            { name: "Python", icon: "🐍", color: "from-yellow-400 to-blue-500", description: "Programming Language" },
+                            { name: "TypeScript", icon: "📘", color: "from-blue-600 to-blue-700", description: "Type Safety" },
+                            { name: "MongoDB", icon: "🍃", color: "from-green-600 to-green-700", description: "NoSQL Database" },
+                            { name: "PostgreSQL", icon: "🐘", color: "from-blue-700 to-indigo-600", description: "SQL Database" },
+                            { name: "Docker", icon: "🐳", color: "from-blue-500 to-blue-600", description: "Containerization" },
+                            { name: "AWS", icon: "☁️", color: "from-orange-400 to-orange-600", description: "Cloud Platform" },
+                            { name: "GraphQL", icon: "🔗", color: "from-pink-500 to-purple-600", description: "Query Language" },
+                            { name: "Redis", icon: "🔴", color: "from-red-500 to-red-600", description: "In-Memory DB" },
+                            { name: "Kubernetes", icon: "⚙️", color: "from-blue-600 to-indigo-700", description: "Orchestration" },
                         ].map((tech, index) => (
                             <FadeInWhenVisible key={tech.name} delay={0.8 + index * 0.1}>
-                                <div className="bg-white dark:bg-neutral-800 rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                                    <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br ${tech.color} flex items-center justify-center`}>
-                                        <span className="text-white font-bold text-lg">
-                                            {tech.name.charAt(0)}
-                                        </span>
+                                <div className="group relative">
+                                    <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-600 to-secondary-600 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-300"></div>
+                                    <div className="relative bg-white dark:bg-neutral-800 rounded-2xl p-6 h-full flex flex-col items-center text-center space-y-4 shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-2">
+                                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${tech.color} flex items-center justify-center text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                                            {tech.icon}
+                                        </div>
+                                        <div className="space-y-2">
+                                            <h3 className="text-xl font-bold text-lighttext dark:text-darktext group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-300">
+                                                {tech.name}
+                                            </h3>
+                                            <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
+                                                {tech.description}
+                                            </p>
+                                        </div>
+                                        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-600 to-secondary-600 rounded-b-2xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
                                     </div>
-                                    <h3 className="font-semibold text-lighttext dark:text-darktext">
-                                        {tech.name}
-                                    </h3>
                                 </div>
                             </FadeInWhenVisible>
                         ))}
                     </div>
+
+                    <FadeInWhenVisible delay={1.5}>
+                        <div className="mt-16 text-center">
+                            <p className="text-lg text-lighttext dark:text-darktext opacity-80">
+                                ...and many more technologies in my toolkit
+                            </p>
+                        </div>
+                    </FadeInWhenVisible>
                 </div>
             </section>
 

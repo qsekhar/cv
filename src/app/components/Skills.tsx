@@ -62,61 +62,64 @@ export default function Skills() {
   return (
     <div className='flex flex-col items-center w-full'>
       <FadeInWhenVisible delay={0.1}>
-        <h3 className='my-8 text-2xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent'>
-          What I learned so far
-        </h3>
         <p className='text-center text-neutral-600 dark:text-neutral-400 mb-8 max-w-2xl'>
           A comprehensive showcase of technologies, frameworks, and tools I've mastered throughout my development journey
         </p>
       </FadeInWhenVisible>      {/* Ticker Tape Animation */}
-      <FadeInWhenVisible delay={0.2}>
-        <div className="w-full max-w-full overflow-hidden bg-gradient-to-r from-primary-50 to-secondary-50 dark:from-neutral-800 dark:to-neutral-700 py-6 md:py-8 rounded-2xl shadow-lg">          <div 
-            className="flex animate-scroll-mobile sm:animate-scroll hover:animation-paused space-x-4 md:space-x-8"
-            style={{ 
-              width: 'max-content',
-              willChange: 'transform',
-            }}
-          >
-            {/* First set of skills */}
-            {allSkills.map((skill, index) => (
-              <div
-                key={`first-${index}`}
-                className="flex items-center space-x-2 md:space-x-3 bg-white dark:bg-neutral-800 px-3 py-2 md:px-6 md:py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 whitespace-nowrap flex-shrink-0 border border-neutral-100 dark:border-neutral-700"
-              >
-                <Image
-                  src={skill.icon}
-                  alt={skill.name}
-                  width={20}
-                  height={20}
-                  className="md:w-6 md:h-6 flex-shrink-0 filter hover:filter-none transition-all duration-300"
-                />
-                <span className="text-xs md:text-sm font-medium text-neutral-700 dark:text-neutral-200">
-                  {skill.name}
-                </span>
-              </div>
-            ))}
-            
-            {/* Duplicate set for seamless loop */}
-            {allSkills.map((skill, index) => (
-              <div
-                key={`second-${index}`}
-                className="flex items-center space-x-2 md:space-x-3 bg-white dark:bg-neutral-800 px-3 py-2 md:px-6 md:py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 whitespace-nowrap flex-shrink-0 border border-neutral-100 dark:border-neutral-700"
-              >
-                <Image
-                  src={skill.icon}
-                  alt={skill.name}
-                  width={20}
-                  height={20}
-                  className="md:w-6 md:h-6 flex-shrink-0 filter hover:filter-none transition-all duration-300"
-                />
-                <span className="text-xs md:text-sm font-medium text-neutral-700 dark:text-neutral-200">
-                  {skill.name}
-                </span>
-              </div>
-            ))}
+
+      <div className='w-full mx-auto'>
+        <FadeInWhenVisible delay={0.2}>
+          <div className="w-full max-w-full overflow-hidden bg-gradient-to-r from-primary-50 to-secondary-50 dark:from-neutral-800 dark:to-neutral-700 py-6 md:py-8 rounded-2xl shadow-lg opacity-90">          <div 
+              className="flex animate-scroll-mobile sm:animate-scroll hover:animation-paused space-x-4 md:space-x-8"
+              style={{ 
+                width: 'max-content',
+                willChange: 'transform',
+              }}
+            >
+              {/* First set of skills */}
+              {allSkills.map((skill, index) => (
+                <div
+                  key={`first-${index}`}
+                  className="flex items-center space-x-2 md:space-x-3 bg-white dark:bg-neutral-800 px-3 py-2 md:px-6 md:py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 whitespace-nowrap flex-shrink-0 border border-neutral-100 dark:border-neutral-700"
+                >
+                  <Image
+                    src={skill.icon}
+                    alt={skill.name}
+                    width={20}
+                    height={20}
+                    className="md:w-6 md:h-6 flex-shrink-0 filter hover:filter-none transition-all duration-300"
+                  />
+                  <span className="text-xs md:text-sm font-medium text-neutral-700 dark:text-neutral-200">
+                    {skill.name}
+                  </span>
+                </div>
+              ))}
+              
+              {/* Duplicate set for seamless loop */}
+              {allSkills.map((skill, index) => (
+                <div
+                  key={`second-${index}`}
+                  className="flex items-center space-x-2 md:space-x-3 bg-white dark:bg-neutral-800 px-3 py-2 md:px-6 md:py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 whitespace-nowrap flex-shrink-0 border border-neutral-100 dark:border-neutral-700"
+                >
+                  <Image
+                    src={skill.icon}
+                    alt={skill.name}
+                    width={20}
+                    height={20}
+                    className="md:w-6 md:h-6 flex-shrink-0 filter hover:filter-none transition-all duration-300"
+                  />
+                  <span className="text-xs md:text-sm font-medium text-neutral-700 dark:text-neutral-200">
+                    {skill.name}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </FadeInWhenVisible>
+        </FadeInWhenVisible>
+
+      </div>
+
+      
     </div>
   )
 }
