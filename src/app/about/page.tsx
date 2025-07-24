@@ -23,7 +23,7 @@ export default function AboutPage() {
                                 </h1>
                                 <p className="text-xl md:text-2xl text-lighttext dark:text-darktext leading-relaxed">
                                     Hi, I'm Subhra Sekhar Mukherjee, a passionate Full Stack Developer 
-                                    and Tech Consultant with over 12 years of experience crafting 
+                                    and Tech Consultant with over 13 years of experience crafting 
                                     innovative digital solutions.
                                 </p>
                                 <div className="flex flex-wrap gap-4">
@@ -77,7 +77,7 @@ export default function AboutPage() {
                             <p>
                                 My journey in technology began over a decade ago with a simple fascination: 
                                 how could lines of code transform into powerful, user-friendly applications 
-                                that solve real-world problems? This curiosity has driven me through 12+ 
+                                that solve real-world problems? This curiosity has driven me through 13+ 
                                 years of continuous learning, building, and innovating in the ever-evolving 
                                 landscape of web development.
                             </p>
@@ -183,7 +183,7 @@ export default function AboutPage() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <FadeInWhenVisible delay={2.2}>
                             <div className="text-center">
-                                <div className="text-4xl md:text-5xl font-bold text-primary-600 mb-4">12+</div>
+                                <div className="text-4xl md:text-5xl font-bold text-primary-600 mb-4">13+</div>
                                 <h3 className="text-xl font-semibold mb-2 text-lighttext dark:text-darktext">Years of Experience</h3>
                                 <p className="text-lighttext dark:text-darktext">
                                     Over a decade of hands-on development across various technologies and industries
@@ -250,5 +250,5 @@ export default function AboutPage() {
 
 export const metadata = {
     title: "About - Subhra Sekhar Mukherjee",
-    description: "Learn about Subhra Sekhar Mukherjee - Full Stack Developer & Tech Consultant with 12+ years of experience in creating innovative digital solutions.",
+    description: "Learn about Subhra Sekhar Mukherjee - Full Stack Developer & Tech Consultant with 13+ years of experience in creating innovative digital solutions.",
 };

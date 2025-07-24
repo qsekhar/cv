@@ -15,8 +15,8 @@ const contactMethods = [
         icon: FaEnvelope,
         title: "Email",
         description: "Drop me a line anytime",
-        value: "hello@subhrasekhar.in",
-        href: "mailto:hello@subhrasekhar.in",
+        value: "qsekhar@gmail.com",
+        href: "mailto:qsekhar@gmail.com",
         color: "from-blue-500 to-blue-600"
     },
     {

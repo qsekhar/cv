@@ -122,7 +122,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="max-w-4xl mx-auto text-lg sm:text-xl lg:text-xl xl:text-xl text-neutral-600 dark:text-neutral-300 leading-relaxed"
           >
-            Crafting innovative digital solutions with 12+ years of experience.
+            Crafting innovative digital solutions with 13+ years of experience.
             Specializing in modern web technologies and scalable architectures
             that drive business success.
           </motion.p>
@@ -134,7 +134,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="inline-flex items-center px-6 sm:px-8 lg:px-8 py-3 sm:py-4 lg:py-4 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-full font-semibold shadow-lg"
           >
-            <span className="text-lg sm:text-xl lg:text-lg">12+ Years Experience</span>
+            <span className="text-lg sm:text-xl lg:text-lg">13+ Years Experience</span>
             <span className="ml-2 text-2xl sm:text-3xl lg:text-2xl">🚀</span>
           </motion.div>
 

@@ -4,25 +4,28 @@ import { motion } from "framer-motion";
 
 const projects = [
     {
-        name: "Wifi Software",
-        description:
-            "A management platform for a public WiFi provider, using Django REST Framework and React.js. The Django REST Framework handles the backend, offering a robust, secure, and scalable API for managing user data, network settings, and service analytics. Next.js powers the frontend, providing a dynamic, responsive, and user-friendly interface. This platform allows administrators to efficiently oversee and manage public WiFi networks, offering features such as user authentication, real-time network monitoring, and detailed usage reports. App.B-Connect.co.uk ensures a seamless and efficient management experience for both providers and users.",
+        name: "WiFi Management Platform",
+        description: "A comprehensive management platform for public WiFi providers, featuring real-time network monitoring, user authentication, and detailed analytics. Built with Django REST Framework for robust backend operations and React.js for dynamic frontend experience.",
         urls: ["https://app.b-connect.co.uk"],
         year: '2024',
         location: "London, United Kingdom",
+        tech: ["Django", "React", "PostgreSQL", "Redis"],
+        category: "Full Stack",
+        color: "from-blue-500 to-cyan-500"
     },
     {
-        name: "Net Zero Now",
-        description:
-            "A sophisticated web application using Laravel and Vue.js. The Laravel framework powers the backend, ensuring secure and efficient server-side operations, while Vue.js provides a dynamic and interactive frontend experience. NetZeroNow.org is designed to support environmental sustainability initiatives, offering users tools and resources to contribute to achieving net-zero carbon emissions. The platform is intuitive, responsive, and scalable, making it a valuable resource for individuals and organizations committed to environmental responsibility.",
+        name: "Net Zero Initiative",
+        description: "A sophisticated sustainability platform supporting environmental initiatives with tools and resources for achieving net-zero carbon emissions. Features intuitive dashboards and scalable architecture for organizations worldwide.",
         urls: ["https://netzeronow.org"],
         year: '2024',
         location: "London, United Kingdom",
+        tech: ["Laravel", "Vue.js", "MySQL", "AWS"],
+        category: "Web Application",
+        color: "from-green-500 to-emerald-500"
     },
     {
-        name: "Medical Exams Sites",
-        description:
-            " Five advanced medical exam preparation websites, leveraging Laravel for the API and backend, and Angular for the frontend. These platforms enable medical students to prepare for their exams in real-time, offering a vast database of questions. The Laravel framework ensures a secure and scalable backend, handling all server-side operations efficiently. Meanwhile, Angular provides a responsive and interactive user interface, allowing students to access practice exams, track their progress, and receive instant feedback. These websites are designed to facilitate effective study and preparation for medical students",
+        name: "Medical Exam Preparation Suite",
+        description: "Five advanced medical exam preparation platforms enabling real-time practice with vast question databases. Features progress tracking, instant feedback, and comprehensive analytics for medical students.",
         urls: [
             "https://mrcemexamprep.net",
             "https://frcrexamprep.co.uk",
@@ -32,177 +35,147 @@ const projects = [
         ],
         year: "2017 - 2024",
         location: "London, United Kingdom",
+        tech: ["Laravel", "Angular", "MySQL", "Docker"],
+        category: "Education Platform",
+        color: "from-purple-500 to-pink-500"
     },
     {
-        name: "E-commerce",
-        description:
-            "An e-commerce platform using PrestaShop, specifically designed for selling wire stripper machines. PrestaShop powers the backend, ensuring a robust, secure, and scalable environment for managing products, orders, and customer interactions. The site features a user-friendly interface, making it easy for customers to browse, select, and purchase high-quality wire stripper machines. RedDogZone.com offers a seamless shopping experience, complete with detailed product descriptions, secure payment options, and efficient customer service, catering to both individual and industrial needs.",
+        name: "E-commerce Solutions",
+        description: "Specialized e-commerce platforms for industrial equipment sales, featuring secure payment processing, inventory management, and customer service integration. Optimized for both individual and bulk purchases.",
         urls: [
             "https://www.bluedogwirestripper.com/",
             "https://reddogzone.com/",
         ],
         year: "2015 - 2017",
         location: "Ontario, Canada",
+        tech: ["PrestaShop", "PHP", "MySQL", "PayPal"],
+        category: "E-commerce",
+        color: "from-orange-500 to-red-500"
     },
     {
-        name: "Hotel booking system",
-        description:
-            "A web application using core PHP. This platform is designed to connect users with nature houses and vacation rentals, offering a seamless and intuitive experience for finding and booking unique accommodations. The core PHP backend ensures robust performance and efficient handling of server-side operations, while delivering a responsive and user-friendly interface. Natuurhuisje.nl caters to nature enthusiasts, providing a comprehensive database of rental properties that promote sustainable tourism and eco-friendly travel.",
+        name: "Nature House Booking",
+        description: "Eco-friendly vacation rental platform connecting users with unique nature accommodations. Promotes sustainable tourism with comprehensive property listings and seamless booking experience.",
         urls: ["https://www.natuurhuisje.nl"],
         year: "2012 - 2014",
-        location: "Netherland",
+        location: "Netherlands",
+        tech: ["Core PHP", "MySQL", "jQuery", "CSS3"],
+        category: "Travel & Tourism",
+        color: "from-teal-500 to-green-500"
     },
+    {
+        name: 'Corpus Setup Helper For G-Suite',
+        description: "A specialized tool for setting up Google Workspace (formerly G Suite) accounts, streamlining the process of configuring user accounts, email settings, and security features for organizations.",
+        urls: ["https://chromewebstore.google.com/detail/corpus-setup-helper-for-g/lnhbffdmnngondikaagohfjjhgjbdioi"],
+        year: "2025",
+        location: "Remote",
+        tech: ["Chrome Extension", "JavaScript", "TypeScript", "HTML", "CSS"],
+        category: "Productivity Tool",
+        color: "from-indigo-500 to-violet-500"
+    }
 ];
 
 export default function Projects() {
-    const [ activeTab, setActivetab ] = useState(1);
-
-    function handleTabChange(index) {
-        setActivetab(index);
-    }
-
+    const [hoveredCard, setHoveredCard] = useState(null);
 
     return (
-        <div className="flex flex-col max-w-8xl 2xl:max-w-9xl mx-auto">
-            <div className="w-full flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12 mb-6 lg:mb-8">
-                <div className="w-full lg:w-1/3 dottedBorder rounded-2xl lg:rounded-3xl 2xl:rounded-3xl">
-                    {
-                        projects.map((project, index) => (
-                            <div key={index} className="border-primary border-b border-spacing-0 border-dashed last:border-none rounded-lg lg:rounded-xl 2xl:rounded-2xl">
-                              <motion.div 
-                                className={ [ 'projectTab', 'my-3 lg:my-4','cursor-pointer', 'p-4 lg:p-6', activeTab === index ? 'active' : ''].join(' ')  } 
-                                onClick={() => handleTabChange(index)}
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                                transition={{ duration: 0.2 }}
-                              >
-                                <motion.h4 
-                                  className="text-lg sm:text-xl lg:text-2xl font-bold"
-                                  animate={activeTab === index ? { x: 4 } : { x: 0 }}
-                                  transition={{ duration: 0.3 }}
-                                >
-                                  {project.name}
-                                </motion.h4>
-                                <motion.p 
-                                  className="text-sm sm:text-base lg:text-lg opacity-90 mt-2"
-                                  animate={activeTab === index ? { x: 4 } : { x: 0 }}
-                                  transition={{ duration: 0.3, delay: 0.05 }}
-                                >
-                                  {project.year} | {project.location}
-                                </motion.p>
-                              </motion.div>
-
-                              <div className="block lg:hidden overflow-hidden">
-                                <motion.div 
-                                  initial={{ height: 0, opacity: 0 }}
-                                  animate={
-                                    activeTab === index 
-                                      ? { height: "auto", opacity: 1 } 
-                                      : { height: 0, opacity: 0 }
-                                  }
-                                  transition={{ duration: 0.4, ease: "easeInOut" }}
-                                  className="overflow-hidden"
-                                >
-                                  <motion.ul 
-                                    className="p-4"
-                                    initial={{ y: -20, opacity: 0 }}
-                                    animate={activeTab === index ? { y: 0, opacity: 1 } : { y: -20, opacity: 0 }}
-                                    transition={{ duration: 0.3, delay: 0.1 }}
-                                  >
-                                      { 
-                                        project.urls.map((url, urlIndex) => (
-                                            <motion.li 
-                                              key={url} 
-                                              className="mb-2"
-                                              initial={{ x: -20, opacity: 0 }}
-                                              animate={activeTab === index ? { x: 0, opacity: 1 } : { x: -20, opacity: 0 }}
-                                              transition={{ duration: 0.3, delay: 0.2 + urlIndex * 0.1 }}
-                                            >
-                                                <a
-                                                    className="hover:underline text-sm sm:text-base text-primary-600 dark:text-primary-400 font-bold opacity-90 underline-offset-1 decoration-primary-600 hover:scale-105 inline-block transform transition-transform"
-                                                    href={url}
-                                                    target="_blank"
-                                                    rel="nofollow"
-                                                >
-                                                    {url}
-                                                </a>
-                                            </motion.li>
-                                        ))
-                                      }
-                                  </motion.ul>
-                                  <motion.p 
-                                    className="pb-4 px-4 text-sm sm:text-base text-neutral-600 dark:text-neutral-300 leading-relaxed text-justify"
-                                    initial={{ y: 20, opacity: 0 }}
-                                    animate={activeTab === index ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
-                                    transition={{ duration: 0.4, delay: 0.3 }}
-                                  >
-                                    {project.description}
-                                  </motion.p>
-                                </motion.div>
-                              </div>
+        <div className="max-w-8xl 2xl:max-w-9xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                {projects.map((project, index) => (
+                    <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: index * 0.1 }}
+                        onHoverStart={() => setHoveredCard(index)}
+                        onHoverEnd={() => setHoveredCard(null)}
+                        className="group relative"
+                    >
+                        {/* Gradient Background */}
+                        <div className={`absolute -inset-0.5 bg-gradient-to-r ${project.color} rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-500`}></div>
+                        
+                        {/* Main Card */}
+                        <div className="relative bg-white dark:bg-neutral-800 rounded-3xl p-8 h-full shadow-xl group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
+                            {/* Header */}
+                            <div className="flex items-start justify-between mb-6">
+                                <div className="flex-1">
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <div className={`w-4 h-4 rounded-full bg-gradient-to-r ${project.color}`}></div>
+                                        <span className="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">
+                                            {project.category}
+                                        </span>
+                                    </div>
+                                    <h3 className="text-2xl lg:text-3xl font-bold text-lighttext dark:text-darktext mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-300">
+                                        {project.name}
+                                    </h3>
+                                    <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
+                                        {project.year} • {project.location}
+                                    </p>
+                                </div>
                             </div>
-                        ))
-                    }
-                </div>
 
-                <div 
-                  rel="nofollow"  
-                  className="w-full lg:w-2/3 dottedBorder rounded-2xl lg:rounded-3xl 2xl:rounded-3xl hidden lg:flex flex-col justify-center p-6 lg:p-8 project-content">
-                    {
-                        projects.map((project, index) => (
-                            <motion.div 
-                              key={index}
-                              initial={{ opacity: 0, y: 20, height: 0 }}
-                              animate={ 
-                                activeTab === index 
-                                  ? { opacity: 1, y: 0, height: "auto" } 
-                                  : { opacity: 0, y: -20, height: 0 }
-                              }                           
-                              transition={{ 
-                                duration: 0.4, 
-                                ease: "easeInOut",
-                                height: { duration: 0.3 }
-                              }}
-                              className={`space-y-4 lg:space-y-6 overflow-hidden ${activeTab === index ? 'block' : 'hidden'}`}
-                            >
-                                <motion.ul 
-                                  initial={{ opacity: 0, x: -20 }}
-                                  animate={activeTab === index ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                                  transition={{ duration: 0.5, delay: 0.1 }}
-                                  className="space-y-2 lg:space-y-3"
-                                >
-                                    { 
-                                      project.urls.map((url, urlIndex) => (
-                                          <motion.li 
+                            {/* Tech Stack */}
+                            <div className="flex flex-wrap gap-2 mb-6">
+                                {project.tech.map((tech, techIndex) => (
+                                    <motion.span
+                                        key={tech}
+                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        transition={{ duration: 0.3, delay: index * 0.1 + techIndex * 0.05 }}
+                                        className={`px-3 py-1 text-xs font-semibold rounded-full bg-gradient-to-r ${project.color} text-white shadow-lg`}
+                                    >
+                                        {tech}
+                                    </motion.span>
+                                ))}
+                            </div>
+
+                            {/* Description */}
+                            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-justify">
+                                {project.description}
+                            </p>
+
+                            {/* URLs */}
+                            <div className="space-y-3">
+                                <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">
+                                    Live Projects
+                                </h4>
+                                <div className="space-y-2">
+                                    {project.urls.map((url, urlIndex) => (
+                                        <motion.div
                                             key={url}
-                                            initial={{ opacity: 0, x: -10 }}
-                                            animate={activeTab === index ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
-                                            transition={{ duration: 0.3, delay: 0.2 + urlIndex * 0.1 }}
-                                          >
-                                              <a
-                                                  className="hover:underline text-base lg:text-lg text-primary-600 dark:text-primary-400 font-bold opacity-90 underline-offset-1 decoration-primary-600 hover:text-primary-700 dark:hover:text-primary-300 transition-colors hover:scale-105 inline-block transform"
-                                                  href={url}
-                                                  target="_blank"
-                                                  rel="nofollow"
-                                              >
-                                                  {url}
-                                              </a>
-                                          </motion.li>
-                                      ))
-                                    }
-                                </motion.ul>
-                                <motion.p 
-                                  initial={{ opacity: 0, y: 20 }}
-                                  animate={activeTab === index ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                                  transition={{ duration: 0.5, delay: 0.3 }}
-                                  className="text-base lg:text-lg xl:text-xl text-neutral-600 dark:text-neutral-300 leading-relaxed text-justify indent-8"
-                                >
-                                  {project.description}
-                                </motion.p>
-                            </motion.div>
-                        ))
-                    }
-                </div>
+                                            initial={{ opacity: 0, x: -20 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            transition={{ duration: 0.4, delay: index * 0.1 + urlIndex * 0.1 }}
+                                        >
+                                            <a
+                                                href={url}
+                                                target="_blank"
+                                                rel="nofollow"
+                                                className="group/link inline-flex items-center gap-2 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors duration-300"
+                                            >
+                                                <div className="w-2 h-2 rounded-full bg-current opacity-60"></div>
+                                                <span className="font-medium group-hover/link:underline underline-offset-2">
+                                                    {url.replace('https://', '').replace('www.', '')}
+                                                </span>
+                                                <svg className="w-4 h-4 opacity-60 group-hover/link:opacity-100 group-hover/link:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                                </svg>
+                                            </a>
+                                        </motion.div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Hover Effect Indicator */}
+                            <motion.div
+                                className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-600 to-secondary-600 rounded-b-3xl"
+                                initial={{ scaleX: 0 }}
+                                animate={{ scaleX: hoveredCard === index ? 1 : 0 }}
+                                transition={{ duration: 0.3 }}
+                            />
+                        </div>
+                    </motion.div>
+                ))}
             </div>
         </div>
     );
