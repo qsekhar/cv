@@ -4,6 +4,14 @@ import { Metadata as PostMeta } from "../components/interfaces/Post";
 import GetBlogPostMetadata from "../components/utils/GetBlogPostMetadata";
 import SocialShare from "../components/SocialShare";
 import FadeInWhenVisible from "../components/animations/FadeInWhenVisible";
+import { generateCanonicalMetadata } from "../components/utils/CanonicalUrl";
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "Blog - Subhra Sekhar | Web Development Insights",
+    description: "Explore articles about modern web development, tech insights, tutorials, and industry trends from a full-stack developer's perspective.",
+    ...generateCanonicalMetadata('blog')
+};
 
 export default async function Blog() {
     const postMetadata: PostMeta[] = await GetBlogPostMetadata();

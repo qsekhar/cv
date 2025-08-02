@@ -1,6 +1,8 @@
 import dynamic from "next/dynamic";
 import { Inter } from "next/font/google";
 import FadeInWhenVisible from "../components/animations/FadeInWhenVisible";
+import { generateCanonicalMetadata } from "../components/utils/CanonicalUrl";
+import type { Metadata } from 'next';
 
 const Skills = dynamic(() => import("../components/Skills"));
 const OtherSkills = dynamic(() => import("../components/OtherSkills"));
@@ -9,6 +11,12 @@ const inter = Inter({
     weight: ["300", "400", "500", "600", "700"],
     subsets: ["latin"],
 });
+
+export const metadata: Metadata = {
+    title: "Skills - Subhra Sekhar | Technical Expertise",
+    description: "Technical skills and expertise of Subhra Sekhar Mukherjee - Full Stack Developer & Tech Consultant. 13+ years of experience across modern technologies.",
+    ...generateCanonicalMetadata('skills')
+};
 
 export default function SkillsPage() {
     return (
@@ -180,8 +188,3 @@ export default function SkillsPage() {
         </div>
     );
 }
-
-export const metadata = {
-    title: "Skills - Subhra Sekhar Mukherjee",
-    description: "Technical skills and expertise of Subhra Sekhar Mukherjee - Full Stack Developer & Tech Consultant. 13+ years of experience across modern technologies.",
-};

@@ -4,6 +4,8 @@ import FadeInWhenVisible from "./components/animations/FadeInWhenVisible";
 import GetBlogPostMetadata from "./components/utils/GetBlogPostMetadata";
 import { Metadata } from "./components/interfaces/Post";
 import Link from "next/link";
+import { generateCanonicalMetadata } from "./components/utils/CanonicalUrl";
+import type { Metadata as NextMetadata } from 'next';
 
 const HeroSection = dynamic(() => import("./components/HeroSection"));
 const Projects = dynamic(() => import("./components/Projects"));
@@ -14,6 +16,10 @@ const inter = Inter({
     weight: ["300", "400", "500", "600", "700"],
     subsets: ["latin"],
 });
+
+export const metadata: NextMetadata = {
+    ...generateCanonicalMetadata()
+};
 
 export default async function Home() {
     const postMetadata: Metadata[] = await GetBlogPostMetadata();

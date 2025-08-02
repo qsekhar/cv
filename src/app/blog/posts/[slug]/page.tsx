@@ -16,6 +16,7 @@ import { LiaBlogSolid } from "react-icons/lia";
 import SayHi from "@/app/components/SayHi";
 import SocialShare from "@/app/components/SocialShare";
 import FadeInWhenVisible from "@/app/components/animations/FadeInWhenVisible";
+import { generateCanonicalMetadata } from "../../../components/utils/CanonicalUrl";
 
 interface Props {
     params: {
@@ -55,6 +56,7 @@ export async function generateMetadata(
       description: content.data.subtitle,
       publisher: "Subhra Sekhar Mukherjee",
       applicationName: "SSM's Blog",
+      ...generateCanonicalMetadata(`blog/posts/${slug}`)
     }
   }
 
