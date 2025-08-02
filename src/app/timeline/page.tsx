@@ -2,6 +2,8 @@ import dynamic from "next/dynamic";
 import { Inter } from "next/font/google";
 import FadeInWhenVisible from "../components/animations/FadeInWhenVisible";
 import { motion } from "framer-motion";
+import { generateCanonicalMetadata } from "../components/utils/CanonicalUrl";
+import type { Metadata } from 'next';
 
 const TimeLine = dynamic(() => import("../components/TimeLine"));
 
@@ -9,6 +11,12 @@ const inter = Inter({
     weight: ["300", "400", "500", "600", "700"],
     subsets: ["latin"],
 });
+
+export const metadata: Metadata = {
+    title: "Timeline - Subhra Sekhar | Professional Journey",
+    description: "Professional journey and career timeline of Subhra Sekhar Mukherjee - Full Stack Developer & Tech Consultant",
+    ...generateCanonicalMetadata('timeline')
+};
 
 export default function TimelinePage() {
     return (
@@ -80,8 +88,3 @@ export default function TimelinePage() {
         </div>
     );
 }
-
-export const metadata = {
-    title: "Timeline - Subhra Sekhar Mukherjee",
-    description: "Professional journey and career timeline of Subhra Sekhar Mukherjee - Full Stack Developer & Tech Consultant",
-};
