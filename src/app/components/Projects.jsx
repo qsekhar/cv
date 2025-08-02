@@ -71,6 +71,16 @@ const projects = [
         tech: ["Chrome Extension", "JavaScript", "TypeScript", "HTML", "CSS"],
         category: "Productivity Tool",
         color: "from-indigo-500 to-violet-500"
+    },
+    {
+        name: "AI-Powered Face Detection",
+        description: "An advanced face detection system utilizing AI algorithms for real-time recognition and analysis. made for photographers and videographers to enhance their workflow with automated tagging and organization of visual content.",
+        urls: ["http://soorti.com"],
+        year: "2025",
+        location: "Remote",
+        tech: ["Python", "TensorFlow", "OpenCV", "next.js"],
+        category: "AI & Machine Learning",
+        color: "from-pink-500 to-red-500"
     }
 ];
 
