@@ -19,14 +19,14 @@ const contactMethods = [
         href: "mailto:qsekhar@gmail.com",
         color: "from-blue-500 to-blue-600"
     },
-    {
-        icon: FaWhatsapp,
-        title: "WhatsApp",
-        description: "Quick chat or call",
-        value: "+91 9674 540 974",
-        href: "https://api.whatsapp.com/send?phone=919674540974",
-        color: "from-green-500 to-green-600"
-    },
+    // {
+    //     icon: FaWhatsapp,
+    //     title: "WhatsApp",
+    //     description: "Quick chat or call",
+    //     value: "+91 9674 540 974",
+    //     href: "https://api.whatsapp.com/send?phone=919674540974",
+    //     color: "from-green-500 to-green-600"
+    // },
     {
         icon: FaLinkedin,
         title: "LinkedIn",
