@@ -1,7 +1,7 @@
 ---
 title: "Spatial Computing on the Web: Beyond AR/VR"
 subtitle: "How spatial computing technologies are extending beyond traditional AR/VR to create new paradigms for web-based 3D interactions."
-date: "2025-02-05"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 

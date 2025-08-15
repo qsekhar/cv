@@ -1,7 +1,7 @@
 ---
 title: "Rust in the Browser: WebAssembly's Performance Revolution"
 subtitle: "How Rust and WebAssembly are pushing the boundaries of web application performance and enabling new categories of browser-based software."
-date: "2025-01-28"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 

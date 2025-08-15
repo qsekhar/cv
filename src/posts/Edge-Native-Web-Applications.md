@@ -1,7 +1,7 @@
 ---
 title: "Edge-Native Web Applications: Computing at the Periphery"
 subtitle: "How edge computing is reshaping web architecture to bring computation closer to users for ultra-low latency experiences."
-date: "2025-02-12"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 

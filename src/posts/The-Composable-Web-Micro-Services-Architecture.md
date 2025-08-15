@@ -1,7 +1,7 @@
 ---
 title: "The Composable Web: Micro-Services Architecture for Frontend"
 subtitle: "How composable architecture principles are revolutionizing frontend development by enabling modular, reusable, and scalable web applications."
-date: "2025-03-03"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 

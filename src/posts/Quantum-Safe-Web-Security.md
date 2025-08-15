@@ -1,7 +1,7 @@
 ---
 title: "Quantum-Safe Web Security: Preparing for the Post-Quantum Era"
 subtitle: "How web developers can prepare their applications for the quantum computing threat and implement quantum-resistant security measures."
-date: "2025-02-15"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 

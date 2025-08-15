@@ -1,7 +1,7 @@
 ---
 title: "Building Decentralized Real-Time Applications with Blockchain and IPFS"
 subtitle: "A look into how blockchain technology and the InterPlanetary File System (IPFS) are being used to create secure and resilient decentralized real-time applications."
-date: "2025-07-23"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 

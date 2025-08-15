@@ -1,7 +1,7 @@
 ---
 title: "The Quantum Leap in Web Performance"
 subtitle: "How quantum computing is starting to influence and reshape the landscape of web development and performance."
-date: "2025-07-23"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 

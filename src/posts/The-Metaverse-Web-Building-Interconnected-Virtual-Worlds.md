@@ -1,7 +1,7 @@
 ---
 title: "The Metaverse Web: Building Interconnected Virtual Worlds"
 subtitle: "How web technologies are enabling the creation of persistent, interconnected virtual worlds that form the foundation of the metaverse."
-date: "2025-02-18"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 

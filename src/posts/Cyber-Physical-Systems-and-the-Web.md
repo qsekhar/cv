@@ -1,7 +1,7 @@
 ---
 title: "Cyber-Physical Systems and the Web: Bridging the Gap with Real-Time Tech"
 subtitle: "How real-time web technologies are enabling the integration of cyber-physical systems with the web, opening up new possibilities for monitoring and control."
-date: "2025-07-23"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 

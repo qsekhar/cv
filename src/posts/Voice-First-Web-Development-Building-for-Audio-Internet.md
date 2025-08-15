@@ -1,7 +1,7 @@
 ---
 title: "Voice-First Web Development: Building for the Audio Internet"
 subtitle: "How voice interfaces and audio-centric design are creating new paradigms for web application development in the era of smart speakers and voice assistants."
-date: "2025-03-16"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 

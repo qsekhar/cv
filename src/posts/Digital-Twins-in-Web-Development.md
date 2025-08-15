@@ -1,7 +1,7 @@
 ---
 title: "Digital Twins in Web Development: Virtual Replicas of Real Systems"
 subtitle: "How digital twin technology is being implemented in web applications to create virtual replicas of physical systems for monitoring and simulation."
-date: "2025-03-10"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 

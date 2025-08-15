@@ -1,7 +1,7 @@
 ---
 title: "Ethical AI in Real-Time Systems: A Developer's Guide"
 subtitle: "A guide for developers on the ethical considerations of building real-time systems that are powered by artificial intelligence."
-date: "2025-07-23"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "The Role of 5G in Real-Time Web Applications"
 subtitle: "How the rollout of 5G technology is set to impact the development and performance of real-time web applications."
-date: "2025-07-23"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 

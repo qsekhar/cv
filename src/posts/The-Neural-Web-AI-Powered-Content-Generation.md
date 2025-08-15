@@ -1,7 +1,7 @@
 ---
 title: "The Neural Web: AI-Powered Content Generation in Real-Time"
 subtitle: "Exploring how large language models and generative AI are being integrated into web applications for dynamic content creation."
-date: "2025-02-01"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 

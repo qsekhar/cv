@@ -1,7 +1,7 @@
 ---
 title: "WebRTC 2.0: The Future of Real-Time Communication"
 subtitle: "Exploring the latest developments in WebRTC technology and its impact on real-time communication applications."
-date: "2025-01-22"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 
