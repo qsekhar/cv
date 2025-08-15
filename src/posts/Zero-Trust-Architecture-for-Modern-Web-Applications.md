@@ -1,7 +1,7 @@
 ---
 title: "Zero-Trust Architecture for Modern Web Applications"
 subtitle: "Implementing zero-trust security principles in web development to protect against evolving cyber threats."
-date: "2025-01-18"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 

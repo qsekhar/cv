@@ -1,7 +1,7 @@
 ---
 title: "The Future of Frontend: Declarative, AI-Powered, and Composable"
 subtitle: "An overview of the key trends shaping the future of frontend development, including declarative UIs, AI-powered tools, and composable architectures."
-date: "2025-07-23"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 

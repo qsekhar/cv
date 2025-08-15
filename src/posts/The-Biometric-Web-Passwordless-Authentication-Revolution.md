@@ -1,7 +1,7 @@
 ---
 title: "The Biometric Web: Passwordless Authentication Revolution"
 subtitle: "How biometric authentication technologies are eliminating passwords and creating more secure, user-friendly web experiences."
-date: "2025-02-25"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 

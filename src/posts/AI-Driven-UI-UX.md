@@ -1,7 +1,7 @@
 ---
 title: "AI-Driven UI/UX: Personalizing User Experiences in Real-Time"
 subtitle: "How artificial intelligence is being used to create highly personalized and adaptive user interfaces in modern web applications."
-date: "2025-07-23"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 

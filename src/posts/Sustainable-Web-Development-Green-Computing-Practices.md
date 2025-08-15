@@ -1,7 +1,7 @@
 ---
 title: "Sustainable Web Development: Green Computing Practices"
 subtitle: "How developers can build environmentally conscious web applications that minimize energy consumption and carbon footprint."
-date: "2025-02-22"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 

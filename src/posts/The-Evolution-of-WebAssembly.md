@@ -1,7 +1,7 @@
 ---
 title: "The Evolution of WebAssembly: From Performance Booster to Full-Fledged Platform"
 subtitle: "Tracing the journey of WebAssembly from a simple performance enhancement to a versatile platform for running complex applications on the web."
-date: "2025-07-23"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 

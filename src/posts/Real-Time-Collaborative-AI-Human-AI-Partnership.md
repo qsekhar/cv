@@ -1,7 +1,7 @@
 ---
 title: "Real-Time Collaborative AI: Human-AI Partnership in Web Apps"
 subtitle: "Exploring how AI assistants are being integrated into web applications to work alongside users in real-time collaborative scenarios."
-date: "2025-02-28"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 

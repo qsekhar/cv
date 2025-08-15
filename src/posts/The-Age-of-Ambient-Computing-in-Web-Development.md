@@ -1,7 +1,7 @@
 ---
 title: "The Age of Ambient Computing in Web Development"
 subtitle: "How ambient computing is transforming user interactions and creating seamless, context-aware web experiences."
-date: "2025-01-25"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 
