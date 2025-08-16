@@ -54,7 +54,7 @@ export default async function Blog() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {postMetadata &&
                             postMetadata
-                                .sort((a, b) => new Date(b.lastModified).getTime() - new Date(a.lastModified).getTime())
+                                .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
                                 .map((meta: PostMeta, index) => (
                                     <FadeInWhenVisible key={meta.slug} delay={0.3 + index * 0.1}>
                                         <Link href={`/blog/posts/${meta.slug}`}>
