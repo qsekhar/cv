@@ -189,7 +189,7 @@ const Post: NextPage<Props> = async (props: Props) => {
                                     <div className="space-y-3 sm:space-y-3 lg:space-y-3">
                                         {otherLinks &&
                                             otherLinks
-                                                .sort((a, b) => new Date(b.lastModified).getTime() - new Date(a.lastModified).getTime())
+                                                .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
                                                 .slice(0, 5)
                                                 .map((meta: Postmeta) => (
                                                     <Link key={meta.slug} href={`/blog/posts/${meta.slug}`}>

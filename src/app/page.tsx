@@ -24,7 +24,7 @@ export const metadata: NextMetadata = {
 export default async function Home() {
     const postMetadata: Metadata[] = await GetBlogPostMetadata();
     const recentPosts = postMetadata
-        ?.sort((a, b) => new Date(b.lastModified).getTime() - new Date(a.lastModified).getTime())
+        ?.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
         .slice(0, 3);
 
     return (
