@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(url),
   applicationName: title,
   title: title,
-  description: "Hi, I'm Subhra Sekhar – a full-stack web developer specializing in building modern websites, apps, and scalable digital solutions for startups, businesses, and agencies.",
+  description: "Hi, I'm Subhra Sekhar, a fullstack web developer specializing in building modern websites, scalable solutions for startups, businesses, and agencies.",
   ...generateCanonicalMetadata()
 };
 
