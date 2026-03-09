@@ -47,15 +47,35 @@ export async function generateMetadata(
     { params }: Props,
 
   ): Promise<Metadata> {
-    // read route params
     const slug = params.slug
     const content =  matter(await getPostContent(slug));
-   
+    const canonicalUrl = `https://www.subhrasekhar.in/blog/posts/${slug}`;
+    const ogImageUrl = `https://www.subhrasekhar.in/blog/posts/${slug}/opengraph-image`;
+
     return {
-      title: 'Full stack freelancer | ' + content.data.title,
+      title: `${content.data.title} | Subhra Sekhar — Freelance Full Stack Developer`,
       description: content.data.subtitle,
       publisher: "Subhra Sekhar Mukherjee",
       applicationName: "SSM's Blog",
+      authors: [{ name: "Subhra Sekhar Mukherjee", url: "https://www.subhrasekhar.in/about" }],
+      keywords: ["full stack developer", "freelance developer", "web development", "React", "Next.js", ...(content.data.tags || [])],
+      openGraph: {
+        type: "article",
+        title: content.data.title,
+        description: content.data.subtitle,
+        url: canonicalUrl,
+        siteName: "Subhra Sekhar — Freelance Full Stack Developer",
+        publishedTime: content.data.date,
+        modifiedTime: content.data.lastModified || content.data.date,
+        authors: ["Subhra Sekhar Mukherjee"],
+        images: [{ url: ogImageUrl, width: 1200, height: 630, alt: content.data.title }],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: content.data.title,
+        description: content.data.subtitle,
+        images: [ogImageUrl],
+      },
       ...generateCanonicalMetadata(`blog/posts/${slug}`)
     }
   }
@@ -75,15 +95,23 @@ const Post: NextPage<Props> = async (props: Props) => {
 
     const jsonLd = {
         "@context": "https://schema.org",
-        "@type": "NewsArticle",
+        "@type": "Article",
         "headline": content.data.title,
         "description": content.data.subtitle,
         "datePublished": content.data.date,
-        "dateModified": content.data.lastModified,
+        "dateModified": content.data.lastModified || content.data.date,
+        "image": `https://www.subhrasekhar.in/blog/posts/${slug}/opengraph-image`,
+        "url": `https://www.subhrasekhar.in/blog/posts/${slug}`,
         "author": [{
             "@type": "Person",
             "name": "Subhra Sekhar Mukherjee",
-        }]
+            "url": "https://www.subhrasekhar.in/about",
+        }],
+        "publisher": {
+            "@type": "Person",
+            "name": "Subhra Sekhar Mukherjee",
+            "url": "https://www.subhrasekhar.in",
+        }
       }
 
 

@@ -10,8 +10,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-    title: "About Me - Subhra Sekhar | Full Stack Developer",
-    description: "Learn about Subhra Sekhar Mukherjee - Full Stack Developer & Tech Consultant with 13+ years of experience in creating innovative digital solutions.",
+    title: "About — Freelance Full Stack Developer | Subhra Sekhar Mukherjee",
+    description: "Meet Subhra Sekhar Mukherjee — freelance full stack developer with 13+ years of experience building web apps, REST APIs, and SaaS products for startups and businesses worldwide.",
+    keywords: ["freelance full stack developer", "hire full stack developer", "React developer India", "Next.js developer", "web developer Kolkata"],
     ...generateCanonicalMetadata('about')
 };
 

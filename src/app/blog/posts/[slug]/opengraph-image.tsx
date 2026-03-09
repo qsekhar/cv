@@ -28,7 +28,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
     (
       <div
         style={{
-          background: 'linear-gradient(135deg, #0ea5e9 0%, #d946ef 100%)',
+          background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
           width: '100%',
           height: '100%',
           display: 'flex',
