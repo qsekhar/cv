@@ -1,7 +1,7 @@
 ---
 title: "Beyond REST: The Rise of Real-Time APIs"
 subtitle: "Exploring the shift from traditional REST APIs to real-time technologies like GraphQL and WebSockets for modern web applications."
-date: "2025-07-23"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 

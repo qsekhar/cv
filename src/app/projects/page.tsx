@@ -1,6 +1,8 @@
 import dynamic from "next/dynamic";
 import { Inter } from "next/font/google";
 import FadeInWhenVisible from "../components/animations/FadeInWhenVisible";
+import { generateCanonicalMetadata } from "../components/utils/CanonicalUrl";
+import type { Metadata } from 'next';
 
 const Projects = dynamic(() => import("../components/Projects"));
 
@@ -8,6 +10,12 @@ const inter = Inter({
     weight: ["300", "400", "500", "600", "700"],
     subsets: ["latin"],
 });
+
+export const metadata: Metadata = {
+    title: "Projects - Subhra Sekhar | Portfolio Showcase",
+    description: "Portfolio of projects by Subhra Sekhar Mukherjee - Full Stack Developer & Tech Consultant. View innovative solutions across various industries.",
+    ...generateCanonicalMetadata('projects')
+};
 
 export default function ProjectsPage() {
     return (
@@ -135,8 +143,3 @@ export default function ProjectsPage() {
         </div>
     );
 }
-
-export const metadata = {
-    title: "Projects - Subhra Sekhar Mukherjee",
-    description: "Portfolio of projects by Subhra Sekhar Mukherjee - Full Stack Developer & Tech Consultant. View innovative solutions across various industries.",
-};

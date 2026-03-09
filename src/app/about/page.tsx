@@ -1,11 +1,19 @@
 import { Inter } from "next/font/google";
 import FadeInWhenVisible from "../components/animations/FadeInWhenVisible";
 import { FaCode, FaBrain, FaRocket, FaUsers } from "react-icons/fa";
+import { generateCanonicalMetadata } from "../components/utils/CanonicalUrl";
+import type { Metadata } from 'next';
 
 const inter = Inter({
     weight: ["300", "400", "500", "600", "700"],
     subsets: ["latin"],
 });
+
+export const metadata: Metadata = {
+    title: "About Me - Subhra Sekhar | Full Stack Developer",
+    description: "Learn about Subhra Sekhar Mukherjee - Full Stack Developer & Tech Consultant with 13+ years of experience in creating innovative digital solutions.",
+    ...generateCanonicalMetadata('about')
+};
 
 export default function AboutPage() {
     return (
@@ -247,8 +255,3 @@ export default function AboutPage() {
         </div>
     );
 }
-
-export const metadata = {
-    title: "About - Subhra Sekhar Mukherjee",
-    description: "Learn about Subhra Sekhar Mukherjee - Full Stack Developer & Tech Consultant with 13+ years of experience in creating innovative digital solutions.",
-};

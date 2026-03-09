@@ -1,7 +1,7 @@
 ---
 title: "Neuromorphic Computing: Brain-Inspired Web Applications"
 subtitle: "How neuromorphic computing principles are inspiring new approaches to web application design and real-time data processing."
-date: "2025-03-06"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "The Rise of Micro-Frontends in 2025"
 subtitle: "How micro-frontend architecture is revolutionizing large-scale web application development and enabling teams to work independently."
-date: "2025-01-15"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 

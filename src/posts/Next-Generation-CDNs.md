@@ -1,7 +1,7 @@
 ---
 title: "Next-Generation CDNs: Real-Time Content Delivery with Edge Computing"
 subtitle: "Exploring how edge computing is transforming content delivery networks (CDNs) to enable real-time, low-latency content delivery for modern web applications."
-date: "2025-07-23"
+date: "2025-08-02"
 Author: "Subhra Sekhar Mukherjee"
 ---
 

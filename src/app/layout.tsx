@@ -4,6 +4,7 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 import dynamic from "next/dynamic";
 import Script from "next/script";
 import { Inter } from "next/font/google";
+import { generateCanonicalMetadata } from "./components/utils/CanonicalUrl";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,9 +23,9 @@ const jsonLd = {
   "@type": "Person",
   "name": "Subhra Sekhar Mukherjee",
   "url": "https://www.subhrasekhar.in/",
-  "image": "https://www.subhrasekhar.in/opengraph-image?"+ Date.now(),  // Replace your image URL
+  "image": "https://www.subhrasekhar.in/opengraph-image?"+ Date.now(),
   "sameAs": [
-    "https://www.linkedin.com/in/subhra-sekhar-mukherjee",  // update with real links
+    "https://www.linkedin.com/in/subhra-sekhar-mukherjee",
     "https://github.com/qsekhar"
   ],
   "jobTitle": "Full Stack Web Developer & Tech Consultant",
@@ -51,14 +52,16 @@ export const metadata: Metadata = {
   metadataBase: new URL(url),
   applicationName: title,
   title: title,
-  description: "Hi, I’m Subhra Sekhar – a full-stack web developer specializing in building modern websites, apps, and scalable digital solutions for startups, businesses, and agencies.",
+  description: "Hi, I'm Subhra Sekhar, a fullstack web developer specializing in building modern websites, scalable solutions for startups, businesses, and agencies.",
+  ...generateCanonicalMetadata()
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {  return (
+}>) {
+  return (
     <html lang="en" className={inter.className}>
       <head>
         <script
@@ -86,18 +89,17 @@ export default function RootLayout({
             </Container>
           </main>
           <Footer />
-        </ThemeProvider>        <Script
+        </ThemeProvider>
+        <Script
           id="structured-data"
           strategy="afterInteractive"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-      </body>
-      { process.env.NODE_ENV === 'production' && (
-        <>
+        {process.env.NODE_ENV === 'production' && (
           <GoogleAnalytics gaId={gaID} />
-        </>
-      )}
+        )}
+      </body>
     </html>
   );
 }

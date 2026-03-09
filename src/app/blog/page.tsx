@@ -4,6 +4,14 @@ import { Metadata as PostMeta } from "../components/interfaces/Post";
 import GetBlogPostMetadata from "../components/utils/GetBlogPostMetadata";
 import SocialShare from "../components/SocialShare";
 import FadeInWhenVisible from "../components/animations/FadeInWhenVisible";
+import { generateCanonicalMetadata } from "../components/utils/CanonicalUrl";
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "Blog - Subhra Sekhar | Web Development Insights",
+    description: "Explore articles about modern web development, tech insights, tutorials, and industry trends from a full-stack developer's perspective.",
+    ...generateCanonicalMetadata('blog')
+};
 
 export default async function Blog() {
     const postMetadata: PostMeta[] = await GetBlogPostMetadata();
@@ -46,7 +54,7 @@ export default async function Blog() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {postMetadata &&
                             postMetadata
-                                .sort((a, b) => new Date(b.lastModified).getTime() - new Date(a.lastModified).getTime())
+                                .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
                                 .map((meta: PostMeta, index) => (
                                     <FadeInWhenVisible key={meta.slug} delay={0.3 + index * 0.1}>
                                         <Link href={`/blog/posts/${meta.slug}`}>

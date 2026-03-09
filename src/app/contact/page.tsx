@@ -2,6 +2,8 @@ import dynamic from "next/dynamic";
 import { Inter } from "next/font/google";
 import FadeInWhenVisible from "../components/animations/FadeInWhenVisible";
 import { FaWhatsapp, FaLinkedin, FaGithub, FaDiscord, FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+import { generateCanonicalMetadata } from "../components/utils/CanonicalUrl";
+import type { Metadata } from 'next';
 
 const SayHi = dynamic(() => import("../components/SayHi"));
 
@@ -9,6 +11,12 @@ const inter = Inter({
     weight: ["300", "400", "500", "600", "700"],
     subsets: ["latin"],
 });
+
+export const metadata: Metadata = {
+    title: "Contact Me - Subhra Sekhar | Get In Touch",
+    description: "Get in touch with Subhra Sekhar Mukherjee - Full Stack Developer & Tech Consultant. Available for freelance projects and consulting opportunities.",
+    ...generateCanonicalMetadata('contact')
+};
 
 const contactMethods = [
     {
@@ -250,8 +258,3 @@ export default function ContactPage() {
         </div>
     );
 }
-
-export const metadata = {
-    title: "Contact - Subhra Sekhar Mukherjee",
-    description: "Get in touch with Subhra Sekhar Mukherjee - Full Stack Developer & Tech Consultant. Available for freelance projects and consulting opportunities.",
-};
