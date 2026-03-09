@@ -34,21 +34,22 @@ export default function Navigation() {
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-white/90 dark:bg-darkbackground/90 backdrop-blur-md shadow-lg"
+            ? "bg-white/95 dark:bg-neutral-950/95 backdrop-blur-xl shadow-sm border-b border-neutral-200/80 dark:border-white/[0.06]"
             : "bg-transparent"
         }`}
       >
         <div className="max-w-8xl 2xl:max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center h-[60px]">
             {/* Logo */}
             <motion.div
               whileHover={{ scale: 1.05 }}
               className="flex-shrink-0"
             >
-              <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
-                SSM
+              <Link href="/" className="text-xl font-bold tracking-tight">
+                <span className="bg-gradient-to-r from-primary-600 to-secondary-500 dark:from-primary-400 dark:to-secondary-400 bg-clip-text text-transparent">SSM</span>
+                <span className="text-neutral-400 dark:text-neutral-600 font-light">.</span>
               </Link>
             </motion.div>
 
@@ -106,7 +107,7 @@ export default function Navigation() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-white/95 dark:bg-darkbackground/95 backdrop-blur-md border-t border-neutral-200 dark:border-neutral-800"
+              className="md:hidden bg-white/98 dark:bg-neutral-950/98 backdrop-blur-xl border-t border-neutral-200/80 dark:border-white/[0.06]"
             >
               <div className="px-2 pt-2 pb-3 space-y-1">
                 {navItems.map((item) => {
@@ -135,7 +136,7 @@ export default function Navigation() {
       </motion.nav>
       
       {/* Spacer to prevent content from being hidden behind fixed nav */}
-      <div className="h-16" />
+      <div className="h-[60px]" />
     </>
   );
 }
