@@ -4,12 +4,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenu, HiX } from "react-icons/hi";
-import { FaHome, FaUser, FaBriefcase, FaClock, FaBlog, FaEnvelope } from "react-icons/fa";
+import { FaHome, FaUser, FaBriefcase, FaClock, FaBlog, FaEnvelope, FaTools } from "react-icons/fa";
 import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
   { href: "/", label: "Home", icon: FaHome },
   { href: "/about", label: "About", icon: FaUser },
+  { href: "/services", label: "Services", icon: FaTools },
   { href: "/projects", label: "Projects", icon: FaBriefcase },
   { href: "/timeline", label: "Timeline", icon: FaClock },
   { href: "/blog", label: "Blog", icon: FaBlog },
