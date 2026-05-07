@@ -2,7 +2,7 @@ import Link from "next/link";
 import Wrap from "./Wrap";
 
 const navItems = [
-  { href: "/services", label: "Practice" },
+  { href: "/services", label: "Services" },
   { href: "/projects", label: "Work" },
   { href: "/skills", label: "Skills" },
   { href: "/timeline", label: "Timeline" },

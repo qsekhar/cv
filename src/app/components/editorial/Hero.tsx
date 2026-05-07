@@ -8,7 +8,7 @@ export default function Hero({
   lede,
   meta,
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   title: ReactNode;
   lede?: ReactNode;
   meta?: MetaItem[];
@@ -16,9 +16,11 @@ export default function Hero({
   return (
     <section className="bg-navy text-paper border-b-[6px] border-accent">
       <Wrap className="py-9 lg:py-10">
-        <div className="font-mono uppercase tracking-kicker text-[11px] text-accent mb-5">
-          {eyebrow}
-        </div>
+        {eyebrow && (
+          <div className="font-mono uppercase tracking-kicker text-[11px] text-accent mb-5">
+            {eyebrow}
+          </div>
+        )}
         <h1 className="font-serif text-display text-paper">{title}</h1>
         {lede && (
           <p className="mt-5 max-w-[640px] text-paper/80 text-[17px] leading-[1.55] font-sans">

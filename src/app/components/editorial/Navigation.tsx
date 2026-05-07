@@ -6,8 +6,7 @@ import { useState } from "react";
 import Wrap from "./Wrap";
 
 const items = [
-  { href: "/", label: "Index" },
-  { href: "/services", label: "Practice" },
+  { href: "/services", label: "Services" },
   { href: "/projects", label: "Work" },
   { href: "/skills", label: "Skills" },
   { href: "/timeline", label: "Timeline" },

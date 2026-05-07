@@ -10,7 +10,6 @@ import Wrap from "./components/editorial/Wrap";
 import SectionHeader from "./components/editorial/SectionHeader";
 import Card from "./components/editorial/Card";
 
-const Skills = dynamic(() => import("./components/Skills"));
 const Projects = dynamic(() => import("./components/Projects"));
 const Testimonials = dynamic(() => import("./components/Testimonials"));
 const ClosingCTA = dynamic(() => import("./components/ClosingCTA"));
@@ -28,7 +27,6 @@ export default async function Home() {
     return (
     <>
       <Hero
-        eyebrow="Practice · v1.0"
         title="Subhra Sekhar."
         lede="An editorial, engineering-first practice. Full-stack work for teams that care about clarity, calm interfaces, and software that behaves well in the wild."
         meta={[
@@ -61,27 +59,19 @@ export default async function Home() {
         </Wrap>
       </section>
 
-      {/* §03 — Skills */}
+      {/* §03 — Selected work */}
       <section className="py-9 lg:py-10 bg-paper-2">
         <Wrap>
-          <SectionHeader kicker="Section 03" title="Practice." refLabel="§03" />
-          <Skills />
-        </Wrap>
-      </section>
-
-      {/* §04 — Selected work */}
-      <section className="py-9 lg:py-10">
-        <Wrap>
-          <SectionHeader kicker="Section 04" title="Selected work." refLabel="§04" />
+          <SectionHeader kicker="Section 03" title="Selected work." refLabel="§03" />
           <Projects />
         </Wrap>
       </section>
 
-      {/* §05 — Journal */}
+      {/* §04 — Journal */}
       {recentPosts.length > 0 && (
-        <section className="py-9 lg:py-10 bg-paper-2">
+        <section className="py-9 lg:py-10">
           <Wrap>
-            <SectionHeader kicker="Section 05" title="From the journal." refLabel="§05" />
+            <SectionHeader kicker="Section 04" title="From the journal." refLabel="§04" />
             <div className="flex flex-col">
               {recentPosts.map((post, i) => (
                 <Link
@@ -119,15 +109,15 @@ export default async function Home() {
         </section>
       )}
 
-      {/* §06 — Testimonials */}
-      <section className="py-9 lg:py-10">
+      {/* §05 — Testimonials */}
+      <section className="py-9 lg:py-10 bg-paper-2">
         <Wrap>
-          <SectionHeader kicker="Section 06" title="Said about the work." refLabel="§06" />
+          <SectionHeader kicker="Section 05" title="Said about the work." refLabel="§05" />
           <Testimonials />
         </Wrap>
       </section>
 
-      {/* §07 — Closing */}
+      {/* §06 — Closing */}
       <ClosingCTA />
     </>
   );
