@@ -10,11 +10,6 @@
   },
   "dependencies": {
     "@next/third-parties": "^14.2.5",
-    "@nextui-org/accordion": "^2.0.38",
-    "@nextui-org/divider": "^2.0.31",
-    "@tsparticles/engine": "^3.5.0",
-    "@tsparticles/react": "^3.0.0",
-    "@tsparticles/slim": "^3.5.0",
     "framer-motion": "^11.3.17",
     "gray-matter": "^4.0.3",
     "markdown-to-jsx": "^7.4.7",
@@ -24,8 +19,7 @@
     "nodemailer": "^6.9.14",
     "react": "^18",
     "react-dom": "^18",
-    "react-icons": "^5.2.1",
-    "react-type-animation": "^3.2.0"
+    "react-icons": "^5.2.1"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.13",
