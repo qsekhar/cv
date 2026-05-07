@@ -1,7 +1,3 @@
-"use client"
-import { useState } from "react";
-import { motion } from "framer-motion";
-
 const projects = [
     {
         name: "WiFi Management Platform",
@@ -85,108 +81,51 @@ const projects = [
 ];
 
 export default function Projects() {
-    const [hoveredCard, setHoveredCard] = useState(null);
-
     return (
         <div className="max-w-8xl 2xl:max-w-9xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-                {projects.map((project, index) => (
-                    <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: index * 0.1 }}
-                        onHoverStart={() => setHoveredCard(index)}
-                        onHoverEnd={() => setHoveredCard(null)}
-                        className="group relative"
-                    >
-                        {/* Gradient Background */}
-                        <div className={`absolute -inset-0.5 bg-gradient-to-r ${project.color} rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-500`}></div>
-                        
-                        {/* Main Card */}
-                        <div className="relative bg-white dark:bg-neutral-800 rounded-3xl p-8 h-full shadow-xl group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
-                            {/* Header */}
-                            <div className="flex items-start justify-between mb-6">
-                                <div className="flex-1">
-                                    <div className="flex items-center gap-3 mb-2">
-                                        <div className={`w-4 h-4 rounded-full bg-gradient-to-r ${project.color}`}></div>
-                                        <span className="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">
-                                            {project.category}
-                                        </span>
-                                    </div>
-                                    <h3 className="text-2xl lg:text-3xl font-bold text-lighttext dark:text-darktext mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-300">
-                                        {project.name}
-                                    </h3>
-                                    <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
-                                        {project.year} • {project.location}
-                                    </p>
-                                </div>
-                            </div>
+            {projects.map((project, i) => (
+                <article
+                    key={project.name}
+                    className={`grid grid-cols-1 md:grid-cols-[80px_1fr_auto] gap-4 md:gap-7 py-7${i !== 0 ? " border-t border-line" : ""}`}
+                >
+                    <div className="font-mono text-[11px] tracking-label text-muted uppercase">
+                        {String(i + 1).padStart(2, "0")}
+                    </div>
 
-                            {/* Tech Stack */}
-                            <div className="flex flex-wrap gap-2 mb-6">
-                                {project.tech.map((tech, techIndex) => (
-                                    <motion.span
-                                        key={tech}
-                                        initial={{ opacity: 0, scale: 0.8 }}
-                                        whileInView={{ opacity: 1, scale: 1 }}
-                                        transition={{ duration: 0.3, delay: index * 0.1 + techIndex * 0.05 }}
-                                        className={`px-3 py-1 text-xs font-semibold rounded-full bg-gradient-to-r ${project.color} text-white shadow-lg`}
+                    <div>
+                        <h3 className="font-serif text-h3 text-ink mb-2">{project.name}</h3>
+                        <p className="text-small text-ink/85 max-w-[60ch] mb-4">{project.description}</p>
+                        {project.tech && project.tech.length > 0 && (
+                            <div className="flex flex-wrap gap-2">
+                                {project.tech.map((t) => (
+                                    <span
+                                        key={t}
+                                        className="font-mono text-[11px] tracking-label text-muted uppercase px-2 py-0.5 border border-line rounded"
                                     >
-                                        {tech}
-                                    </motion.span>
+                                        {t}
+                                    </span>
                                 ))}
                             </div>
+                        )}
+                    </div>
 
-                            {/* Description */}
-                            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-justify">
-                                {project.description}
-                            </p>
-
-                            {/* URLs */}
-                            <div className="space-y-3">
-                                <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">
-                                    Live Projects
-                                </h4>
-                                <div className="space-y-2">
-                                    {project.urls.map((url, urlIndex) => (
-                                        <motion.div
-                                            key={url}
-                                            initial={{ opacity: 0, x: -20 }}
-                                            whileInView={{ opacity: 1, x: 0 }}
-                                            transition={{ duration: 0.4, delay: index * 0.1 + urlIndex * 0.1 }}
-                                        >
-                                            <a
-                                                href={url}
-                                                target="_blank"
-                                                rel="nofollow"
-                                                className="group/link inline-flex items-center gap-2 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors duration-300"
-                                            >
-                                                <div className="w-2 h-2 rounded-full bg-current opacity-60"></div>
-                                                <span className="font-medium group-hover/link:underline underline-offset-2">
-                                                    {url.replace('https://', '').replace('www.', '')}
-                                                </span>
-                                                <svg className="w-4 h-4 opacity-60 group-hover/link:opacity-100 group-hover/link:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                                </svg>
-                                            </a>
-                                        </motion.div>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Hover Effect Indicator */}
-                            <motion.div
-                                className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-600 to-secondary-600 rounded-b-3xl"
-                                initial={{ scaleX: 0 }}
-                                animate={{ scaleX: hoveredCard === index ? 1 : 0 }}
-                                transition={{ duration: 0.3 }}
-                            />
+                    {project.urls && project.urls.length > 0 && (
+                        <div className="flex flex-col gap-2">
+                            {project.urls.map((url) => (
+                                <a
+                                    key={url}
+                                    href={url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="font-mono uppercase text-[11px] tracking-label text-accent"
+                                >
+                                    Visit →
+                                </a>
+                            ))}
                         </div>
-                    </motion.div>
-                ))}
-            </div>
+                    )}
+                </article>
+            ))}
         </div>
     );
 }
