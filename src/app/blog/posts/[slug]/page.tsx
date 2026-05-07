@@ -1,5 +1,4 @@
-import { NextPage } from "next";
-import type { Metadata, ResolvingMetadata } from 'next'
+import type { Metadata } from 'next'
 import matter from "gray-matter";
 import fs from "fs/promises";
 import Markdown from "markdown-to-jsx";
@@ -10,12 +9,10 @@ import {
     Slug,
 } from "../../../components/interfaces/Post";
 import Link from "next/link";
-import { HiOutlineHome, HiOutlineCalendar, HiOutlineArrowRight } from "react-icons/hi";
-import { RiArrowRightSLine } from "react-icons/ri";
-import { LiaBlogSolid } from "react-icons/lia";
-import SayHi from "@/app/components/SayHi";
+import Wrap from "@/app/components/editorial/Wrap";
+import Kicker from "@/app/components/editorial/Kicker";
+import Badge from "@/app/components/editorial/Badge";
 import SocialShare from "@/app/components/SocialShare";
-import FadeInWhenVisible from "@/app/components/animations/FadeInWhenVisible";
 import { generateCanonicalMetadata } from "../../../components/utils/CanonicalUrl";
 
 interface Props {
@@ -29,6 +26,13 @@ const folder: string = process.env.POST_FOLDER || "";
 if (!folder) {
     throw new Error("POST_FOLDER environment variable is not defined.");
 }
+
+// Calculate reading time from markdown content
+const calculateReadingTime = (text: string): number => {
+    const wordsPerMinute = 200;
+    const wordCount = text.split(/\s+/).length;
+    return Math.ceil(wordCount / wordsPerMinute);
+};
 
 const getPostContent = async (slug: Slug) => {
     const file = `${folder}/${slug}.md`;
@@ -85,13 +89,24 @@ export async function generateStaticParams() {
     return postMetadata.map((meta: Postmeta) => ({ slug: meta.slug }));
 }
 
-const Post: NextPage<Props> = async (props: Props) => {
-    const { slug } = props.params;
+export default async function PostPage({ params }: Props) {
+    const { slug } = params;
     const content = matter(await getPostContent(slug));
     const postMetadata: Postmeta[] = await GetBlogPostMetadata();
-    const otherLinks = postMetadata.filter(
-        (meta: Postmeta) => meta.slug !== slug
-    );
+    const relatedPosts = postMetadata
+        .filter((meta: Postmeta) => meta.slug !== slug)
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+        .slice(0, 3);
+
+    // Calculate reading time
+    const readingTime = calculateReadingTime(content.content);
+
+    // Format date as "DD MMM YYYY"
+    const publishDate = new Date(content.data.date).toLocaleDateString("en-GB", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric"
+    });
 
     const jsonLd = {
         "@context": "https://schema.org",
@@ -112,155 +127,110 @@ const Post: NextPage<Props> = async (props: Props) => {
             "name": "Subhra Sekhar Mukherjee",
             "url": "https://www.subhrasekhar.in",
         }
-      }
+    };
 
-
-    //
     return (
-        <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-neutral-900 dark:via-darkbackground dark:to-neutral-800 overflow-x-hidden">
-            {/* Header Section */}
-            <section className="py-8 sm:py-12 lg:py-12 border-b border-neutral-200 dark:border-neutral-700">
-                <div className="max-w-8xl 2xl:max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
-                    {/* Breadcrumb */}
-                    <FadeInWhenVisible delay={0.1}>
-                        <nav className="flex items-center gap-2 mb-6 sm:mb-8 lg:mb-8 text-sm lg:text-base text-neutral-600 dark:text-neutral-400 overflow-x-auto">
-                            <Link
-                                href="/"
-                                className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors flex-shrink-0"
-                            >
-                                <HiOutlineHome size={16} className="lg:size-5" />
-                            </Link>
-                            <RiArrowRightSLine size={16} className="flex-shrink-0 lg:size-5" />
-                            <Link 
-                                href="/blog" 
-                                className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors flex-shrink-0"
-                            >
-                                Blog
-                            </Link>
-                            <RiArrowRightSLine size={16} className="flex-shrink-0 lg:size-5" />
-                            <span className="text-primary-600 dark:text-primary-400 font-medium truncate min-w-0">
-                                {content.data.title}
-                            </span>
-                        </nav>
-                    </FadeInWhenVisible>
+        <>
+            {/* Hero Section */}
+            <section className="bg-navy text-paper border-b-[6px] border-accent">
+                <Wrap className="py-9 lg:py-10">
+                    <div className="font-mono uppercase tracking-kicker text-[11px] text-accent mb-4">
+                        {publishDate} · {readingTime} min read
+                    </div>
+                    <h1 className="font-serif text-h1 text-paper leading-[1.1]">
+                        {content.data.title}
+                    </h1>
+                    {content.data.subtitle && (
+                        <p className="mt-5 max-w-[640px] text-paper/80 text-[17px] leading-[1.55] font-sans">
+                            {content.data.subtitle}
+                        </p>
+                    )}
+                </Wrap>
+            </section>
 
-                    {/* Article Header */}
-                    <FadeInWhenVisible delay={0.2}>
-                        <div className="max-w-4xl">
-                            
-                            
-                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 lg:gap-6 text-sm lg:text-base text-neutral-500 dark:text-neutral-500">
-                                <div className="flex items-center gap-2">
-                                    <HiOutlineCalendar size={16} className="lg:size-5" />
-                                    <span>Published {content.data.date}</span>
-                                </div>
-                                {content.data.lastModified && content.data.lastModified !== content.data.date && (
-                                    <div className="flex items-center gap-2">
-                                        <span className="hidden sm:inline">•</span>
-                                        <span>Updated {content.data.lastModified}</span>
-                                    </div>
-                                )}
+            {/* Article Content */}
+            <Wrap className="py-9 lg:py-10">
+                <article className="prose mx-auto">
+                    <Markdown key={slug}>
+                        {content.content}
+                    </Markdown>
+                </article>
+
+                {/* Tags */}
+                {content.data.tags && content.data.tags.length > 0 && (
+                    <div className="max-w-[65ch] mx-auto mt-8 pt-6 border-t border-line">
+                        <Kicker className="mb-3">Tags</Kicker>
+                        <div className="flex flex-wrap gap-2">
+                            {content.data.tags.map((tag: string) => (
+                                <Badge key={tag}>{tag}</Badge>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {/* Share */}
+                <div className="max-w-[65ch] mx-auto mt-6 pt-6 border-t border-line">
+                    <Kicker className="mb-3">Share</Kicker>
+                    <SocialShare />
+                </div>
+            </Wrap>
+
+            {/* Related Posts */}
+            {relatedPosts && relatedPosts.length > 0 && (
+                <section className="py-9 lg:py-10 bg-paper-2">
+                    <Wrap>
+                        <div className="flex items-end justify-between border-b border-line pb-3 mb-6">
+                            <div className="flex flex-col gap-2">
+                                <Kicker>Related</Kicker>
+                                <h2 className="font-serif text-h2 text-ink">More from the journal.</h2>
                             </div>
                         </div>
-                    </FadeInWhenVisible>
-                </div>
-            </section>
-
-            {/* Content Section */}
-            <section className="py-8 sm:py-12 lg:py-16 xl:py-20">
-                <div className="max-w-8xl 2xl:max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
-                    <div className="flex flex-col lg:flex-row lg:gap-12 xl:gap-16 2xl:gap-20 space-y-8 lg:space-y-0">
-                        {/* Main Content */}
-                        
-                            <article className="w-full lg:w-2/3 order-1 min-w-0">
-                                <div className="bg-white dark:bg-neutral-800/50 rounded-2xl p-6 sm:p-8 lg:p-8 shadow-lg border border-neutral-100 dark:border-neutral-700/50">
-                                    <div className="prose prose-base sm:prose-lg lg:prose-lg dark:prose-invert max-w-none min-w-0
-                                                    prose-headings:text-neutral-900 dark:prose-headings:text-neutral-100 prose-headings:font-bold
-                                                    prose-p:text-neutral-700 dark:prose-p:text-neutral-300 prose-p:leading-relaxed prose-p:mb-6
-                                                    prose-a:text-primary-600 dark:prose-a:text-primary-400 prose-a:no-underline hover:prose-a:underline prose-a:font-medium
-                                                    prose-code:text-primary-600 dark:prose-code:text-primary-400 prose-code:bg-neutral-100 dark:prose-code:bg-neutral-800 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm prose-code:font-medium
-                                                    prose-pre:bg-neutral-100 dark:prose-pre:bg-neutral-800 prose-pre:border prose-pre:border-neutral-200 dark:prose-pre:border-neutral-700 prose-pre:overflow-x-auto prose-pre:rounded-lg prose-pre:p-6
-                                                    prose-blockquote:border-l-4 prose-blockquote:border-l-primary-500 prose-blockquote:text-neutral-600 dark:prose-blockquote:text-neutral-400 prose-blockquote:font-medium prose-blockquote:italic
-                                                    prose-strong:text-neutral-900 dark:prose-strong:text-neutral-100 prose-strong:font-bold
-                                                    prose-ul:text-neutral-700 dark:prose-ul:text-neutral-300 prose-ul:mb-6
-                                                    prose-ol:text-neutral-700 dark:prose-ol:text-neutral-300 prose-ol:mb-6
-                                                    prose-li:text-neutral-700 dark:prose-li:text-neutral-300 prose-li:mb-2
-                                                    prose-h1:text-2xl sm:prose-h1:text-3xl lg:prose-h1:text-3xl prose-h1:leading-tight prose-h1:mb-8
-                                                    prose-h2:text-xl sm:prose-h2:text-2xl lg:prose-h2:text-2xl prose-h2:leading-tight prose-h2:mb-6 prose-h2:mt-12
-                                                    prose-h3:text-lg sm:prose-h3:text-xl lg:prose-h3:text-xl prose-h3:leading-tight prose-h3:mb-4 prose-h3:mt-8
-                                                    prose-h4:text-base sm:prose-h4:text-lg lg:prose-h4:text-lg prose-h4:leading-tight prose-h4:mb-4 prose-h4:mt-6
-                                                    prose-img:rounded-lg prose-img:shadow-lg prose-img:border prose-img:border-neutral-200 dark:prose-img:border-neutral-700">
-                                        <Markdown key={slug}>
-                                            {content.content}
-                                        </Markdown>
+                        <div className="flex flex-col">
+                            {relatedPosts.map((post, i) => (
+                                <Link
+                                    key={post.slug}
+                                    href={`/blog/posts/${post.slug}`}
+                                    className={`grid grid-cols-1 md:grid-cols-[120px_1fr_auto] gap-4 md:gap-7 py-5 group ${i > 0 ? "border-t border-line" : ""}`}
+                                >
+                                    <div className="font-mono uppercase text-[10px] tracking-label text-muted">
+                                        {new Date(post.date).toLocaleDateString("en-GB", {
+                                            day: "2-digit",
+                                            month: "short",
+                                            year: "numeric"
+                                        })}
                                     </div>
-
-                                    {/* Social Share */}
-                                    <div className="mt-8 lg:mt-12 xl:mt-16 pt-6 sm:pt-8 lg:pt-10 xl:pt-12 border-t border-neutral-200 dark:border-neutral-700">
-                                        <h3 className="text-lg lg:text-xl xl:text-2xl font-semibold mb-4 lg:mb-6 xl:mb-8 text-neutral-800 dark:text-neutral-200">
-                                            Share this article
+                                    <div>
+                                        <h3 className="font-serif text-h3 text-ink group-hover:text-accent transition-colors">
+                                            {post.title}
                                         </h3>
-                                        <SocialShare />
+                                        {post.subtitle && (
+                                            <p className="text-small text-ink/75 mt-1 line-clamp-2">
+                                                {post.subtitle}
+                                            </p>
+                                        )}
                                     </div>
-                                </div>
-                            </article>
-                        
-
-                        {/* Sidebar */}
-                        <aside className="w-full lg:w-1/3 order-2 min-w-0">
-                            {/* Related Posts */}
-                            <FadeInWhenVisible delay={0.4}>
-                                <div className="bg-white dark:bg-neutral-800/50 rounded-2xl p-4 sm:p-5 lg:p-5 shadow-lg border border-neutral-100 dark:border-neutral-700/50 mb-6 sm:mb-8">
-                                    <h3 className="text-lg sm:text-xl lg:text-lg font-bold mb-4 sm:mb-5 lg:mb-4 text-neutral-800 dark:text-neutral-200">
-                                        Related Articles
-                                    </h3>
-                                    <div className="space-y-3 sm:space-y-3 lg:space-y-3">
-                                        {otherLinks &&
-                                            otherLinks
-                                                .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-                                                .slice(0, 5)
-                                                .map((meta: Postmeta) => (
-                                                    <Link key={meta.slug} href={`/blog/posts/${meta.slug}`}>
-                                                        <article className="group p-3 sm:p-3 lg:p-3 rounded-xl border border-neutral-100 dark:border-neutral-700 hover:border-primary-200 dark:hover:border-primary-800 transition-all duration-300 hover:bg-primary-50/50 dark:hover:bg-primary-900/10 hover:shadow-md">
-                                                            <h4 className="font-semibold text-sm sm:text-sm lg:text-sm line-clamp-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors mb-2 leading-snug">
-                                                                {meta.title}
-                                                            </h4>
-                                                            <div className="flex items-center justify-between text-xs lg:text-xs text-neutral-500 dark:text-neutral-500">
-                                                                <span>{meta.date}</span>
-                                                                <HiOutlineArrowRight size={12} className="group-hover:translate-x-1 transition-transform lg:size-3" />
-                                                            </div>
-                                                        </article>
-                                                    </Link>
-                                                ))}
-                                    </div>
-                                </div>
-                            </FadeInWhenVisible>
-
-                            {/* Contact CTA */}
-                            <FadeInWhenVisible delay={0.5}>
-                                <div className="bg-gradient-to-br from-primary-500 to-secondary-500 rounded-2xl p-4 sm:p-5 lg:p-5 text-white shadow-lg">
-                                    <h3 className="text-lg sm:text-xl lg:text-lg font-bold mb-3 sm:mb-4 lg:mb-3">
-                                        Need help with your project?
-                                    </h3>
-                                    <p className="mb-4 sm:mb-5 lg:mb-4 text-white/90 text-sm sm:text-sm lg:text-sm leading-relaxed">
-                                        Let's discuss how I can help you build something amazing.
-                                    </p>
-                                    <div className="bg-white dark:bg-slate-900 rounded-xl p-3 sm:p-3 lg:p-3">
-                                        <SayHi />
-                                    </div>
-                                </div>
-                            </FadeInWhenVisible>
-                        </aside>
-                    </div>
-                </div>
-            </section>
+                                    <span className="font-mono uppercase text-[10px] tracking-label text-accent self-start md:self-center">
+                                        Read →
+                                    </span>
+                                </Link>
+                            ))}
+                        </div>
+                        <div className="mt-6 text-right">
+                            <Link
+                                href="/blog"
+                                className="font-mono uppercase text-[11px] tracking-label text-accent hover:text-navy transition-colors"
+                            >
+                                All articles →
+                            </Link>
+                        </div>
+                    </Wrap>
+                </section>
+            )}
 
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
-        </div>
+        </>
     );
-};
-
-export default Post;
+}
