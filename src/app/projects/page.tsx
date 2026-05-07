@@ -3,7 +3,7 @@ import Hero from "../components/editorial/Hero";
 import Wrap from "../components/editorial/Wrap";
 import SectionHeader from "../components/editorial/SectionHeader";
 import Badge from "../components/editorial/Badge";
-import { generateCanonicalMetadata } from "../components/utils/CanonicalUrl";
+import { generatePageMetadata } from "../components/utils/CanonicalUrl";
 import type { Metadata } from "next";
 
 const Projects = dynamic(() => import("../components/Projects"));
@@ -16,11 +16,12 @@ const technologies = [
   "AWS", "Docker", "Linux", "Nginx",
 ];
 
-export const metadata: Metadata = {
-  title: "Projects - Subhra Sekhar | Portfolio Showcase",
-  description: "Portfolio of projects by Subhra Sekhar Mukherjee - Full Stack Developer & Tech Consultant. View innovative solutions across various industries.",
-  ...generateCanonicalMetadata("projects"),
-};
+export const metadata: Metadata = generatePageMetadata({
+  path: "projects",
+  title: "Projects — Subhra Sekhar | Portfolio Showcase",
+  description:
+    "Portfolio of projects by Subhra Sekhar Mukherjee — Full Stack Developer & Tech Consultant. Innovative solutions across various industries.",
+});
 
 export default function ProjectsPage() {
   return (

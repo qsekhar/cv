@@ -1,17 +1,18 @@
 import Hero from "../components/editorial/Hero";
 import Wrap from "../components/editorial/Wrap";
 import SectionHeader from "../components/editorial/SectionHeader";
-import { generateCanonicalMetadata } from "../components/utils/CanonicalUrl";
+import { generatePageMetadata } from "../components/utils/CanonicalUrl";
 import dynamic from "next/dynamic";
 import type { Metadata } from "next";
 
 const ClosingCTA = dynamic(() => import("../components/ClosingCTA"));
 
-export const metadata: Metadata = {
+export const metadata: Metadata = generatePageMetadata({
+  path: "services",
   title: "Services — Freelance Full Stack Developer | Subhra Sekhar",
-  description: "Web app development, REST API design, mobile apps, e-commerce, and MVP development. Hire Subhra Sekhar — 13+ years, 100+ delivered projects, free consultation.",
-  ...generateCanonicalMetadata("services"),
-};
+  description:
+    "Web app development, REST API design, mobile apps, e-commerce, and MVP development. Hire Subhra Sekhar — 13+ years, 100+ delivered projects, free consultation.",
+});
 
 const services = [
     {

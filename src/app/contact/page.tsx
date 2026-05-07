@@ -1,13 +1,20 @@
-"use client";
-
 import dynamic from "next/dynamic";
 import { FaEnvelope, FaWhatsapp } from "react-icons/fa";
 import Hero from "../components/editorial/Hero";
 import Wrap from "../components/editorial/Wrap";
 import SectionHeader from "../components/editorial/SectionHeader";
 import Disclosure from "../components/editorial/Disclosure";
+import { generatePageMetadata } from "../components/utils/CanonicalUrl";
+import type { Metadata } from "next";
 
 const SayHi = dynamic(() => import("../components/SayHi"));
+
+export const metadata: Metadata = generatePageMetadata({
+  path: "contact",
+  title: "Contact — Subhra Sekhar | Start a Project",
+  description:
+    "Get in touch with Subhra Sekhar Mukherjee — Full Stack Developer & Tech Consultant. Free 30-minute consultation. Email, WhatsApp, or send a note from this page.",
+});
 
 const faqs = [
     {

@@ -24,8 +24,14 @@ export default function Navigation() {
   return (
     <header className="sticky top-0 z-sticky bg-paper/95 backdrop-blur-sm border-b border-line">
       <Wrap className="flex items-center justify-between h-[64px]">
-        <Link href="/" className="flex items-center gap-3">
-          <Image src="/logo.png" alt="" width={32} height={32} priority />
+        <Link href="/" className="flex items-center gap-3" aria-label="Subhra Sekhar — Home">
+          <Image
+            src="/logo.png"
+            alt="Subhra Sekhar logo"
+            width={32}
+            height={32}
+            priority
+          />
           <span className="font-serif text-h3 text-ink">Subhra Sekhar.</span>
         </Link>
 

@@ -3,17 +3,18 @@ import Hero from "../components/editorial/Hero";
 import Wrap from "../components/editorial/Wrap";
 import SectionHeader from "../components/editorial/SectionHeader";
 import MetaStrip from "../components/editorial/MetaStrip";
-import { generateCanonicalMetadata } from "../components/utils/CanonicalUrl";
+import { generatePageMetadata } from "../components/utils/CanonicalUrl";
 import type { Metadata } from "next";
 
 const TimeLine = dynamic(() => import("../components/TimeLine"));
 const ClosingCTA = dynamic(() => import("../components/ClosingCTA"));
 
-export const metadata: Metadata = {
-  title: "Timeline - Subhra Sekhar | Professional Journey",
-  description: "Professional journey and career timeline of Subhra Sekhar Mukherjee - Full Stack Developer & Tech Consultant",
-  ...generateCanonicalMetadata("timeline"),
-};
+export const metadata: Metadata = generatePageMetadata({
+  path: "timeline",
+  title: "Timeline — Subhra Sekhar | Professional Journey",
+  description:
+    "Professional journey and career timeline of Subhra Sekhar Mukherjee — Full Stack Developer & Tech Consultant.",
+});
 
 export default function TimelinePage() {
   return (

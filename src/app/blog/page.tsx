@@ -4,14 +4,15 @@ import Wrap from "../components/editorial/Wrap";
 import SectionHeader from "../components/editorial/SectionHeader";
 import GetBlogPostMetadata from "../components/utils/GetBlogPostMetadata";
 import { Metadata as PostMeta } from "../components/interfaces/Post";
-import { generateCanonicalMetadata } from "../components/utils/CanonicalUrl";
+import { generatePageMetadata } from "../components/utils/CanonicalUrl";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = generatePageMetadata({
+  path: "blog",
   title: "Journal — Subhra Sekhar | Writing on Engineering & Practice",
-  description: "Articles on full-stack engineering, architecture, and practice notes by Subhra Sekhar Mukherjee.",
-  ...generateCanonicalMetadata("blog"),
-};
+  description:
+    "Articles on full-stack engineering, architecture, and practice notes by Subhra Sekhar Mukherjee.",
+});
 
 export default async function BlogPage() {
   const posts: PostMeta[] = (await GetBlogPostMetadata()) ?? [];

@@ -2,17 +2,18 @@ import dynamic from "next/dynamic";
 import Hero from "../components/editorial/Hero";
 import Wrap from "../components/editorial/Wrap";
 import SectionHeader from "../components/editorial/SectionHeader";
-import { generateCanonicalMetadata } from "../components/utils/CanonicalUrl";
+import { generatePageMetadata } from "../components/utils/CanonicalUrl";
 import type { Metadata } from "next";
 
 const Skills = dynamic(() => import("../components/Skills"));
 const ClosingCTA = dynamic(() => import("../components/ClosingCTA"));
 
-export const metadata: Metadata = {
-  title: "Skills - Subhra Sekhar | Technical Expertise",
-  description: "Technical skills and expertise of Subhra Sekhar Mukherjee - Full Stack Developer & Tech Consultant. 13+ years of experience across modern technologies.",
-  ...generateCanonicalMetadata("skills"),
-};
+export const metadata: Metadata = generatePageMetadata({
+  path: "skills",
+  title: "Skills — Subhra Sekhar | Technical Expertise",
+  description:
+    "Technical skills and expertise of Subhra Sekhar Mukherjee — Full Stack Developer & Tech Consultant. 13+ years across modern technologies.",
+});
 
 export default function SkillsPage() {
   return (

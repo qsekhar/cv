@@ -22,3 +22,38 @@ export function generateCanonicalMetadata(path: string = '') {
     }
   };
 }
+
+/**
+ * Generates canonical + openGraph + twitter metadata for a page.
+ * Use as `...generatePageMetadata({ path, title, description })` inside `export const metadata`.
+ */
+export function generatePageMetadata({
+  path,
+  title,
+  description,
+  type = 'website',
+}: {
+  path: string;
+  title: string;
+  description: string;
+  type?: 'website' | 'article' | 'profile';
+}) {
+  const url = getCanonicalUrl(path);
+  return {
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      title,
+      description,
+      url,
+      type,
+      siteName: 'Subhra Sekhar',
+    },
+    twitter: {
+      card: 'summary_large_image' as const,
+      title,
+      description,
+    },
+  };
+}
