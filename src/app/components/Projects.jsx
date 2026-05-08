@@ -110,18 +110,21 @@ export default function Projects() {
                     </div>
 
                     {project.urls && project.urls.length > 0 && (
-                        <div className="flex flex-col gap-2">
-                            {project.urls.map((url) => (
-                                <a
-                                    key={url}
-                                    href={url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="font-mono uppercase text-[11px] tracking-label text-accent"
-                                >
-                                    Visit →
-                                </a>
-                            ))}
+                        <div className="flex flex-col gap-2 md:items-end">
+                            {project.urls.map((url) => {
+                                const host = url.replace(/^https?:\/\//, "").replace(/\/$/, "").split("/")[0];
+                                return (
+                                    <a
+                                        key={url}
+                                        href={url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="font-mono text-[11px] tracking-label text-accent hover:text-navy break-all"
+                                    >
+                                        {host} →
+                                    </a>
+                                );
+                            })}
                         </div>
                     )}
                 </article>
