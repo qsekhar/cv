@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { loadGoogleFont } from "../components/utils/og-fonts";
+import { tryLoadGoogleFont } from "../components/utils/og-fonts";
 
 export const runtime = "edge";
 
@@ -16,10 +16,16 @@ const FOOTER_RIGHT = "subhrasekhar.in/blog";
 
 export default async function Image() {
   const [serif, mono, sans] = await Promise.all([
-    loadGoogleFont("Fraunces", TITLE, 500),
-    loadGoogleFont("JetBrains Mono", `${KICKER}${FOOTER_LEFT}${FOOTER_RIGHT}`, 500),
-    loadGoogleFont("Inter", LEDE, 400),
+    tryLoadGoogleFont("Fraunces", TITLE, 500),
+    tryLoadGoogleFont("JetBrains Mono", `${KICKER}${FOOTER_LEFT}${FOOTER_RIGHT}`, 500),
+    tryLoadGoogleFont("Inter", LEDE, 400),
   ]);
+
+  const fonts = [
+    serif && { name: "Fraunces" as const, data: serif, style: "normal" as const, weight: 500 as const },
+    sans && { name: "Inter" as const, data: sans, style: "normal" as const, weight: 400 as const },
+    mono && { name: "JetBrains Mono" as const, data: mono, style: "normal" as const, weight: 500 as const },
+  ].filter(Boolean) as { name: string; data: ArrayBuffer; style: "normal"; weight: 400 | 500 }[];
 
   return new ImageResponse(
     (
@@ -114,11 +120,7 @@ export default async function Image() {
     ),
     {
       ...size,
-      fonts: [
-        { name: "Fraunces", data: serif, style: "normal", weight: 500 },
-        { name: "Inter", data: sans, style: "normal", weight: 400 },
-        { name: "JetBrains Mono", data: mono, style: "normal", weight: 500 },
-      ],
+      fonts,
       headers: { "cache-control": "public, max-age=31536000, immutable" },
     },
   );

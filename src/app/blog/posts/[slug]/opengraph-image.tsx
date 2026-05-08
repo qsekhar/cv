@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { loadGoogleFont } from "../../../components/utils/og-fonts";
+import { tryLoadGoogleFont } from "../../../components/utils/og-fonts";
 
 export const runtime = "edge";
 
@@ -23,10 +23,16 @@ export default async function Image({ params }: { params: { slug: string } }) {
   const displayTitle = title.length > 90 ? title.substring(0, 87) + "…" : title;
 
   const [serif, mono, sans] = await Promise.all([
-    loadGoogleFont("Fraunces", displayTitle, 500),
-    loadGoogleFont("JetBrains Mono", `${KICKER}${FOOTER_LEFT}${FOOTER_RIGHT}`, 500),
-    loadGoogleFont("Inter", "An article from the Subhra Sekhar journal.", 400),
+    tryLoadGoogleFont("Fraunces", displayTitle, 500),
+    tryLoadGoogleFont("JetBrains Mono", `${KICKER}${FOOTER_LEFT}${FOOTER_RIGHT}`, 500),
+    tryLoadGoogleFont("Inter", "An article from the Subhra Sekhar journal.", 400),
   ]);
+
+  const fonts = [
+    serif && { name: "Fraunces" as const, data: serif, style: "normal" as const, weight: 500 as const },
+    sans && { name: "Inter" as const, data: sans, style: "normal" as const, weight: 400 as const },
+    mono && { name: "JetBrains Mono" as const, data: mono, style: "normal" as const, weight: 500 as const },
+  ].filter(Boolean) as { name: string; data: ArrayBuffer; style: "normal"; weight: 400 | 500 }[];
 
   // Scale title size by length so long titles still fit
   const titleSize = displayTitle.length > 70 ? 60 : displayTitle.length > 40 ? 78 : 96;
@@ -111,11 +117,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
     ),
     {
       ...size,
-      fonts: [
-        { name: "Fraunces", data: serif, style: "normal", weight: 500 },
-        { name: "Inter", data: sans, style: "normal", weight: 400 },
-        { name: "JetBrains Mono", data: mono, style: "normal", weight: 500 },
-      ],
+      fonts,
       headers: { "cache-control": "public, max-age=31536000, immutable" },
     },
   );
