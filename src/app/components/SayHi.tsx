@@ -4,6 +4,7 @@ import { ReCaptchaProvider } from "next-recaptcha-v3";
 import { sendGAEvent } from "@next/third-parties/google";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaPaperPlane, FaCheckCircle, FaWhatsapp } from "react-icons/fa";
+import { Button } from "./editorial/Button";
 
 interface newErrorType {
     name?: string;
@@ -68,7 +69,7 @@ export default function SayHi() {
 
     return (
         <ReCaptchaProvider reCaptchaKey={capchaKey}>
-            <div className="w-full">
+            <div className="w-full bg-paper border border-line p-6 lg:p-8 flex flex-col gap-5">
                 <AnimatePresence mode="wait">
                     {isSubmitted ? (
                         /* ── Success state ── */
@@ -81,138 +82,130 @@ export default function SayHi() {
                             className="text-center py-10 space-y-5"
                         >
                             <div className="flex justify-center">
-                                <div className="w-16 h-16 rounded-full bg-emerald-100 dark:bg-emerald-500/20 flex items-center justify-center">
-                                    <FaCheckCircle className="text-emerald-500 text-3xl" />
+                                <div className="w-16 h-16 bg-success/10 flex items-center justify-center">
+                                    <FaCheckCircle className="text-success text-3xl" />
                                 </div>
                             </div>
                             <div className="space-y-2">
-                                <h3 className="text-2xl font-bold text-neutral-900 dark:text-white">Message Sent!</h3>
-                                <p className="text-neutral-500 dark:text-neutral-400 max-w-sm mx-auto leading-relaxed">
-                                    Thanks for reaching out. I'll get back to you within <strong className="text-neutral-700 dark:text-neutral-300">24 hours</strong>.
+                                <h3 className="font-serif text-h2 text-ink">Message Sent!</h3>
+                                <p className="text-muted max-w-sm mx-auto leading-relaxed">
+                                    Thanks for reaching out. I'll get back to you within <strong className="text-ink">24 hours</strong>.
                                 </p>
                             </div>
                             <a
                                 href="https://api.whatsapp.com/send?phone=919674540974"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-500 text-white font-semibold text-sm hover:bg-emerald-600 transition-colors"
+                                className="inline-flex items-center gap-2 px-5 py-3 font-sans font-medium text-small tracking-wide border bg-success text-paper border-success hover:opacity-85 transition-colors focus:outline-none focus-visible:focus-ring"
                             >
                                 <FaWhatsapp size={16} />
                                 Or message me on WhatsApp for faster response
                             </a>
                             <button
                                 onClick={() => setIsSubmitted(false)}
-                                className="block w-full text-sm text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300 mt-4 transition-colors"
+                                className="block w-full text-small font-mono text-muted hover:text-ink mt-4 transition-colors"
                             >
                                 Send another message
                             </button>
                         </motion.div>
                     ) : (
                         /* ── Form state ── */
-                        <motion.div
+                        <div
                             key="form"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
                         >
-                            <motion.form
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5 }}
+                            <form
                                 onSubmit={handleSubmit}
-                                className="space-y-5"
+                                className="flex flex-col gap-5"
                             >
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                                    <div>
-                                        <label htmlFor="name" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1.5">
+                                    <div className="flex flex-col gap-2">
+                                        <label htmlFor="name" className="font-mono uppercase text-[10px] tracking-label text-muted">
                                             Your Name *
                                         </label>
                                         <input
                                             type="text"
                                             id="name"
+                                            name="name"
                                             value={name}
                                             onChange={(e) => setName(e.target.value)}
-                                            className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 bg-white dark:bg-neutral-800/80 text-neutral-900 dark:text-white placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-primary-500/30 ${
+                                            className={`bg-paper border px-3 py-2 font-sans text-body text-ink placeholder:text-muted focus:outline-none focus-visible:focus-ring ${
                                                 errors.name
-                                                    ? "border-red-400 focus:border-red-400"
-                                                    : "border-neutral-200 dark:border-neutral-700 focus:border-primary-500"
+                                                    ? "border-danger"
+                                                    : "border-ink"
                                             }`}
                                             placeholder="John Smith"
                                         />
                                         {errors.name && (
-                                            <motion.p initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="text-red-500 text-xs mt-1.5">
+                                            <p className="font-mono uppercase text-[11px] tracking-label text-danger mt-1">
                                                 {errors.name}
-                                            </motion.p>
+                                            </p>
                                         )}
                                     </div>
 
-                                    <div>
-                                        <label htmlFor="email" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1.5">
+                                    <div className="flex flex-col gap-2">
+                                        <label htmlFor="email" className="font-mono uppercase text-[10px] tracking-label text-muted">
                                             Email Address *
                                         </label>
                                         <input
                                             type="email"
                                             id="email"
+                                            name="email"
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
-                                            className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 bg-white dark:bg-neutral-800/80 text-neutral-900 dark:text-white placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-primary-500/30 ${
+                                            className={`bg-paper border px-3 py-2 font-sans text-body text-ink placeholder:text-muted focus:outline-none focus-visible:focus-ring ${
                                                 errors.email
-                                                    ? "border-red-400 focus:border-red-400"
-                                                    : "border-neutral-200 dark:border-neutral-700 focus:border-primary-500"
+                                                    ? "border-danger"
+                                                    : "border-ink"
                                             }`}
                                             placeholder="john@company.com"
                                         />
                                         {errors.email && (
-                                            <motion.p initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="text-red-500 text-xs mt-1.5">
+                                            <p className="font-mono uppercase text-[11px] tracking-label text-danger mt-1">
                                                 {errors.email}
-                                            </motion.p>
+                                            </p>
                                         )}
                                     </div>
                                 </div>
 
-                                <div>
-                                    <label htmlFor="message" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1.5">
+                                <div className="flex flex-col gap-2">
+                                    <label htmlFor="message" className="font-mono uppercase text-[10px] tracking-label text-muted">
                                         Tell me about your project *
                                     </label>
                                     <textarea
                                         id="message"
+                                        name="message"
                                         value={message}
                                         onChange={(e) => setMessage(e.target.value)}
                                         rows={5}
-                                        className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 bg-white dark:bg-neutral-800/80 text-neutral-900 dark:text-white placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-primary-500/30 resize-none ${
+                                        className={`bg-paper border px-3 py-2 font-sans text-body text-ink placeholder:text-muted focus:outline-none focus-visible:focus-ring resize-none ${
                                             errors.message
-                                                ? "border-red-400 focus:border-red-400"
-                                                : "border-neutral-200 dark:border-neutral-700 focus:border-primary-500"
+                                                ? "border-danger"
+                                                : "border-ink"
                                         }`}
                                         placeholder="Briefly describe your project — what you need built, your timeline, and budget range..."
                                     />
                                     {errors.message && (
-                                        <motion.p initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="text-red-500 text-xs mt-1.5">
+                                        <p className="font-mono uppercase text-[11px] tracking-label text-danger mt-1">
                                             {errors.message}
-                                        </motion.p>
+                                        </p>
                                     )}
                                 </div>
 
                                 {submitError && (
-                                    <div className="p-4 rounded-xl bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/20 text-sm text-red-600 dark:text-red-400">
+                                    <div className="p-4 bg-paper border border-danger text-small text-danger font-mono uppercase tracking-label">
                                         {submitError}
                                     </div>
                                 )}
 
-                                <motion.button
-                                    whileHover={{ scale: 1.02 }}
-                                    whileTap={{ scale: 0.98 }}
+                                <Button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className={`w-full py-3.5 px-6 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2.5 ${
-                                        isSubmitting
-                                            ? "bg-neutral-300 dark:bg-neutral-700 cursor-not-allowed text-neutral-500"
-                                            : "bg-gradient-to-r from-primary-600 to-secondary-600 dark:from-primary-500 dark:to-secondary-500 hover:shadow-lg hover:shadow-primary-500/25 text-white"
-                                    }`}
+                                    variant="primary"
+                                    className="w-full justify-center"
                                 >
                                     {isSubmitting ? (
                                         <>
-                                            <div className="w-4 h-4 border-2 border-neutral-400 border-t-transparent rounded-full animate-spin" />
+                                            <div className="w-4 h-4 border-2 border-paper border-t-transparent animate-spin" />
                                             Sending...
                                         </>
                                     ) : (
@@ -221,21 +214,21 @@ export default function SayHi() {
                                             Send Message — It's Free
                                         </>
                                     )}
-                                </motion.button>
+                                </Button>
 
-                                <p className="text-xs text-center text-neutral-400 dark:text-neutral-500">
+                                <p className="text-small text-center text-muted">
                                     I respond within 24 hours. Need faster?{" "}
                                     <a
                                         href="https://api.whatsapp.com/send?phone=919674540974"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-emerald-600 dark:text-emerald-400 hover:underline font-medium"
+                                        className="text-ink hover:underline font-medium"
                                     >
                                         Message me on WhatsApp
                                     </a>
                                 </p>
-                            </motion.form>
-                        </motion.div>
+                            </form>
+                        </div>
                     )}
                 </AnimatePresence>
             </div>
