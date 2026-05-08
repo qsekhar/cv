@@ -11,25 +11,45 @@ type Testimonial = {
 
 const testimonials: Testimonial[] = [
   {
-    name: "James Whitfield",
+    name: "Lyle Wagner",
     role: "Founder",
-    company: "Finova Labs",
+    company: "Datadesk.io",
     quote:
-      "Subhra built our entire SaaS dashboard from scratch — React frontend, Node.js API, and PostgreSQL backend. Delivered on time, clean code, and he was available whenever we needed him. Highly recommend.",
+      "Subhra is very reliable, professional and overall great to work with.",
   },
   {
-    name: "Priya Nair",
-    role: "CTO",
-    company: "GreenCart",
+    name: "Matt Cacciottolo",
+    role: "MD",
+    company: "Datadesk.io",
     quote:
-      "We needed a full e-commerce overhaul in under 6 weeks. Subhra delivered a pixel-perfect Next.js storefront with payment integration and CMS. The site now converts 3× better than our old one.",
+      "I have worked with Subhra on several projects at this point. He is highly skilled software engineer and very detail orientated.",
   },
   {
-    name: "Lars Eriksson",
+    name: "Andy Vuong",
     role: "Product Manager",
     company: "NetOps AB",
     quote:
-      "We hired Subhra for a WiFi management API project. His technical depth is impressive — he understood our infrastructure requirements immediately and built something robust and well-documented.",
+      "I have previously worked with Subhra, and he has such a variety of skills in build software applications and knowledge that would help Organizations thrive. I would love to one day working with him again in the future.",
+  },
+  {
+    name: "Michael Chachashvili",
+    role: "Founder",
+    company: "Shopping Ads Solutions",
+    quote:
+      "We worked with Subhra on an internal project for our agency, and he did a great job. He helped us build a solution that improved our task management, streamlined workflows, reduced production time, and supported better AI-driven analysis and insights for our performance marketing work. He was professional, reliable, and a great partner throughout the process. We are very happy with the collaboration and look forward to continuing to work with him and his team.",
+  },
+  {
+    name: "Ofer I",
+    role: "Employee",
+    company: "Woocommers Platform",
+    quote:
+      `I would like to highly recommend Shubra as a developer. Initially, we planned for him to work only on Frontend tasks, and he handled them very successfully. As the project progressed, we also assigned him Backend tasks, which he has been completing at an excellent level as well.
+
+        Shubra works in a very organized and professional manner. He provides daily updates, creates a pull request for every task, and ensures everything is documented in the daily report.
+
+        It is very pleasant to work with him. Communication with him is always clear, and he proactively raises important flags or concerns at the right time.
+
+        Overall, he is a reliable and capable developer, and we will definitely continue working with him.`,
   },
 ];
 

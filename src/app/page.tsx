@@ -36,10 +36,10 @@ export default async function Home() {
         ]}
       />
 
-      {/* §02 — What I build */}
+      {/* §02 — What I provide */}
       <section className="py-9 lg:py-10">
         <Wrap>
-          <SectionHeader kicker="Section 02" title="What I build." refLabel="§02" />
+          <SectionHeader kicker="Section 02" title="What I provide." refLabel="§02" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               { id: "01", title: "Web applications", body: "Production React / Next.js front-ends and Node back-ends. Type-safe end-to-end." },
@@ -60,18 +60,18 @@ export default async function Home() {
       </section>
 
       {/* §03 — Selected work */}
-      <section className="py-9 lg:py-10 bg-paper-2">
+      {/* <section className="py-9 lg:py-10 bg-paper-2">
         <Wrap>
           <SectionHeader kicker="Section 03" title="Selected work." refLabel="§03" />
           <Projects />
         </Wrap>
-      </section>
+      </section> */}
 
-      {/* §04 — Journal */}
+      {/* §03 — Journal */}
       {recentPosts.length > 0 && (
         <section className="py-9 lg:py-10">
           <Wrap>
-            <SectionHeader kicker="Section 04" title="From the journal." refLabel="§04" />
+            <SectionHeader kicker="Section 03" title="From the journal." refLabel="§04" />
             <div className="flex flex-col">
               {recentPosts.map((post, i) => (
                 <Link
@@ -112,7 +112,7 @@ export default async function Home() {
       {/* §05 — Testimonials */}
       <section className="py-9 lg:py-10 bg-paper-2">
         <Wrap>
-          <SectionHeader kicker="Section 05" title="Said about the work." refLabel="§05" />
+          <SectionHeader kicker="Section 04" title="Said about the work." refLabel="§05" />
           <Testimonials />
         </Wrap>
       </section>
