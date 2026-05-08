@@ -1,152 +1,122 @@
-import { ImageResponse } from 'next/og'
+import { ImageResponse } from "next/og";
+import { loadGoogleFont } from "../../../components/utils/og-fonts";
 
-export const runtime = 'edge'
- 
-export const alt = "SSM's Blog Post"
-export const size = {
-  width: 1200,
-  height: 630,
-}
-export const contentType = 'image/png'
+export const runtime = "edge";
 
-// Function to convert slug to readable title
+export const alt = "Subhra Sekhar — Journal";
+export const size = { width: 1200, height: 630 };
+export const contentType = "image/png";
+
 function slugToTitle(slug: string): string {
   return slug
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ')
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 }
- 
+
+const KICKER = "JOURNAL · SUBHRA SEKHAR";
+const FOOTER_LEFT = "BY SUBHRA SEKHAR MUKHERJEE";
+const FOOTER_RIGHT = "subhrasekhar.in/blog";
+
 export default async function Image({ params }: { params: { slug: string } }) {
-  // Convert slug to a readable title
-  const title = slugToTitle(params.slug)
-  
-  // Truncate title if too long
-  const displayTitle = title.length > 60 ? title.substring(0, 57) + '...' : title
-  
+  const title = slugToTitle(params.slug);
+  const displayTitle = title.length > 90 ? title.substring(0, 87) + "…" : title;
+
+  const [serif, mono, sans] = await Promise.all([
+    loadGoogleFont("Fraunces", displayTitle, 500),
+    loadGoogleFont("JetBrains Mono", `${KICKER}${FOOTER_LEFT}${FOOTER_RIGHT}`, 500),
+    loadGoogleFont("Inter", "An article from the Subhra Sekhar journal.", 400),
+  ]);
+
+  // Scale title size by length so long titles still fit
+  const titleSize = displayTitle.length > 70 ? 60 : displayTitle.length > 40 ? 78 : 96;
+
   return new ImageResponse(
     (
       <div
         style={{
-          background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: 'white',
-          fontFamily: 'Inter, system-ui, sans-serif',
-          padding: '60px',
+          background: "#12263A",
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          padding: "80px",
+          color: "#F7F3EC",
+          position: "relative",
+          fontFamily: "Inter",
         }}
       >
         <div
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginBottom: '40px',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: 8,
+            background: "#B8895A",
           }}
-        >
-          <div
-            style={{
-              width: '80px',
-              height: '80px',
-              background: 'rgba(255, 255, 255, 0.15)',
-              borderRadius: '16px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '36px',
-              marginRight: '20px',
-            }}
-          >
-            📖
-          </div>
-          <div style={{ fontSize: '20px', opacity: '0.9', fontWeight: '500' }}>
-            SSM's Blog
-          </div>
-        </div>
-        
-        <div style={{ textAlign: 'center', maxWidth: '1000px', display: 'flex', flexDirection: 'column' }}>
-          <h1
-            style={{
-              fontSize: displayTitle.length > 40 ? '36px' : '42px',
-              fontWeight: '700',
-              margin: '0',
-              marginBottom: '20px',
-              background: 'linear-gradient(90deg, #ffffff 0%, #f0f9ff 100%)',
-              backgroundClip: 'text',
-              color: 'transparent',
-              lineHeight: '1.2',
-            }}
-          >
-            {displayTitle}
-          </h1>
-          
-          <p
-            style={{
-              fontSize: '18px',
-              fontWeight: '400',
-              margin: '0',
-              opacity: '0.85',
-              lineHeight: '1.4',
-              maxWidth: '900px',
-            }}
-          >
-            Tech insights and development tips from a Full Stack Developer
-          </p>
-        </div>
-        
+        />
+
         <div
           style={{
-            display: 'flex',
-            gap: '16px',
-            marginTop: '32px',
+            display: "flex",
+            fontFamily: "JetBrains Mono",
+            fontSize: 18,
+            letterSpacing: 4,
+            textTransform: "uppercase",
+            color: "#B8895A",
+            marginBottom: 32,
           }}
         >
-          <div
-            style={{
-              background: 'rgba(255, 255, 255, 0.1)',
-              padding: '8px 16px',
-              borderRadius: '8px',
-              fontSize: '14px',
-              fontWeight: '500',
-            }}
-          >
-            Full Stack Development
-          </div>
-          <div
-            style={{
-              background: 'rgba(255, 255, 255, 0.1)',
-              padding: '8px 16px',
-              borderRadius: '8px',
-              fontSize: '14px',
-              fontWeight: '500',
-            }}
-          >
-            Technical Tutorial
-          </div>
+          {KICKER}
         </div>
-        
+
         <div
           style={{
-            position: 'absolute',
-            bottom: '40px',
-            right: '60px',
-            background: 'rgba(255, 255, 255, 0.1)',
-            padding: '8px 16px',
-            borderRadius: '8px',
-            fontSize: '14px',
-            fontWeight: '500',
+            display: "flex",
+            fontFamily: "Fraunces",
+            fontSize: titleSize,
+            fontWeight: 500,
+            letterSpacing: -1.5,
+            lineHeight: 1.05,
+            color: "#F7F3EC",
+            maxWidth: 1040,
           }}
         >
-          Subhra Sekhar Mukherjee
+          {displayTitle}
+        </div>
+
+        <div
+          style={{
+            position: "absolute",
+            bottom: 60,
+            left: 80,
+            right: 80,
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            paddingTop: 24,
+            borderTop: "1px solid rgba(247,243,236,0.18)",
+            fontFamily: "JetBrains Mono",
+            fontSize: 16,
+            letterSpacing: 3,
+            textTransform: "uppercase",
+            color: "rgba(247,243,236,0.6)",
+          }}
+        >
+          <span>{FOOTER_LEFT}</span>
+          <span style={{ color: "#B8895A" }}>{FOOTER_RIGHT}</span>
         </div>
       </div>
     ),
     {
       ...size,
-    }
-  )
+      fonts: [
+        { name: "Fraunces", data: serif, style: "normal", weight: 500 },
+        { name: "Inter", data: sans, style: "normal", weight: 400 },
+        { name: "JetBrains Mono", data: mono, style: "normal", weight: 500 },
+      ],
+      headers: { "cache-control": "public, max-age=31536000, immutable" },
+    },
+  );
 }
