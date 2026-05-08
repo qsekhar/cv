@@ -69,7 +69,7 @@ export default function SayHi() {
 
     return (
         <ReCaptchaProvider reCaptchaKey={capchaKey}>
-            <div className="w-full bg-paper border border-line p-6 lg:p-8 flex flex-col gap-5 max-w-[680px]">
+            <div className="w-full bg-paper border border-line p-6 lg:p-8 flex flex-col gap-5">
                 <AnimatePresence mode="wait">
                     {isSubmitted ? (
                         /* ── Success state ── */

@@ -111,11 +111,7 @@ export default function ContactPage() {
             <section className="py-9 lg:py-10 bg-paper-2">
                 <Wrap>
                     <SectionHeader kicker="Section 03" title="Send a note." refLabel="§03" />
-                    <div className="max-w-[680px]">
-                        <div className="bg-paper border border-ink p-6 lg:p-8">
-                            <SayHi />
-                        </div>
-                    </div>
+                    <SayHi />
                 </Wrap>
             </section>
 
@@ -123,17 +119,15 @@ export default function ContactPage() {
             <section className="py-9 lg:py-10">
                 <Wrap>
                     <SectionHeader kicker="Section 04" title="Questions." refLabel="§04" />
-                    <div className="max-w-[680px]">
-                        <div className="flex flex-col divide-y divide-line border-y border-line">
-                            {faqs.map((faq) => (
-                                <Disclosure
-                                    key={faq.question}
-                                    question={faq.question}
-                                >
-                                    {faq.answer}
-                                </Disclosure>
-                            ))}
-                        </div>
+                    <div className="flex flex-col divide-y divide-line border-y border-line">
+                        {faqs.map((faq) => (
+                            <Disclosure
+                                key={faq.question}
+                                question={faq.question}
+                            >
+                                {faq.answer}
+                            </Disclosure>
+                        ))}
                     </div>
                 </Wrap>
             </section>
