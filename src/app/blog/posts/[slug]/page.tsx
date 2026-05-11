@@ -14,6 +14,7 @@ import Kicker from "@/app/components/editorial/Kicker";
 import Badge from "@/app/components/editorial/Badge";
 import SocialShare from "@/app/components/SocialShare";
 import { generateCanonicalMetadata } from "../../../components/utils/CanonicalUrl";
+import { seoTitle, seoDescription } from "../../../components/utils/seo";
 
 interface Props {
     params: {
@@ -56,28 +57,36 @@ export async function generateMetadata(
     const canonicalUrl = `https://www.subhrasekhar.in/blog/posts/${slug}`;
     const ogImageUrl = `https://www.subhrasekhar.in/blog/posts/${slug}/opengraph-image`;
 
+    const postTitle: string = content.data.title;
+    const postSubtitle: string = content.data.subtitle ?? "";
+
+    // <title> tag: clamp to ~60 chars; OG/Twitter titles can stay longer.
+    const tabTitle = seoTitle(postTitle);
+    const metaDescription = seoDescription(postSubtitle);
+    const socialDescription = seoDescription(postSubtitle, 200);
+
     return {
-      title: `${content.data.title} | Subhra Sekhar — Freelance Full Stack Developer`,
-      description: content.data.subtitle,
+      title: tabTitle,
+      description: metaDescription,
       publisher: "Subhra Sekhar Mukherjee",
       applicationName: "SSM's Blog",
       authors: [{ name: "Subhra Sekhar Mukherjee", url: "https://www.subhrasekhar.in/about" }],
       keywords: ["full stack developer", "freelance developer", "web development", "React", "Next.js", ...(content.data.tags || [])],
       openGraph: {
         type: "article",
-        title: content.data.title,
-        description: content.data.subtitle,
+        title: postTitle,
+        description: socialDescription,
         url: canonicalUrl,
-        siteName: "Subhra Sekhar — Freelance Full Stack Developer",
+        siteName: "Subhra Sekhar",
         publishedTime: content.data.date,
         modifiedTime: content.data.lastModified || content.data.date,
         authors: ["Subhra Sekhar Mukherjee"],
-        images: [{ url: ogImageUrl, width: 1200, height: 630, alt: content.data.title }],
+        images: [{ url: ogImageUrl, width: 1200, height: 630, alt: postTitle }],
       },
       twitter: {
         card: "summary_large_image",
-        title: content.data.title,
-        description: content.data.subtitle,
+        title: seoTitle(postTitle, "Subhra Sekhar", 70),
+        description: socialDescription,
         images: [ogImageUrl],
       },
       ...generateCanonicalMetadata(`blog/posts/${slug}`)

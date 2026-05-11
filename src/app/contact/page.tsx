@@ -11,7 +11,7 @@ const SayHi = dynamic(() => import("../components/SayHi"));
 
 export const metadata: Metadata = generatePageMetadata({
   path: "contact",
-  title: "Contact — Subhra Sekhar | Start a Project",
+  title: "Contact — Start a Project",
   description:
     "Get in touch with Subhra Sekhar Mukherjee — Full Stack Developer & Tech Consultant. Free 30-minute consultation. Email, WhatsApp, or send a note from this page.",
 });

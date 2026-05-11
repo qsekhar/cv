@@ -9,7 +9,7 @@ const ClosingCTA = dynamic(() => import("../components/ClosingCTA"));
 
 export const metadata: Metadata = generatePageMetadata({
   path: "services",
-  title: "Services — Freelance Full Stack Developer | Subhra Sekhar",
+  title: "Services — Freelance Full Stack Developer",
   description:
     "Web app development, REST API design, mobile apps, e-commerce, and MVP development. Hire Subhra Sekhar — 13+ years, 100+ delivered projects, free consultation.",
 });

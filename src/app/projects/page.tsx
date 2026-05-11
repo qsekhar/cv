@@ -18,7 +18,7 @@ const technologies = [
 
 export const metadata: Metadata = generatePageMetadata({
   path: "projects",
-  title: "Projects — Subhra Sekhar | Portfolio Showcase",
+  title: "Projects — Portfolio Showcase",
   description:
     "Portfolio of projects by Subhra Sekhar Mukherjee — Full Stack Developer & Tech Consultant. Innovative solutions across various industries.",
 });
