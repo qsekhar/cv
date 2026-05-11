@@ -22,7 +22,7 @@ export default function Navigation() {
     href === "/" ? pathname === "/" : pathname?.startsWith(href);
 
   return (
-    <header className="sticky top-0 z-sticky bg-paper/95 backdrop-blur-sm border-b border-line">
+    <header className="sticky top-0 z-sticky bg-navy/95 backdrop-blur-sm border-b border-paper/15">
       <Wrap className="flex items-center justify-between h-[64px]">
         <Link href="/" className="flex items-center gap-3" aria-label="Subhra Sekhar — Home">
           <Image
@@ -31,8 +31,9 @@ export default function Navigation() {
             width={32}
             height={32}
             priority
+            className="brightness-110"
           />
-          <span className="font-serif text-h3 text-ink">Subhra Sekhar.</span>
+          <span className="font-serif text-h3 text-paper">SSM</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-4">
@@ -42,13 +43,13 @@ export default function Navigation() {
                 href={it.href}
                 className={`font-mono uppercase text-[11px] tracking-label transition-colors ${
                   isActive(it.href)
-                    ? "text-ink border-b border-accent pb-0.5"
-                    : "text-muted hover:text-ink"
+                    ? "text-paper border-b border-accent pb-0.5"
+                    : "text-paper/60 hover:text-paper"
                 }`}
               >
                 {it.label}
               </Link>
-              {i < items.length - 1 && <span className="text-line">·</span>}
+              {i < items.length - 1 && <span className="text-paper/30">·</span>}
             </span>
           ))}
         </nav>
@@ -58,14 +59,14 @@ export default function Navigation() {
           aria-expanded={open}
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen(o => !o)}
-          className="md:hidden font-mono text-[11px] tracking-label uppercase text-ink border border-ink px-3 py-2"
+          className="md:hidden font-mono text-[11px] tracking-label uppercase text-paper border border-paper px-3 py-2 hover:bg-paper hover:text-navy transition-colors"
         >
           {open ? "Close" : "Menu"}
         </button>
       </Wrap>
 
       {open && (
-        <div className="md:hidden border-t border-line bg-paper">
+        <div className="md:hidden border-t border-paper/15 bg-navy">
           <Wrap className="py-4 flex flex-col gap-4">
             {items.map(it => (
               <Link
@@ -73,7 +74,7 @@ export default function Navigation() {
                 href={it.href}
                 onClick={() => setOpen(false)}
                 className={`font-mono uppercase text-small tracking-label py-2 ${
-                  isActive(it.href) ? "text-ink" : "text-muted"
+                  isActive(it.href) ? "text-paper" : "text-paper/60"
                 }`}
               >
                 {it.label}

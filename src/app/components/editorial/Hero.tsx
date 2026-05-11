@@ -7,14 +7,17 @@ export default function Hero({
   title,
   lede,
   meta,
+  audio,
 }: {
   eyebrow?: string;
   title: ReactNode;
   lede?: ReactNode;
   meta?: MetaItem[];
+  /** Optional inline slot rendered alongside the MetaStrip (e.g. AudioIntro). */
+  audio?: ReactNode;
 }) {
   return (
-    <section className="bg-navy text-paper border-b-[6px] border-accent">
+    <section className="bg-ink text-paper border-b-[6px] border-accent">
       <Wrap className="py-9 lg:py-10">
         {eyebrow && (
           <div className="font-mono uppercase tracking-kicker text-[11px] text-accent mb-5">
@@ -27,11 +30,22 @@ export default function Hero({
             {lede}
           </p>
         )}
-        {meta && meta.length > 0 && (
-          <div className="mt-7">
-            <MetaStrip items={meta} inverse />
+        {(meta && meta.length > 0) || audio ? (
+          <div className="mt-7 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+            {meta && meta.length > 0 ? (
+              <div className="flex-1 min-w-0">
+                <MetaStrip items={meta} inverse />
+              </div>
+            ) : (
+              <div />
+            )}
+            {audio && (
+              <div className="lg:flex-shrink-0 lg:pt-5 lg:border-t lg:border-paper/20">
+                {audio}
+              </div>
+            )}
           </div>
-        )}
+        ) : null}
       </Wrap>
     </section>
   );

@@ -7,7 +7,7 @@ export const alt = "Subhra Sekhar — Full Stack Developer & Tech Consultant";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const TITLE = "Subhra Sekhar.";
+const TITLE = "Subhra Sekhar Mukherjee";
 const LEDE =
   "An editorial, engineering-first practice. Full-stack work for teams that care about clarity, calm interfaces, and software that behaves well in the wild.";
 const KICKER = "PRACTICE · v1.0";

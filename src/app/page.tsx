@@ -13,6 +13,7 @@ import Card from "./components/editorial/Card";
 const Projects = dynamic(() => import("./components/Projects"));
 const Testimonials = dynamic(() => import("./components/Testimonials"));
 const ClosingCTA = dynamic(() => import("./components/ClosingCTA"));
+const AudioIntro = dynamic(() => import("./components/AudioIntro"));
 
 export const metadata: NextMetadata = {
   ...generateCanonicalMetadata(),
@@ -27,13 +28,14 @@ export default async function Home() {
     return (
     <>
       <Hero
-        title="Subhra Sekhar."
+        title="Subhra Sekhar Mukherjee"
         lede="An editorial, engineering-first practice. Full-stack work for teams that care about clarity, calm interfaces, and software that behaves well in the wild."
         meta={[
           { label: "Discipline", value: "Full-stack engineering" },
           { label: "Based in", value: "Kolkata, IN" },
           { label: "Available", value: `Q${Math.ceil((new Date().getMonth() + 1) / 3)} ${new Date().getFullYear() + (new Date().getMonth() >= 3 ? 1 : 0)}` },
         ]}
+        audio={<AudioIntro src="/intro.mp3" label="Audio intro" />}
       />
 
       {/* §02 — What I provide */}
