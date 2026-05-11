@@ -11,7 +11,7 @@ const ClosingCTA = dynamic(() => import("../components/ClosingCTA"));
 
 export const metadata: Metadata = generatePageMetadata({
   path: "timeline",
-  title: "Timeline — Subhra Sekhar | Professional Journey",
+  title: "Timeline — Professional Journey",
   description:
     "Professional journey and career timeline of Subhra Sekhar Mukherjee — Full Stack Developer & Tech Consultant.",
 });

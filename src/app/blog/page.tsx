@@ -9,7 +9,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = generatePageMetadata({
   path: "blog",
-  title: "Journal — Subhra Sekhar | Writing on Engineering & Practice",
+  title: "Journal — Writing on Engineering & Practice",
   description:
     "Articles on full-stack engineering, architecture, and practice notes by Subhra Sekhar Mukherjee.",
 });

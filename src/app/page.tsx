@@ -32,7 +32,7 @@ export default async function Home() {
         meta={[
           { label: "Discipline", value: "Full-stack engineering" },
           { label: "Based in", value: "Kolkata, IN" },
-          { label: "Available", value: "Q2 2026" },
+          { label: "Available", value: `Q${Math.ceil((new Date().getMonth() + 1) / 3)} ${new Date().getFullYear() + (new Date().getMonth() >= 3 ? 1 : 0)}` },
         ]}
       />
 

@@ -26,7 +26,13 @@ export function generateCanonicalMetadata(path: string = '') {
 /**
  * Generates canonical + openGraph + twitter metadata for a page.
  * Use as `...generatePageMetadata({ path, title, description })` inside `export const metadata`.
+ *
+ * The <title> and <meta description> are clamped to SERP-safe lengths
+ * via seoTitle/seoDescription. OG and Twitter titles can stay longer
+ * (cards allow ~70–90 chars and benefit from a richer description).
  */
+import { seoTitle, seoDescription } from './seo';
+
 export function generatePageMetadata({
   path,
   title,
@@ -39,21 +45,25 @@ export function generatePageMetadata({
   type?: 'website' | 'article' | 'profile';
 }) {
   const url = getCanonicalUrl(path);
+  const tabTitle = seoTitle(title);
+  const metaDescription = seoDescription(description);
+  const socialDescription = seoDescription(description, 200);
+
   return {
-    title,
-    description,
+    title: tabTitle,
+    description: metaDescription,
     alternates: { canonical: url },
     openGraph: {
       title,
-      description,
+      description: socialDescription,
       url,
       type,
       siteName: 'Subhra Sekhar',
     },
     twitter: {
       card: 'summary_large_image' as const,
-      title,
-      description,
+      title: seoTitle(title, 'Subhra Sekhar', 70),
+      description: socialDescription,
     },
   };
 }

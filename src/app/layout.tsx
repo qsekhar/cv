@@ -5,28 +5,37 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import dynamic from "next/dynamic";
 import Script from "next/script";
 import { generateCanonicalMetadata } from "./components/utils/CanonicalUrl";
+import { seoTitle, seoDescription } from "./components/utils/seo";
 
 const Navigation = dynamic(() => import("./components/editorial/Navigation"));
 const Footer = dynamic(() => import("./components/editorial/Footer"));
 
 const gaID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
 const url = process.env.NEXT_PUBLIC_DOMAIN_URL || "https://www.subhrasekhar.in";
-const siteTitle = "Subhra Sekhar | Freelance Full Stack Developer — React, Next.js, Node.js";
-const siteDescription =
+
+// Short tab title — clamped to ≤60 chars for SERPs.
+const tabTitle = "Subhra Sekhar — Full Stack Developer & Tech Consultant";
+// Richer descriptive title — used for OG / Twitter / page-less fallback.
+const ogTitle = "Subhra Sekhar | Freelance Full Stack Developer — React, Next.js, Node.js";
+const metaDescription =
   "Hire Subhra Sekhar Mukherjee — full-stack developer and tech consultant with 13+ years of experience.";
 
 export const metadata: Metadata = {
-  title: { default: siteTitle, template: "%s | Subhra Sekhar" },
-  description: siteDescription,
+  title: { default: seoTitle(tabTitle), template: "%s | Subhra Sekhar" },
+  description: seoDescription(metaDescription),
   metadataBase: new URL(url),
   openGraph: {
-    title: siteTitle,
-    description: siteDescription,
+    title: ogTitle,
+    description: seoDescription(metaDescription, 200),
     url,
     siteName: "Subhra Sekhar",
     type: "website",
   },
-  twitter: { card: "summary_large_image", title: siteTitle, description: siteDescription },
+  twitter: {
+    card: "summary_large_image",
+    title: seoTitle(tabTitle, "Subhra Sekhar", 70),
+    description: seoDescription(metaDescription, 200),
+  },
   ...generateCanonicalMetadata(),
 };
 

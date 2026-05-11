@@ -3,18 +3,19 @@ import Hero from "../components/editorial/Hero";
 import Wrap from "../components/editorial/Wrap";
 import SectionHeader from "../components/editorial/SectionHeader";
 import MetaStrip from "../components/editorial/MetaStrip";
-import { generateCanonicalMetadata, getCanonicalUrl } from "../components/utils/CanonicalUrl";
+import { generatePageMetadata } from "../components/utils/CanonicalUrl";
 import type { Metadata } from "next";
 
 const ClosingCTA = dynamic(() => import("../components/ClosingCTA"));
 
-const title = "About — Subhra Sekhar Mukherjee";
-const description =
-  "Subhra Sekhar Mukherjee — full-stack engineer based in Kolkata. 13+ years of practice across React, Next.js, Node.js, Python, and the platforms that hold them up.";
-
 export const metadata: Metadata = {
-  title,
-  description,
+  ...generatePageMetadata({
+    path: "about",
+    title: "About",
+    description:
+      "Subhra Sekhar Mukherjee — full-stack engineer based in Kolkata. 13+ years of practice across React, Next.js, Node.js, Python, and the platforms that hold them up.",
+    type: "profile",
+  }),
   keywords: [
     "freelance full stack developer",
     "hire full stack developer",
@@ -22,14 +23,6 @@ export const metadata: Metadata = {
     "Next.js developer",
     "web developer Kolkata",
   ],
-  openGraph: {
-    title,
-    description,
-    url: getCanonicalUrl("about"),
-    type: "profile",
-  },
-  twitter: { card: "summary_large_image", title, description },
-  ...generateCanonicalMetadata("about"),
 };
 
 export default function AboutPage() {

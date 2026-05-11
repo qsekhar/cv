@@ -10,7 +10,7 @@ const ClosingCTA = dynamic(() => import("../components/ClosingCTA"));
 
 export const metadata: Metadata = generatePageMetadata({
   path: "skills",
-  title: "Skills — Subhra Sekhar | Technical Expertise",
+  title: "Skills — Technical Expertise",
   description:
     "Technical skills and expertise of Subhra Sekhar Mukherjee — Full Stack Developer & Tech Consultant. 13+ years across modern technologies.",
 });
