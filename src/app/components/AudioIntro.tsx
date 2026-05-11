@@ -63,7 +63,7 @@ export default function AudioIntro({
         type="button"
         onClick={toggle}
         aria-label={playing ? "Pause audio introduction" : "Play audio introduction"}
-        className="w-11 h-11 flex-shrink-0 border border-paper text-paper hover:bg-paper hover:text-navy focus:outline-none focus-visible:focus-ring transition-colors flex items-center justify-center"
+        className="w-11 h-11 flex-shrink-0 border border-paper text-paper hover:bg-paper hover:text-ink focus:outline-none focus-visible:focus-ring transition-colors flex items-center justify-center"
       >
         {playing ? (
           <span className="flex gap-[3px]" aria-hidden>

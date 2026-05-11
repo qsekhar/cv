@@ -24,7 +24,7 @@ export default function Footer() {
       <Wrap className="py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
           <div>
-            <div className="font-serif text-h3 text-ink mb-2">Subhra Sekhar.</div>
+            <div className="font-serif text-h3 text-ink mb-2">Subhra Sekhar Mukherjee</div>
             <p className="text-small text-muted max-w-[36ch]">
               Editorial-leaning engineering. Full-stack practice based in Kolkata.
             </p>

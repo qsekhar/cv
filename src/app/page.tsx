@@ -28,7 +28,7 @@ export default async function Home() {
     return (
     <>
       <Hero
-        title="Subhra Sekhar."
+        title="Subhra Sekhar Mukherjee"
         lede="An editorial, engineering-first practice. Full-stack work for teams that care about clarity, calm interfaces, and software that behaves well in the wild."
         meta={[
           { label: "Discipline", value: "Full-stack engineering" },

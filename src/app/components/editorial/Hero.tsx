@@ -17,7 +17,7 @@ export default function Hero({
   audio?: ReactNode;
 }) {
   return (
-    <section className="bg-navy text-paper border-b-[6px] border-accent">
+    <section className="bg-ink text-paper border-b-[6px] border-accent">
       <Wrap className="py-9 lg:py-10">
         {eyebrow && (
           <div className="font-mono uppercase tracking-kicker text-[11px] text-accent mb-5">
