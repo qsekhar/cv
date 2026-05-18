@@ -11,7 +11,7 @@ const navItems = [
 ];
 
 const social = [
-  { href: "mailto:qsekhar@gmail.com", label: "Email" },
+  { href: "mailto:iam@subhrasekhar.in", label: "Email" },
   { href: "https://api.whatsapp.com/send?phone=919674540974", label: "WhatsApp" },
   { href: "https://www.linkedin.com/in/subhra-sekhar-mukherjee", label: "LinkedIn" },
   { href: "https://github.com/qsekhar", label: "GitHub" },
