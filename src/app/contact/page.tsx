@@ -73,10 +73,10 @@ export default function ContactPage() {
                                 Email
                             </div>
                             <a
-                                href="mailto:qsekhar@gmail.com"
+                                href="mailto:iam@subhrasekhar.in"
                                 className="font-serif text-h3 text-ink hover:text-accent transition-colors break-all"
                             >
-                                qsekhar@gmail.com
+                                iam@subhrasekhar.in
                             </a>
                         </div>
 

@@ -51,7 +51,7 @@ const jsonLd = {
   name: "Subhra Sekhar Mukherjee",
   url,
   jobTitle: "Full Stack Developer & Tech Consultant",
-  email: "qsekhar@gmail.com",
+  email: "iam@subhrasekhar.in",
   knowsAbout: ["React", "Next.js", "Node.js", "TypeScript", "Python", "PostgreSQL", "MongoDB", "Docker", "AWS"],
   address: {
     "@type": "PostalAddress",
@@ -62,7 +62,7 @@ const jsonLd = {
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "customer service",
-    email: "qsekhar@gmail.com",
+    email: "iam@subhrasekhar.in",
     availableLanguage: "English",
   },
 };
