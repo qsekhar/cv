@@ -42,13 +42,14 @@ export default async function Home() {
         audio={<AudioIntro src="/intro.mp3" label="Audio intro" />}
         cta={
           <>
-            <ButtonLink variant="accent" href="/contact">
+            <ButtonLink variant="accent" href="/contact" data-ga-event="cta_click" data-ga-cta="start_project" data-ga-location="home_hero" data-ga-kind="contact">
               Start a project
             </ButtonLink>
             <ButtonLink
               variant="ghost"
               href="/projects"
               className="!border-paper !text-paper hover:!bg-paper hover:!text-ink"
+              data-ga-event="cta_click" data-ga-cta="see_work" data-ga-location="home_hero" data-ga-kind="work"
             >
               See the work →
             </ButtonLink>
@@ -98,6 +99,7 @@ export default async function Home() {
             <Link
               href="/projects"
               className="font-mono uppercase text-[11px] tracking-label text-accent hover:text-navy"
+              data-ga-event="cta_click" data-ga-cta="all_work" data-ga-location="home" data-ga-kind="work"
             >
               All work →
             </Link>
@@ -155,7 +157,7 @@ export default async function Home() {
               ))}
             </div>
             <div className="mt-6 text-right">
-              <Link href="/blog" className="font-mono uppercase text-[11px] tracking-label text-accent hover:text-navy">
+              <Link href="/blog" className="font-mono uppercase text-[11px] tracking-label text-accent hover:text-navy" data-ga-event="cta_click" data-ga-cta="all_articles" data-ga-location="home" data-ga-kind="blog">
                 All articles →
               </Link>
             </div>

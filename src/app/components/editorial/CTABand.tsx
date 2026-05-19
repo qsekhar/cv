@@ -31,7 +31,7 @@ export default function CTABand({
             <p className="mt-3 text-body text-ink/80 max-w-[50ch]">{body}</p>
           </div>
           <div className="flex flex-wrap gap-3">
-            <ButtonLink variant={primaryVariant} href={primaryHref}>
+            <ButtonLink variant={primaryVariant} href={primaryHref} data-ga-event="cta_click" data-ga-cta="start_project" data-ga-location="ctaband" data-ga-kind="contact">
               {primaryLabel}
             </ButtonLink>
             <ButtonLink
@@ -39,6 +39,7 @@ export default function CTABand({
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
+              data-ga-event="cta_click" data-ga-cta="whatsapp" data-ga-location="ctaband" data-ga-kind="whatsapp"
             >
               WhatsApp →
             </ButtonLink>
