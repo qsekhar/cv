@@ -91,7 +91,7 @@ export default function Navigation() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="font-mono uppercase text-small tracking-label bg-accent text-paper text-center py-3 mt-2"
+              className="font-mono uppercase text-small tracking-label bg-accent text-paper text-center w-full py-3 mt-2 focus:outline-none focus-visible:focus-ring"
             >
               Start a project
             </Link>
