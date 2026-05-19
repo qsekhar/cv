@@ -9,11 +9,14 @@ import Hero from "./components/editorial/Hero";
 import Wrap from "./components/editorial/Wrap";
 import SectionHeader from "./components/editorial/SectionHeader";
 import Card from "./components/editorial/Card";
+import { ButtonLink } from "./components/editorial/Button";
+import StatsStrip from "./components/editorial/StatsStrip";
 
-const Projects = dynamic(() => import("./components/Projects"));
 const Testimonials = dynamic(() => import("./components/Testimonials"));
 const ClosingCTA = dynamic(() => import("./components/ClosingCTA"));
 const AudioIntro = dynamic(() => import("./components/AudioIntro"));
+const CTABand = dynamic(() => import("./components/editorial/CTABand"));
+const FeaturedWork = dynamic(() => import("./components/FeaturedWork"));
 
 export const metadata: NextMetadata = {
   ...generateCanonicalMetadata(),
@@ -27,6 +30,7 @@ export default async function Home() {
 
     return (
     <>
+      {/* §01 — Hero */}
       <Hero
         title="Subhra Sekhar Mukherjee"
         lede="An editorial, engineering-first practice. Full-stack work for teams that care about clarity, calm interfaces, and software that behaves well in the wild."
@@ -36,6 +40,30 @@ export default async function Home() {
           { label: "Available", value: `Q${Math.ceil((new Date().getMonth() + 1) / 3)} ${new Date().getFullYear() + (new Date().getMonth() >= 3 ? 1 : 0)}` },
         ]}
         audio={<AudioIntro src="/intro.mp3" label="Audio intro" />}
+        cta={
+          <>
+            <ButtonLink variant="accent" href="/contact">
+              Start a project
+            </ButtonLink>
+            <ButtonLink
+              variant="ghost"
+              href="/projects"
+              className="!border-paper !text-paper hover:!bg-paper hover:!text-ink"
+            >
+              See the work →
+            </ButtonLink>
+          </>
+        }
+      />
+
+      {/* StatsStrip */}
+      <StatsStrip
+        items={[
+          { label: "Since", value: "2012" },
+          { label: "Experience", value: "13+ years" },
+          { label: "Delivered across", value: "4 countries" },
+          { label: "Practice", value: "Web · API · Mobile" },
+        ]}
       />
 
       {/* §02 — What I provide */}
@@ -62,18 +90,41 @@ export default async function Home() {
       </section>
 
       {/* §03 — Selected work */}
-      {/* <section className="py-9 lg:py-10 bg-paper-2">
+      <section className="py-9 lg:py-10 bg-paper-2">
         <Wrap>
           <SectionHeader kicker="Section 03" title="Selected work." refLabel="§03" />
-          <Projects />
+          <FeaturedWork />
+          <div className="mt-6 text-right">
+            <Link
+              href="/projects"
+              className="font-mono uppercase text-[11px] tracking-label text-accent hover:text-navy"
+            >
+              All work →
+            </Link>
+          </div>
         </Wrap>
-      </section> */}
+      </section>
 
-      {/* §03 — Journal */}
+      {/* Mid-page CTA */}
+      <CTABand
+        kicker="Have something in mind?"
+        title="Let's talk."
+        body="Tell me what you're building. First consultation is free — no commitment."
+      />
+
+      {/* §04 — Testimonials */}
+      <section className="py-9 lg:py-10 bg-paper-2">
+        <Wrap>
+          <SectionHeader kicker="Section 04" title="Said about the work." refLabel="§04" />
+          <Testimonials />
+        </Wrap>
+      </section>
+
+      {/* §05 — Journal */}
       {recentPosts.length > 0 && (
         <section className="py-9 lg:py-10">
           <Wrap>
-            <SectionHeader kicker="Section 03" title="From the journal." refLabel="§04" />
+            <SectionHeader kicker="Section 05" title="From the journal." refLabel="§05" />
             <div className="flex flex-col">
               {recentPosts.map((post, i) => (
                 <Link
@@ -110,14 +161,6 @@ export default async function Home() {
           </Wrap>
         </section>
       )}
-
-      {/* §05 — Testimonials */}
-      <section className="py-9 lg:py-10 bg-paper-2">
-        <Wrap>
-          <SectionHeader kicker="Section 04" title="Said about the work." refLabel="§05" />
-          <Testimonials />
-        </Wrap>
-      </section>
 
       {/* §06 — Closing */}
       <ClosingCTA />
