@@ -36,23 +36,35 @@ export default function Navigation() {
           <span className="font-serif text-h3 text-paper">SSM</span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-4">
-          {items.map((it, i) => (
-            <span key={it.href} className="flex items-center gap-4">
-              <Link
-                href={it.href}
-                className={`font-mono uppercase text-[11px] tracking-label transition-colors ${
-                  isActive(it.href)
-                    ? "text-paper border-b border-accent pb-0.5"
-                    : "text-paper/60 hover:text-paper"
-                }`}
-              >
-                {it.label}
-              </Link>
-              {i < items.length - 1 && <span className="text-paper/30">·</span>}
-            </span>
-          ))}
-        </nav>
+        <div className="hidden md:flex items-center gap-5">
+          <nav className="flex items-center gap-4">
+            {items.map((it, i) => (
+              <span key={it.href} className="flex items-center gap-4">
+                <Link
+                  href={it.href}
+                  className={`font-mono uppercase text-[11px] tracking-label transition-colors ${
+                    isActive(it.href)
+                      ? "text-paper border-b border-accent pb-0.5"
+                      : "text-paper/60 hover:text-paper"
+                  }`}
+                >
+                  {it.label}
+                </Link>
+                {i < items.length - 1 && <span className="text-paper/30">·</span>}
+              </span>
+            ))}
+          </nav>
+          <Link
+            href="/contact"
+            data-ga-event="cta_click"
+            data-ga-cta="start_project"
+            data-ga-location="nav"
+            data-ga-kind="contact"
+            className="font-mono uppercase text-[11px] tracking-label bg-accent text-paper px-4 py-2 hover:opacity-85 transition-colors focus:outline-none focus-visible:focus-ring"
+          >
+            Start a project
+          </Link>
+        </div>
 
         <button
           type="button"
@@ -80,6 +92,17 @@ export default function Navigation() {
                 {it.label}
               </Link>
             ))}
+            <Link
+              href="/contact"
+              onClick={() => setOpen(false)}
+              data-ga-event="cta_click"
+              data-ga-cta="start_project"
+              data-ga-location="nav"
+              data-ga-kind="contact"
+              className="font-mono uppercase text-small tracking-label bg-accent text-paper text-center w-full py-3 mt-2 focus:outline-none focus-visible:focus-ring"
+            >
+              Start a project
+            </Link>
           </Wrap>
         </div>
       )}

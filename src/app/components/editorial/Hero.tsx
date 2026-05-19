@@ -8,6 +8,7 @@ export default function Hero({
   lede,
   meta,
   audio,
+  cta,
 }: {
   eyebrow?: string;
   title: ReactNode;
@@ -15,6 +16,7 @@ export default function Hero({
   meta?: MetaItem[];
   /** Optional inline slot rendered alongside the MetaStrip (e.g. AudioIntro). */
   audio?: ReactNode;
+  cta?: ReactNode;
 }) {
   return (
     <section className="bg-ink text-paper border-b-[6px] border-accent">
@@ -30,6 +32,7 @@ export default function Hero({
             {lede}
           </p>
         )}
+        {cta && <div className="mt-7 flex flex-wrap gap-3">{cta}</div>}
         {(meta && meta.length > 0) || audio ? (
           <div className="mt-7 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
             {meta && meta.length > 0 ? (

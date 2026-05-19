@@ -6,6 +6,8 @@ import SectionHeader from "../components/editorial/SectionHeader";
 import Disclosure from "../components/editorial/Disclosure";
 import { generatePageMetadata } from "../components/utils/CanonicalUrl";
 import type { Metadata } from "next";
+import JsonLd from "../components/JsonLd";
+import { breadcrumbSchema } from "../data/schema";
 
 const SayHi = dynamic(() => import("../components/SayHi"));
 
@@ -40,7 +42,6 @@ const faqs = [
 ];
 
 const faqJsonLd = {
-    "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": faqs.map((faq) => ({
         "@type": "Question",
@@ -90,6 +91,10 @@ export default function ContactPage() {
                                 href="https://api.whatsapp.com/send?phone=919674540974"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                data-ga-event="cta_click"
+                                data-ga-cta="whatsapp"
+                                data-ga-location="contact_page"
+                                data-ga-kind="whatsapp"
                                 className="font-serif text-h3 text-ink hover:text-accent transition-colors"
                             >
                                 +91 9674 540 974
@@ -132,9 +137,14 @@ export default function ContactPage() {
                 </Wrap>
             </section>
 
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+            <JsonLd
+                data={[
+                    faqJsonLd,
+                    breadcrumbSchema([
+                        { name: "Home", path: "" },
+                        { name: "Contact", path: "contact" },
+                    ]),
+                ]}
             />
         </>
     );

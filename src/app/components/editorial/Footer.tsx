@@ -10,9 +10,15 @@ const navItems = [
   { href: "/contact", label: "Contact" },
 ];
 
-const social = [
+type SocialItem = {
+  href: string;
+  label: string;
+  ga?: { event: string; cta: string; location: string; kind: string };
+};
+
+const social: SocialItem[] = [
   { href: "mailto:iam@subhrasekhar.in", label: "Email" },
-  { href: "https://api.whatsapp.com/send?phone=919674540974", label: "WhatsApp" },
+  { href: "https://api.whatsapp.com/send?phone=919674540974", label: "WhatsApp", ga: { event: "cta_click", cta: "whatsapp", location: "footer", kind: "whatsapp" } },
   { href: "https://www.linkedin.com/in/subhra-sekhar-mukherjee", label: "LinkedIn" },
   { href: "https://github.com/qsekhar", label: "GitHub" },
 ];
@@ -52,6 +58,7 @@ export default function Footer() {
                     href={s.href}
                     target={s.href.startsWith("http") ? "_blank" : undefined}
                     rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    {...(s.ga ? { "data-ga-event": s.ga.event, "data-ga-cta": s.ga.cta, "data-ga-location": s.ga.location, "data-ga-kind": s.ga.kind } : {})}
                     className="text-small text-ink hover:text-accent"
                   >
                     {s.label}

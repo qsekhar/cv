@@ -15,6 +15,8 @@ import Badge from "@/app/components/editorial/Badge";
 import SocialShare from "@/app/components/SocialShare";
 import { generateCanonicalMetadata } from "../../../components/utils/CanonicalUrl";
 import { seoTitle, seoDescription } from "../../../components/utils/seo";
+import JsonLd from "../../../components/JsonLd";
+import { blogPostingSchema, breadcrumbSchema } from "../../../data/schema";
 
 interface Props {
     params: {
@@ -117,26 +119,6 @@ export default async function PostPage({ params }: Props) {
         year: "numeric"
     });
 
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": content.data.title,
-        "description": content.data.subtitle,
-        "datePublished": content.data.date,
-        "dateModified": content.data.lastModified || content.data.date,
-        "image": `https://www.subhrasekhar.in/blog/posts/${slug}/opengraph-image`,
-        "url": `https://www.subhrasekhar.in/blog/posts/${slug}`,
-        "author": [{
-            "@type": "Person",
-            "name": "Subhra Sekhar Mukherjee",
-            "url": "https://www.subhrasekhar.in/about",
-        }],
-        "publisher": {
-            "@type": "Person",
-            "name": "Subhra Sekhar Mukherjee",
-            "url": "https://www.subhrasekhar.in",
-        }
-    };
 
     return (
         <>
@@ -236,9 +218,22 @@ export default async function PostPage({ params }: Props) {
                 </section>
             )}
 
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            <JsonLd
+                data={[
+                    blogPostingSchema({
+                        title: content.data.title,
+                        description: content.data.subtitle,
+                        datePublished: content.data.date,
+                        dateModified: content.data.lastModified || content.data.date,
+                        slug,
+                        keywords: content.data.tags,
+                    }),
+                    breadcrumbSchema([
+                        { name: "Home", path: "" },
+                        { name: "Journal", path: "blog" },
+                        { name: content.data.title, path: `blog/posts/${slug}` },
+                    ]),
+                ]}
             />
         </>
     );

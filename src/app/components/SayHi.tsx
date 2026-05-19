@@ -43,7 +43,7 @@ export default function SayHi() {
 
         if (Object.keys(newErrors).length === 0) {
             const body = JSON.stringify({ name, email, message });
-            sendGAEvent({ event: "saidHi", value: email });
+            sendGAEvent({ event: "cta_click", cta: "contact_form", location: "sayhi", kind: "contact", value: email });
 
             try {
                 const res = await fetch("/api/mail", {
@@ -96,6 +96,7 @@ export default function SayHi() {
                                 href="https://api.whatsapp.com/send?phone=919674540974"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                data-ga-event="cta_click" data-ga-cta="whatsapp" data-ga-location="sayhi" data-ga-kind="whatsapp"
                                 className="inline-flex items-center gap-2 px-5 py-3 font-sans font-medium text-small tracking-wide border bg-success text-paper border-success hover:opacity-85 transition-colors focus:outline-none focus-visible:focus-ring"
                             >
                                 <FaWhatsapp size={16} />
@@ -222,6 +223,7 @@ export default function SayHi() {
                                         href="https://api.whatsapp.com/send?phone=919674540974"
                                         target="_blank"
                                         rel="noopener noreferrer"
+                                        data-ga-event="cta_click" data-ga-cta="whatsapp" data-ga-location="sayhi" data-ga-kind="whatsapp"
                                         className="text-ink hover:underline font-medium"
                                     >
                                         Message me on WhatsApp

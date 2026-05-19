@@ -5,6 +5,8 @@ import SectionHeader from "../components/editorial/SectionHeader";
 import MetaStrip from "../components/editorial/MetaStrip";
 import { generatePageMetadata } from "../components/utils/CanonicalUrl";
 import type { Metadata } from "next";
+import JsonLd from "../components/JsonLd";
+import { breadcrumbSchema } from "../data/schema";
 
 const TimeLine = dynamic(() => import("../components/TimeLine"));
 const ClosingCTA = dynamic(() => import("../components/ClosingCTA"));
@@ -19,6 +21,7 @@ export const metadata: Metadata = generatePageMetadata({
 export default function TimelinePage() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema([{ name: "Home", path: "" }, { name: "Timeline", path: "timeline" }])} />
       <Hero
         title="Timeline."
         lede="13+ years across product engineering, consulting, and design. Calmly built, deliberately scaled."
