@@ -56,6 +56,10 @@ export default function Navigation() {
           </nav>
           <Link
             href="/contact"
+            data-ga-event="cta_click"
+            data-ga-cta="start_project"
+            data-ga-location="nav"
+            data-ga-kind="contact"
             className="font-mono uppercase text-[11px] tracking-label bg-accent text-paper px-4 py-2 hover:opacity-85 transition-colors focus:outline-none focus-visible:focus-ring"
           >
             Start a project
@@ -91,6 +95,10 @@ export default function Navigation() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
+              data-ga-event="cta_click"
+              data-ga-cta="start_project"
+              data-ga-location="nav"
+              data-ga-kind="contact"
               className="font-mono uppercase text-small tracking-label bg-accent text-paper text-center w-full py-3 mt-2 focus:outline-none focus-visible:focus-ring"
             >
               Start a project

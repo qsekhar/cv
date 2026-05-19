@@ -90,6 +90,10 @@ export default function ContactPage() {
                                 href="https://api.whatsapp.com/send?phone=919674540974"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                data-ga-event="cta_click"
+                                data-ga-cta="whatsapp"
+                                data-ga-location="contact_page"
+                                data-ga-kind="whatsapp"
                                 className="font-serif text-h3 text-ink hover:text-accent transition-colors"
                             >
                                 +91 9674 540 974

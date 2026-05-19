@@ -63,6 +63,10 @@ export default function ServicesPage() {
                   )}
                   <a
                     href={`/contact#${s.id}`}
+                    data-ga-event="cta_click"
+                    data-ga-cta={`discuss_${s.id}`}
+                    data-ga-location="services"
+                    data-ga-kind="contact"
                     className="inline-block mt-5 font-mono uppercase text-[11px] tracking-label text-accent hover:text-navy transition-colors"
                   >
                     Discuss this →
