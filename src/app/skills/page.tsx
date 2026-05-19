@@ -4,6 +4,8 @@ import Wrap from "../components/editorial/Wrap";
 import SectionHeader from "../components/editorial/SectionHeader";
 import { generatePageMetadata } from "../components/utils/CanonicalUrl";
 import type { Metadata } from "next";
+import JsonLd from "../components/JsonLd";
+import { breadcrumbSchema } from "../data/schema";
 
 const Skills = dynamic(() => import("../components/Skills"));
 const ClosingCTA = dynamic(() => import("../components/ClosingCTA"));
@@ -18,6 +20,7 @@ export const metadata: Metadata = generatePageMetadata({
 export default function SkillsPage() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema([{ name: "Home", path: "" }, { name: "Skills", path: "skills" }])} />
       <Hero
         title="Practice."
         lede="The toolkit, organised by surface area. Selected based on what holds up under production weight, not what's loudest in the timeline."

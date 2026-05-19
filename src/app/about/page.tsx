@@ -5,6 +5,8 @@ import SectionHeader from "../components/editorial/SectionHeader";
 import MetaStrip from "../components/editorial/MetaStrip";
 import { generatePageMetadata } from "../components/utils/CanonicalUrl";
 import type { Metadata } from "next";
+import JsonLd from "../components/JsonLd";
+import { breadcrumbSchema } from "../data/schema";
 
 const ClosingCTA = dynamic(() => import("../components/ClosingCTA"));
 
@@ -28,6 +30,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema([{ name: "Home", path: "" }, { name: "About", path: "about" }])} />
       <Hero
         title="About."
         lede="Subhra Sekhar Mukherjee — full-stack engineer based in Kolkata. Editorial-leaning practice. Calm interfaces, durable systems, software that ages well."

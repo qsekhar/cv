@@ -6,6 +6,8 @@ import GetBlogPostMetadata from "../components/utils/GetBlogPostMetadata";
 import { Metadata as PostMeta } from "../components/interfaces/Post";
 import { generatePageMetadata } from "../components/utils/CanonicalUrl";
 import type { Metadata } from "next";
+import JsonLd from "../components/JsonLd";
+import { breadcrumbSchema } from "../data/schema";
 
 export const metadata: Metadata = generatePageMetadata({
   path: "blog",
@@ -22,6 +24,7 @@ export default async function BlogPage() {
 
   return (
     <>
+      <JsonLd data={breadcrumbSchema([{ name: "Home", path: "" }, { name: "Journal", path: "blog" }])} />
       <Hero
         title="Journal."
         lede="Notes from practice — engineering decisions, architecture sketches, and the occasional opinion."
