@@ -3,8 +3,9 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import dynamic from "next/dynamic";
-import Script from "next/script";
 import { generateCanonicalMetadata } from "./components/utils/CanonicalUrl";
+import JsonLd from "./components/JsonLd";
+import { personSchema, webSiteSchema, professionalServiceSchema } from "./data/schema";
 import { seoTitle, seoDescription } from "./components/utils/seo";
 
 const Navigation = dynamic(() => import("./components/editorial/Navigation"));
@@ -46,27 +47,6 @@ export const viewport: Viewport = {
   themeColor: "#F7F3EC",
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Subhra Sekhar Mukherjee",
-  url,
-  jobTitle: "Full Stack Developer & Tech Consultant",
-  email: "iam@subhrasekhar.in",
-  knowsAbout: ["React", "Next.js", "Node.js", "TypeScript", "Python", "PostgreSQL", "MongoDB", "Docker", "AWS"],
-  address: {
-    "@type": "PostalAddress",
-    addressCountry: "IN",
-    addressLocality: "Kolkata",
-    addressRegion: "West Bengal",
-  },
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer service",
-    email: "iam@subhrasekhar.in",
-    availableLanguage: "English",
-  },
-};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -83,11 +63,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navigation />
         <main className="min-h-screen">{children}</main>
         <Footer />
-        <Script
+        <JsonLd
           id="structured-data"
-          strategy="afterInteractive"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          data={[personSchema(), webSiteSchema(), professionalServiceSchema()]}
         />
         {process.env.NODE_ENV === "production" && <GoogleAnalytics gaId={gaID} />}
         <AnalyticsClicks />
