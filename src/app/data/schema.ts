@@ -68,7 +68,6 @@ export function professionalServiceSchema(): Node {
     image: `${BASE}/opengraph-image`,
     email: EMAIL,
     founder: { "@id": PERSON_ID },
-    provider: { "@id": PERSON_ID },
     areaServed: "Worldwide",
     knowsAbout: KNOWS_ABOUT,
     sameAs: SAME_AS,
