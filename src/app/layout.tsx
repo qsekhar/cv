@@ -9,6 +9,7 @@ import { seoTitle, seoDescription } from "./components/utils/seo";
 
 const Navigation = dynamic(() => import("./components/editorial/Navigation"));
 const Footer = dynamic(() => import("./components/editorial/Footer"));
+const AnalyticsClicks = dynamic(() => import("./components/AnalyticsClicks"));
 
 const gaID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
 const url = process.env.NEXT_PUBLIC_DOMAIN_URL || "https://www.subhrasekhar.in";
@@ -89,6 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {process.env.NODE_ENV === "production" && <GoogleAnalytics gaId={gaID} />}
+        <AnalyticsClicks />
       </body>
     </html>
   );
