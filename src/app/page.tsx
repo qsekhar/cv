@@ -110,6 +110,7 @@ export default async function Home() {
         kicker="Have something in mind?"
         title="Let's talk."
         body="Tell me what you're building. First consultation is free — no commitment."
+        primaryVariant="accent"
       />
 
       {/* §04 — Testimonials */}

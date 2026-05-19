@@ -10,12 +10,14 @@ export default function CTABand({
   body,
   primaryHref = "/contact",
   primaryLabel = "Say hi.",
+  primaryVariant = "primary",
 }: {
   kicker: string;
   title: string;
   body: string;
   primaryHref?: string;
   primaryLabel?: string;
+  primaryVariant?: "default" | "primary" | "ghost" | "accent";
 }) {
   return (
     <section className="border-t border-line">
@@ -29,7 +31,7 @@ export default function CTABand({
             <p className="mt-3 text-body text-ink/80 max-w-[50ch]">{body}</p>
           </div>
           <div className="flex flex-wrap gap-3">
-            <ButtonLink variant="primary" href={primaryHref}>
+            <ButtonLink variant={primaryVariant} href={primaryHref}>
               {primaryLabel}
             </ButtonLink>
             <ButtonLink
