@@ -6,6 +6,8 @@ import SectionHeader from "../components/editorial/SectionHeader";
 import Disclosure from "../components/editorial/Disclosure";
 import { generatePageMetadata } from "../components/utils/CanonicalUrl";
 import type { Metadata } from "next";
+import JsonLd from "../components/JsonLd";
+import { breadcrumbSchema } from "../data/schema";
 
 const SayHi = dynamic(() => import("../components/SayHi"));
 
@@ -40,7 +42,6 @@ const faqs = [
 ];
 
 const faqJsonLd = {
-    "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": faqs.map((faq) => ({
         "@type": "Question",
@@ -136,9 +137,14 @@ export default function ContactPage() {
                 </Wrap>
             </section>
 
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+            <JsonLd
+                data={[
+                    faqJsonLd,
+                    breadcrumbSchema([
+                        { name: "Home", path: "" },
+                        { name: "Contact", path: "contact" },
+                    ]),
+                ]}
             />
         </>
     );
