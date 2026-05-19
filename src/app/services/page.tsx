@@ -6,6 +6,8 @@ import { services } from "../data/services";
 import ServiceIcon from "../components/ServiceIcon";
 import dynamic from "next/dynamic";
 import type { Metadata } from "next";
+import JsonLd from "../components/JsonLd";
+import { breadcrumbSchema, serviceSchema, itemListSchema } from "../data/schema";
 
 const ClosingCTA = dynamic(() => import("../components/ClosingCTA"));
 
@@ -20,6 +22,15 @@ export const metadata: Metadata = generatePageMetadata({
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          breadcrumbSchema([
+            { name: "Home", path: "" },
+            { name: "Services", path: "services" },
+          ]),
+          itemListSchema(services.map(serviceSchema), "Services"),
+        ]}
+      />
       <Hero
         title="Services."
         lede="Engineering practice across the full stack — clear scope, calm interfaces, software that behaves well in the wild."

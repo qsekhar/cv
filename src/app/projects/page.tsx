@@ -5,6 +5,9 @@ import SectionHeader from "../components/editorial/SectionHeader";
 import Badge from "../components/editorial/Badge";
 import { generatePageMetadata } from "../components/utils/CanonicalUrl";
 import type { Metadata } from "next";
+import JsonLd from "../components/JsonLd";
+import { projects } from "../data/projects";
+import { breadcrumbSchema, projectCreativeWork, itemListSchema } from "../data/schema";
 
 const Projects = dynamic(() => import("../components/Projects"));
 const ClosingCTA = dynamic(() => import("../components/ClosingCTA"));
@@ -26,6 +29,15 @@ export const metadata: Metadata = generatePageMetadata({
 export default function ProjectsPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          breadcrumbSchema([
+            { name: "Home", path: "" },
+            { name: "Projects", path: "projects" },
+          ]),
+          itemListSchema(projects.map(projectCreativeWork), "Selected work"),
+        ]}
+      />
       <Hero
         title="Selected work."
         lede="A selection of recent client engagements, ranging from startups to global education platforms."
